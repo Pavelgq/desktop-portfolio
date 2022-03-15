@@ -1,0 +1,12 @@
+
+
+:root {
+  --main-bg-color: #f7f1e3;
+  --primary-color: #23e23e;
+  --secondary-color: #122d12;
+  --text-color: #333;
+  
+  
+  --desktop-min-width: 1200px;
+  --mobile-min-width: 320px;
+}

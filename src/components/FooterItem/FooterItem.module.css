@@ -1,0 +1,55 @@
+.item {
+  display: inline-block;
+  position: relative;
+  list-style: none;
+  width: 80px;
+  height: auto;
+
+  transition: 0.5s;
+}
+
+.item:hover .icon {
+  transform: scale(2);
+  margin: 0 2em;
+}
+
+.item:hover + .icon, .item.prev .icon {
+  transform: scale(1.5);
+  margin: 0 1.5em;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.title {
+  display: none;
+  position: absolute;
+  bottom: 90px;
+  left: 0;
+  width: 100%;
+  background-color: rgba(3, 3, 3, 0.2);
+  padding: 4px 2px;
+  border-radius: 12px;
+  opacity: 0;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.item:hover .title {
+  display: inline-block;
+  opacity: 1;
+}
+
+.icon {
+  width: 40px;
+  height: auto;
+  
+  transform-origin: 50% 100%;
+  transition: all 0.3s;
+}

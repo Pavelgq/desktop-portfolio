@@ -1,15 +1,17 @@
 import { Outlet } from "react-router-dom";
-import { MenuItem } from "../../components";
+import { Footer, FunSidebar, InfoSidebar } from "../../page-components";
 import styles from "./DesktopLayout.module.css";
-
-import { ReactComponent as FolderIcon } from "./folder.svg";
 
 export const DesktopLayout = () => {
   return (
     <div className={styles.container}>
-      <MenuItem title={"Nudes"} path={"/error"} Icon={FolderIcon} />
-      <span>LLL</span>
-      <Outlet />
+      <div className={styles.innerContainer}>
+        <InfoSidebar />
+        <Outlet />
+        <FunSidebar />
+      </div>
+
+      <Footer />
     </div>
   );
 };
