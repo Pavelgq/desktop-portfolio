@@ -1,7 +1,11 @@
+import styles from "./WelcomeFrame.module.css";
+
 export const WelcomeFrame = () => {
   return (
-    <>
-      <span>DDD</span>
-    </>
+    <div className={styles.container}>
+      <h3>Приветствую!</h3>
+      <span>Меня зовут, </span>
+      <span>Гордеев Павел</span>
+    </div>
   );
 };

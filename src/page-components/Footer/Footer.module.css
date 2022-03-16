@@ -24,10 +24,10 @@
   content: "";
   top: 0;
   right: -10px;
-  width: 1px;
+  width: 2px;
   height: 40px;
   margin: 0 5px;
-  background-color: #eee;
+  background-color: #999;
 }
 
 .otherList {
