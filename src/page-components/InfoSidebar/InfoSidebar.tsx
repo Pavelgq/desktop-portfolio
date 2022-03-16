@@ -5,16 +5,16 @@ import { ReactComponent as FolderIcon } from "../../assets/svg/folder.svg";
 export const InfoSidebar = () => {
   return (
     <nav className={styles.sidebar}>
-      <MenuItem
+      {/* <MenuItem
         className={styles.item}
         title={"Nudes"}
         path={"/error"}
         Icon={FolderIcon}
-      />
+      /> */}
       <MenuItem
         className={styles.item}
         title={"Portfolio"}
-        path={"/error"}
+        path={"/frame/welcome"}
         Icon={FolderIcon}
       />
       <MenuItem

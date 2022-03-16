@@ -1,8 +1,10 @@
 import { Outlet } from "react-router-dom";
 import cn from "classnames";
 import styles from "./FrameLayout.module.css";
+import { useState } from "react";
 
 export const FrameLayout = () => {
+  const [title, setTitle] = useState("Без названия");
   return (
     <div className={styles.container}>
       <div className={styles.hat}>
@@ -11,11 +13,11 @@ export const FrameLayout = () => {
           <button className={cn(styles.hatButton, styles.fullscreen)}></button>
         </div>
         <div className={styles.hatHeader}>
-          <h2 className={styles.title}>Title</h2>
+          <h2 className={styles.title}>{title}</h2>
         </div>
       </div>
       <section className={styles.content}>
-        <Outlet />
+        <Outlet context={{ setTitle }} />
       </section>
     </div>
   );
