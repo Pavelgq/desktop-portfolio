@@ -1,6 +1,7 @@
 import { MenuItem } from "../../components";
 import styles from "./InfoSidebar.module.css";
-import { ReactComponent as FolderIcon } from "../../assets/svg/folder.svg";
+import { ReactComponent as FolderIcon } from "../../assets/svg/icons/icons8-plasticine-Folder.svg";
+import { ReactComponent as PdfIcon } from "../../assets/svg/icons/icons8-plasticine-PDF.svg";
 
 export const InfoSidebar = () => {
   return (
@@ -20,8 +21,8 @@ export const InfoSidebar = () => {
       <MenuItem
         className={styles.item}
         title={"Resume"}
-        path={"/error"}
-        Icon={FolderIcon}
+        path={"/frame/resume"}
+        Icon={PdfIcon}
       />
       <MenuItem
         className={styles.item}

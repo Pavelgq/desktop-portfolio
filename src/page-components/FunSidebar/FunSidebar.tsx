@@ -1,6 +1,7 @@
 import { MenuItem } from "../../components";
 import styles from "./FunSidebar.module.css";
-import { ReactComponent as FolderIcon } from "../../assets/svg/folder.svg";
+import { ReactComponent as FolderIcon } from "../../assets/svg/icons/icons8-plasticine-Folder.svg";
+import { ReactComponent as StormtrooperIcon } from "../../assets/svg/icons/icons8-plasticine-Stormtrooper.svg";
 
 export const FunSidebar = () => {
   return (
@@ -9,7 +10,7 @@ export const FunSidebar = () => {
         className={styles.item}
         title={"Games"}
         path={"/error"}
-        Icon={FolderIcon}
+        Icon={StormtrooperIcon}
       />
       <MenuItem
         className={styles.item}

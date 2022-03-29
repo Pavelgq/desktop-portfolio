@@ -1,6 +1,6 @@
 .item {
   list-style: none;
-  width: 100px;
+  width: 120px;
   height: auto;
 }
 
@@ -24,6 +24,6 @@
 }
 
 .icon {
-  width: 80px;
+  width: 100px;
   height: auto;
 }
