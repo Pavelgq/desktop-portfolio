@@ -1,14 +1,13 @@
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useOutletContext } from "react-router-dom";
+import { setTargetWindowTitle } from "../../store/mainStore";
 import styles from "./WelcomeFrame.module.css";
 
-type ContextType = { setTitle: React.Dispatch<React.SetStateAction<string>> };
-
 export const WelcomeFrame = () => {
-  const { setTitle } = useOutletContext<ContextType>();
-
+  const dispatch = useDispatch();
   useEffect(() => {
-    setTitle("Добро пожаловать");
+    dispatch(setTargetWindowTitle("Добро пожаловать"));
   }, []);
 
   return (

@@ -11,6 +11,8 @@ body {
   background: linear-gradient(90deg, #f598a8, #f6edb2);
   
   box-sizing: border-box;
+  height: 100vh;
+  overflow: hidden;
 }
 
 
