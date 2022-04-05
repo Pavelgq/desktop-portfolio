@@ -2,6 +2,8 @@ import { Children, CSSProperties, FC, memo, ReactNode, useEffect } from "react";
 import { useDrag, useDragLayer } from "react-dnd";
 import { ItemTypes } from "../../interfaces/common";
 import { getEmptyImage } from "react-dnd-html5-backend";
+import { useSelector } from "react-redux";
+import { selectFullScreen } from "../../store/mainStore";
 
 const style: CSSProperties = {
   position: "absolute",
@@ -65,6 +67,7 @@ export const CustomDragLayer = (props: any) => {
       isDragging: monitor.isDragging(),
     }));
   function renderItem() {
+    console.log(item);
     switch (itemType) {
       case ItemTypes.Window:
         return <BoxDragPreview children={props.children} />;

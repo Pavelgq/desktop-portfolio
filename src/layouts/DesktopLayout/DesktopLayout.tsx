@@ -9,6 +9,8 @@ import {
   DraggableWrapper,
 } from "../../components/DraggableWrapper/DraggableWrapper";
 import { ItemTypes } from "../../interfaces/common";
+import { useSelector } from "react-redux";
+import { selectFullScreen } from "../../store/mainStore";
 
 export interface DragItem {
   type: string;
@@ -18,6 +20,7 @@ export interface DragItem {
 }
 
 export const DesktopLayout = () => {
+  const fullScreen = useSelector(selectFullScreen);
   const [draggableItem, setDraggableItem] = useState<{
     top: number;
     left: number;
@@ -53,16 +56,22 @@ export const DesktopLayout = () => {
     <div className={styles.container} ref={drop}>
       <div className={styles.innerContainer}>
         <InfoSidebar />
-        <DraggableWrapper
-          id={1}
-          left={draggableItem.left}
-          top={draggableItem.top}
-        >
+        {fullScreen ? (
           <Outlet />
-        </DraggableWrapper>
-        <CustomDragLayer>
-          <Outlet />
-        </CustomDragLayer>
+        ) : (
+          <>
+            <DraggableWrapper
+              id={1}
+              left={draggableItem.left}
+              top={draggableItem.top}
+            >
+              <Outlet />
+            </DraggableWrapper>
+            <CustomDragLayer>
+              <Outlet />
+            </CustomDragLayer>
+          </>
+        )}
         <FunSidebar />
       </div>
 

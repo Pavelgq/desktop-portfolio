@@ -1,15 +1,22 @@
 import { Link, Outlet } from "react-router-dom";
 import cn from "classnames";
 import styles from "./FrameLayout.module.css";
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import { selectTitle } from "../../store/mainStore";
+import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectFullScreen,
+  selectTitle,
+  toggleFullScreen,
+} from "../../store/mainStore";
 
 export const FrameLayout = () => {
-  const [fullScreen, setFullScreen] = useState(false);
-
   const title = useSelector(selectTitle);
-  //Возращать Draggable елемент назад, когда выбран fullscreen
+  const fullScreen = useSelector(selectFullScreen);
+  const dispatch = useDispatch();
+
+  const handleFullScreen = () => {
+    dispatch(toggleFullScreen());
+  };
 
   return (
     <div
@@ -17,12 +24,12 @@ export const FrameLayout = () => {
         [styles.fullScreen]: fullScreen,
       })}
     >
-      <div className={styles.hat}>
+      <div onDoubleClick={handleFullScreen} className={styles.hat}>
         <div className={styles.hatMenu}>
           <Link to="/" className={cn(styles.hatButton, styles.close)}></Link>
           <button
             className={cn(styles.hatButton)}
-            onClick={() => setFullScreen(!fullScreen)}
+            onClick={handleFullScreen}
           ></button>
         </div>
         <div className={styles.hatHeader}>

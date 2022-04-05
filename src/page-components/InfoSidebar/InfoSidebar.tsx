@@ -20,7 +20,7 @@ export const InfoSidebar = () => {
       />
       <MenuItem
         className={styles.item}
-        title={"Resume"}
+        title={"Резюме_Гордеев.pdf"}
         path={"/frame/resume"}
         Icon={PdfIcon}
       />
