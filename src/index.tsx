@@ -6,13 +6,17 @@ import "./styles/global.css";
 import { RoutesList } from "./routing/Routes";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <RoutesList />
-      </BrowserRouter>
+      <DndProvider backend={HTML5Backend}>
+        <BrowserRouter>
+          <RoutesList />
+        </BrowserRouter>
+      </DndProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
