@@ -7,7 +7,13 @@
   --secondary-color: #122d12;
   --text-color: #333;
   
+  --gray-light: #333333;
   
   --desktop-min-width: 1200px;
   --mobile-min-width: 320px;
+}
+
+
+.paragraph {
+  text-indent: 30px;
 }

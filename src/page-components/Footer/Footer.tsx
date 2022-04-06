@@ -20,8 +20,6 @@ export const Footer = () => {
         <FooterItem title={"twitter"} path={"#"} Icon={TwitterIcon} />
         <FooterItem title={"telegram"} path={"#"} Icon={TelegramIcon} />
         <FooterItem title={"email"} path={"#"} Icon={EmailIcon} />
-        <FooterItem title={"linkedin"} path={"#"} Icon={LinkedinIcon} />
-        <FooterItem title={"twitter"} path={"#"} Icon={TwitterIcon} />
       </ul>
       <ul className={styles.otherList}>
         <FooterItem title={"Загрузки"} path={"/welcome"} Icon={DownloadIcon} />
