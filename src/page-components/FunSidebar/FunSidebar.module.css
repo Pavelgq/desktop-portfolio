@@ -1,3 +1,11 @@
+.sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .item {
   margin: 30px;
+  margin-top: 0;
 }

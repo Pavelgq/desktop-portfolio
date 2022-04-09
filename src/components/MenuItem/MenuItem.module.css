@@ -13,17 +13,27 @@
   text-decoration: none;
 }
 
-.link:hover {
-  background-color: rgba(10, 20, 30, 0.2);
-}
 
 .title {
+  margin-top: 3px;
   font-size: 16px;
   font-weight: 700;
   line-height: 17px;
+  padding: 3px 5px;
 }
 
+
+
 .icon {
-  width: 100px;
+  width: 90px;
   height: auto;
+}
+.icon:hover {
+
+  background-color: rgba(10, 20, 30, 0.2);
+}
+
+.icon:hover + .title {
+  color: #eee;
+  background-color: rgba(97, 122, 233, 0.719);
 }

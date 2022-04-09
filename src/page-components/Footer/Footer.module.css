@@ -1,4 +1,6 @@
 .footer {
+  position: fixed;
+  bottom: 0;
   display: flex;
   min-width: 560px;
   justify-content: space-between;
@@ -10,7 +12,7 @@
 
   /* box-shadow: 10px 10px 0 #333; */
 
-  z-index: -1;
+  z-index: 0;
 }
 
 .contactList {
