@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, useOutletContext } from "react-router-dom";
 import cn from "classnames";
 import styles from "./FrameLayout.module.css";
 import { DragEvent } from "react";
@@ -11,8 +11,21 @@ import {
 import { ReactComponent as CloseIcon } from "../../assets/svg/icons/icons8-iOS Glyph-Close.svg";
 import { ReactComponent as FullIcon } from "../../assets/svg/icons/icons8-Plumpy-Full Screen.svg";
 import { HTag } from "../../components";
+import {
+  CustomDragLayer,
+  DraggableWrapper,
+} from "../../components/DraggableWrapper/DraggableWrapper";
+
+interface ContextI {
+  draggableItem: {
+    top: number;
+    left: number;
+  };
+}
 
 export const FrameLayout = () => {
+  const { draggableItem } = useOutletContext<ContextI>();
+  console.log(draggableItem);
   const title = useSelector(selectTitle);
   const fullScreen = useSelector(selectFullScreen);
   const dispatch = useDispatch();
@@ -25,18 +38,8 @@ export const FrameLayout = () => {
     dispatch(toggleFullScreen());
   };
 
-  const handleDrag = (e: DragEvent<HTMLDivElement>) => {
-    console.log(e);
-    e.preventDefault();
-    e.stopPropagation();
-  };
-
-  return (
-    <div
-      className={cn(styles.container, {
-        [styles.fullScreen]: fullScreen,
-      })}
-    >
+  const hatPart = () => {
+    return (
       <div onDoubleClick={handleFullScreen} className={styles.hat}>
         <div className={styles.hatMenu}>
           <button
@@ -53,14 +56,45 @@ export const FrameLayout = () => {
           <HTag tag="h4">{title}</HTag>
         </div>
       </div>
+    );
+  };
+
+  const contentPart = () => {
+    return (
       <section
         className={cn(styles.content, {
           [styles.fullContent]: fullScreen,
         })}
-        onDragStart={handleDrag}
+        draggable
+        onDragStart={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }}
       >
         <Outlet />
       </section>
+    );
+  };
+
+  return (
+    <div
+      className={cn(styles.container, {
+        [styles.fullScreen]: fullScreen,
+      })}
+    >
+      <DraggableWrapper
+        id={1}
+        left={draggableItem.left}
+        top={draggableItem.top}
+      >
+        {hatPart()}
+        {contentPart()}
+      </DraggableWrapper>
+
+      <CustomDragLayer>
+        {hatPart()}
+        {contentPart()}
+      </CustomDragLayer>
     </div>
   );
 };

@@ -55,22 +55,7 @@ export const DesktopLayout = () => {
     <div className={styles.container} ref={drop}>
       <div className={styles.innerContainer}>
         <InfoSidebar />
-        {fullScreen ? (
-          <Outlet />
-        ) : (
-          <>
-            <DraggableWrapper
-              id={1}
-              left={draggableItem.left}
-              top={draggableItem.top}
-            >
-              <Outlet />
-            </DraggableWrapper>
-            <CustomDragLayer>
-              <Outlet />
-            </CustomDragLayer>
-          </>
-        )}
+        <Outlet context={{ draggableItem }} />
         <FunSidebar />
       </div>
 

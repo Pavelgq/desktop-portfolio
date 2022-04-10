@@ -1,9 +1,7 @@
-import { Children, CSSProperties, FC, memo, ReactNode, useEffect } from "react";
+import { CSSProperties, FC, memo, ReactNode, useEffect } from "react";
 import { useDrag, useDragLayer } from "react-dnd";
 import { ItemTypes } from "../../interfaces/common";
 import { getEmptyImage } from "react-dnd-html5-backend";
-import { useSelector } from "react-redux";
-import { selectFullScreen } from "../../store/mainStore";
 
 import styles from "./DraggableWrapper.module.css";
 
