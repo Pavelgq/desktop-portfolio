@@ -35,6 +35,11 @@
 
 }
 
+.pdfButton:active {
+  opacity: 0.7;
+
+}
+
 .content {
   display: flex;
   height: calc(100% - 40px);  

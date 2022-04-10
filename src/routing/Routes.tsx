@@ -21,6 +21,7 @@ export function RoutesList(): JSX.Element {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
