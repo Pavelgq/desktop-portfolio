@@ -14,9 +14,9 @@ export const FooterItem = ({
   return (
     <li className={cn(styles.item, className)} {...props}>
       <span className={styles.title}>{title}</span>
-      <Link to={path} className={styles.link}>
+      <a href={path} className={styles.link}>
         <Icon className={styles.icon} />
-      </Link>
+      </a>
     </li>
   );
 };

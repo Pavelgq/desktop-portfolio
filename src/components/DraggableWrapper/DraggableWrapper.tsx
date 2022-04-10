@@ -5,10 +5,12 @@ import { getEmptyImage } from "react-dnd-html5-backend";
 import { useSelector } from "react-redux";
 import { selectFullScreen } from "../../store/mainStore";
 
-const style: CSSProperties = {
-  position: "absolute",
-  // cursor: "move",
-};
+import styles from "./DraggableWrapper.module.css";
+
+// const style: CSSProperties = {
+//   position: "absolute",
+//   // cursor: "move",
+// };
 
 export interface DraggableWrapperProps {
   id: any;
@@ -41,7 +43,7 @@ const layerStyles: CSSProperties = {
   top: -10,
   width: "100%",
   height: "100%",
-  transition: "all 1s ease-out;",
+  // transition: "all 1s ease-out;",
 };
 function getItemStyles(initialOffset: any, currentOffset: any) {
   if (!initialOffset || !currentOffset) {
@@ -67,7 +69,6 @@ export const CustomDragLayer = (props: any) => {
       isDragging: monitor.isDragging(),
     }));
   function renderItem() {
-    console.log(item);
     switch (itemType) {
       case ItemTypes.Window:
         return <BoxDragPreview children={props.children} />;
@@ -108,6 +109,7 @@ export const DraggableWrapper: FC<DraggableWrapperProps> = memo(
         ref={drag}
         style={getStyles(left, top, isDragging)}
         area-role="DraggableWrapper"
+        className={styles.draggableZone}
       >
         <Box children={children} />
       </div>
@@ -117,7 +119,7 @@ export const DraggableWrapper: FC<DraggableWrapperProps> = memo(
 
 export const Box = memo(function Box({ preview, children }: any) {
   return (
-    <div style={{ ...style }} role={preview ? "BoxPreview" : "Box"}>
+    <div className={styles.draggableZone} role={preview ? "BoxPreview" : "Box"}>
       {children}
     </div>
   );

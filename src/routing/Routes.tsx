@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { NotFound } from "../pages/not-found/NotFound";
 import { FrameLayout, DesktopLayout, PDFLayout } from "../layouts";
 import { BlankFrame } from "../pages/blank-frame/BlankFrame";
 import { PortfolioFrame } from "../pages/portfolio-frame/PortfolioFrame";
@@ -17,6 +18,7 @@ export function RoutesList(): JSX.Element {
           <Route path="resume" element={<PDFLayout />}>
             <Route index element={<Resume />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Route>
     </Routes>

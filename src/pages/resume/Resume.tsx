@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useOutletContext } from "react-router-dom";
+import { WorkPlaceItem } from "../../components";
 import { HrTag } from "../../components/HrTag/HrTag";
 import { HTag } from "../../components/HTag/HTag";
 import { SideBarAnchor } from "../../components/SideBar/SideBar.props";
@@ -14,7 +15,6 @@ interface ContextI {
 
 export const Resume = () => {
   const dispatch = useDispatch();
-
   const { anchors, setAnchors } = useOutletContext<ContextI>();
 
   useEffect(() => {
@@ -101,16 +101,44 @@ export const Resume = () => {
           </ul>
         </div>
         <div>
-          <HTag tag="h3">Опыт работы</HTag>
-          <p></p>
+          <HTag tag="h3">
+            <a id={"experience"} href="#experience">
+              Опыт работы
+            </a>
+          </HTag>
+          <ul className={styles.placeList}>
+            <WorkPlaceItem
+              place={"АО “Завод Энергозащитных Устройств”, Санкт-Петербург"}
+              role={"инженер"}
+              interval={"СЕНТЯБРЬ 2015 – НАСТОЯЩЕЕ ВРЕМЯ"}
+              info={<></>}
+            />
+          </ul>
         </div>
         <div>
-          <HTag tag="h3">Образование</HTag>
-          <p></p>
+          <HTag tag="h3">
+            <a id={"education"} href="#education">
+              Образование
+            </a>
+          </HTag>
+          <ul className={styles.placeList}>
+            <WorkPlaceItem
+              place={
+                "СПб НИУ ИТМО (Информационных Технологий, Механики и Оптики), Санкт-Петербург"
+              }
+              role={"бакалавр"}
+              interval={"МЕСЯЦ 2011 – МЕСЯЦ 2015"}
+              info={<></>}
+            />
+          </ul>
         </div>
         <div>
-          <HTag tag="h3">Курсы</HTag>
-          <p></p>
+          <HTag tag="h3">
+            <a id={"courses"} href="#courses">
+              Курсы
+            </a>
+          </HTag>
+          <ul className={styles.placeList}></ul>
         </div>
       </article>
     </>

@@ -1,0 +1,5 @@
+.draggableZone {
+  position: absolute;
+  width: var(--frame-width);
+  height: 30px;
+}

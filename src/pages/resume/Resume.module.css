@@ -13,3 +13,7 @@
 .about {
   margin-top: 20px;
 }
+
+.placeList {
+  list-style: none;
+}

@@ -1,0 +1,15 @@
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  display: inline;
+  /* justify-content: start;
+  align-items: center; */
+}
+
+.separator {
+  display: inline-block;
+  margin: 0 5px;
+}

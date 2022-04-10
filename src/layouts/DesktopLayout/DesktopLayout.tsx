@@ -24,7 +24,7 @@ export const DesktopLayout = () => {
   const [draggableItem, setDraggableItem] = useState<{
     top: number;
     left: number;
-  }>({ top: 400, left: 500 });
+  }>({ top: 0, left: 0 });
 
   const moveBox = useCallback(
     (id: string, left: number, top: number) => {
@@ -45,7 +45,6 @@ export const DesktopLayout = () => {
         const delta = monitor.getDifferenceFromInitialOffset() as XYCoord;
         const left = Math.round(item.left + delta.x);
         const top = Math.round(item.top + delta.y);
-        console.log(delta, client, { left, top });
         moveBox(item.id, left, top);
         return undefined;
       },

@@ -3,10 +3,10 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  min-width: 700px;
+  width: 60vw;
   /* margin-top: 100px; */
-  left: calc(50% - 350px);
-  top: calc(50% - 250px);
+  left: 20vw;
+  top: 10vh;
   z-index: 2;
 }
 
@@ -15,7 +15,7 @@
 
   justify-content: space-between;
   align-items: center;
-  height: 25px;
+  min-height: 25px;
 
   background-color: var(--main-bg-color);
   border: 3px solid #333;
@@ -76,17 +76,17 @@
 
 .content {
   display: flex;
-  height: 25px;
+  height: 450px;
 
   background-color: var(--main-bg-color);
   border: 3px solid #333;
   border-top: 0;
   box-shadow: 10px 10px 0 #333;
-  min-height: 400px;
+  min-height: 450px;
 }
 
 .fullContent {
-  min-height: 100vh;
+  height: auto;
 }
 
 .close {

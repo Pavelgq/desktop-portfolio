@@ -1,7 +1,7 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import cn from "classnames";
 import styles from "./FrameLayout.module.css";
-import { useEffect, useRef, useState } from "react";
+import { DragEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectFullScreen,
@@ -10,6 +10,7 @@ import {
 } from "../../store/mainStore";
 import { ReactComponent as CloseIcon } from "../../assets/svg/icons/icons8-iOS Glyph-Close.svg";
 import { ReactComponent as FullIcon } from "../../assets/svg/icons/icons8-Plumpy-Full Screen.svg";
+import { HTag } from "../../components";
 
 export const FrameLayout = () => {
   const title = useSelector(selectTitle);
@@ -22,6 +23,12 @@ export const FrameLayout = () => {
   };
   const handleFullScreen = () => {
     dispatch(toggleFullScreen());
+  };
+
+  const handleDrag = (e: DragEvent<HTMLDivElement>) => {
+    console.log(e);
+    e.preventDefault();
+    e.stopPropagation();
   };
 
   return (
@@ -43,13 +50,14 @@ export const FrameLayout = () => {
           </button>
         </div>
         <div className={styles.hatHeader}>
-          <h2 className={styles.title}>{title}</h2>
+          <HTag tag="h4">{title}</HTag>
         </div>
       </div>
       <section
         className={cn(styles.content, {
           [styles.fullContent]: fullScreen,
         })}
+        onDragStart={handleDrag}
       >
         <Outlet />
       </section>

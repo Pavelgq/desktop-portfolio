@@ -15,11 +15,27 @@ export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <ul className={styles.contactList}>
-        <FooterItem title={"Github"} path={"#"} Icon={GithubIcon} />
+        <FooterItem
+          title={"Github"}
+          path={"https://github.com/Pavelgq"}
+          Icon={GithubIcon}
+        />
         <FooterItem title={"linkedin"} path={"#"} Icon={LinkedinIcon} />
-        <FooterItem title={"twitter"} path={"#"} Icon={TwitterIcon} />
-        <FooterItem title={"telegram"} path={"#"} Icon={TelegramIcon} />
-        <FooterItem title={"email"} path={"#"} Icon={EmailIcon} />
+        <FooterItem
+          title={"twitter"}
+          path={"https://twitter.com/atmeengineer"}
+          Icon={TwitterIcon}
+        />
+        <FooterItem
+          title={"telegram"}
+          path={"https://t.me/atme3"}
+          Icon={TelegramIcon}
+        />
+        <FooterItem
+          title={"email"}
+          path={"mailto:pavelgq@yandex.ru?subject=Предложение работы"}
+          Icon={EmailIcon}
+        />
       </ul>
       <ul className={styles.otherList}>
         <FooterItem title={"Загрузки"} path={"/welcome"} Icon={DownloadIcon} />

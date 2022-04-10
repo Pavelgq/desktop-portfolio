@@ -12,9 +12,16 @@
   
   --desktop-min-width: 1200px;
   --mobile-min-width: 320px;
+
+  --frame-width: 60vw;
 }
 
 
 .paragraph {
   text-indent: 30px;
+}
+
+.full {
+  width: 100vw;
+  height: 100vh;
 }
