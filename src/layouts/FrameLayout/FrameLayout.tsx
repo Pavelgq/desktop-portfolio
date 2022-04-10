@@ -82,19 +82,28 @@ export const FrameLayout = () => {
         [styles.fullScreen]: fullScreen,
       })}
     >
-      <DraggableWrapper
-        id={1}
-        left={draggableItem.left}
-        top={draggableItem.top}
-      >
-        {hatPart()}
-        {contentPart()}
-      </DraggableWrapper>
+      {fullScreen ? (
+        <>
+          {hatPart()}
+          {contentPart()}
+        </>
+      ) : (
+        <>
+          <DraggableWrapper
+            id={1}
+            left={draggableItem.left}
+            top={draggableItem.top}
+          >
+            {hatPart()}
+            {contentPart()}
+          </DraggableWrapper>
 
-      <CustomDragLayer>
-        {hatPart()}
-        {contentPart()}
-      </CustomDragLayer>
+          <CustomDragLayer>
+            {hatPart()}
+            {contentPart()}
+          </CustomDragLayer>
+        </>
+      )}
     </div>
   );
 };

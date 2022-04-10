@@ -83,6 +83,8 @@
   border-top: 0;
   box-shadow: 10px 10px 0 #333;
   min-height: 450px;
+
+  user-select:text;
 }
 
 .fullContent {
