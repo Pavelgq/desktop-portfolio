@@ -1,7 +1,7 @@
 import { Outlet, useNavigate, useOutletContext } from "react-router-dom";
 import cn from "classnames";
 import styles from "./FrameLayout.module.css";
-import { DragEvent } from "react";
+import { DragEvent, useRef, useState, UIEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectFullScreen,
@@ -30,6 +30,9 @@ export const FrameLayout = () => {
   const fullScreen = useSelector(selectFullScreen);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [scroll, setScroll] = useState(0);
+  const scrollRef = useRef(null);
 
   const handleClose = () => {
     navigate("/", { replace: true });
@@ -70,6 +73,7 @@ export const FrameLayout = () => {
           e.preventDefault();
           e.stopPropagation();
         }}
+        ref={scrollRef}
       >
         <Outlet />
       </section>

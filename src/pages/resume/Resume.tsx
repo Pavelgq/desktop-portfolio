@@ -1,21 +1,37 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  UIEvent,
+  RefObject,
+  useLayoutEffect,
+} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useOutletContext } from "react-router-dom";
 import { WorkPlaceItem } from "../../components";
 import { HrTag } from "../../components/HrTag/HrTag";
 import { HTag } from "../../components/HTag/HTag";
 import { SideBarAnchor } from "../../components/SideBar/SideBar.props";
-import { setTargetWindowTitle } from "../../store/mainStore";
+import {
+  selectFrameScroll,
+  setCurrentFrameScroll,
+  setTargetWindowTitle,
+} from "../../store/mainStore";
 import styles from "./Resume.module.css";
 
-interface ContextI {
+interface ContextAnchorI {
   anchors: SideBarAnchor[];
   setAnchors: React.Dispatch<React.SetStateAction<SideBarAnchor[] | undefined>>;
 }
 
 export const Resume = () => {
   const dispatch = useDispatch();
-  const { anchors, setAnchors } = useOutletContext<ContextI>();
+  const { anchors, setAnchors } = useOutletContext<ContextAnchorI>();
+  const [scroll, setScroll] = useState<number | undefined>(0);
+  const currentScroll = useSelector(selectFrameScroll);
+
+  const scrolledElement = useRef<HTMLElement>(null);
 
   useEffect(() => {
     dispatch(setTargetWindowTitle("Резюме_Гордеев.pdf"));
@@ -48,10 +64,25 @@ export const Resume = () => {
     ]);
   }, []);
 
+  useLayoutEffect(() => {
+    if (currentScroll !== scroll) {
+      scrolledElement?.current?.scroll(0, currentScroll);
+    }
+  }, [anchors]);
+
+  const handleScroll = (e: UIEvent<HTMLElement>) => {
+    setScroll(scrolledElement.current?.scrollTop);
+    dispatch(setCurrentFrameScroll(scrolledElement.current?.scrollTop));
+  };
+
   return (
     <>
       {/* <h2>Резюме</h2> */}
-      <article className={styles.resume}>
+      <article
+        className={styles.resume}
+        ref={scrolledElement}
+        onScroll={handleScroll}
+      >
         <div>
           <HTag tag="h2">Гордеев Павел</HTag>
           <HrTag thickness="medium" className={styles.line} />
