@@ -20,6 +20,9 @@ export const mainSlice = createSlice({
     setTargetWindowTitle(state, action) {
       state.targetWindowTitle = action.payload;
     },
+    setFullScreen(state, action) {
+      state.fullScreen = action.payload;
+    },
     toggleFullScreen(state) {
       state.fullScreen = !state.fullScreen;
     },
@@ -29,7 +32,7 @@ export const mainSlice = createSlice({
   }
 })
 
-export const {setTargetWindowTitle, toggleFullScreen, setCurrentFrameScroll} = mainSlice.actions;
+export const {setTargetWindowTitle, toggleFullScreen, setCurrentFrameScroll, setFullScreen} = mainSlice.actions;
 
 export default mainSlice.reducer;
 

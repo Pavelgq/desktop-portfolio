@@ -3,14 +3,11 @@ import { Footer, FunSidebar, InfoSidebar } from "../../page-components";
 import styles from "./DesktopLayout.module.css";
 import update from "immutability-helper";
 import { useDrop, XYCoord } from "react-dnd";
-import { useState, useCallback } from "react";
-import {
-  CustomDragLayer,
-  DraggableWrapper,
-} from "../../components/DraggableWrapper/DraggableWrapper";
+import { useState, useCallback, TouchEvent } from "react";
 import { ItemTypes } from "../../interfaces/common";
 import { useSelector } from "react-redux";
 import { selectFullScreen } from "../../store/mainStore";
+import { SlideConstruct } from "../../components/SlideConstruct/SlideConstruct";
 
 export interface DragItem {
   type: string;
@@ -54,11 +51,16 @@ export const DesktopLayout = () => {
   return (
     <div className={styles.container} ref={drop}>
       <div className={styles.innerContainer}>
-        <InfoSidebar />
-        <Outlet context={{ draggableItem }} />
-        <FunSidebar />
+        <SlideConstruct>
+          <InfoSidebar />
+          <FunSidebar />
+          <InfoSidebar />
+          <FunSidebar />
+          <InfoSidebar />
+          <FunSidebar />
+        </SlideConstruct>
       </div>
-
+      <Outlet context={{ draggableItem }} />
       <Footer />
     </div>
   );

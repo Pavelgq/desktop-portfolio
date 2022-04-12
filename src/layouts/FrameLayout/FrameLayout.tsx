@@ -1,11 +1,12 @@
 import { Outlet, useNavigate, useOutletContext } from "react-router-dom";
 import cn from "classnames";
 import styles from "./FrameLayout.module.css";
-import { DragEvent, useRef, useState, UIEvent } from "react";
+import { DragEvent, useRef, useState, UIEvent, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectFullScreen,
   selectTitle,
+  setFullScreen,
   toggleFullScreen,
 } from "../../store/mainStore";
 import { ReactComponent as CloseIcon } from "../../assets/svg/icons/icons8-iOS Glyph-Close.svg";
@@ -15,6 +16,7 @@ import {
   CustomDragLayer,
   DraggableWrapper,
 } from "../../components/DraggableWrapper/DraggableWrapper";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 interface ContextI {
   draggableItem: {
@@ -24,6 +26,7 @@ interface ContextI {
 }
 
 export const FrameLayout = () => {
+  const [windowY] = useWindowSize();
   const { draggableItem } = useOutletContext<ContextI>();
   console.log(draggableItem);
   const title = useSelector(selectTitle);
@@ -31,8 +34,13 @@ export const FrameLayout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [scroll, setScroll] = useState(0);
-  const scrollRef = useRef(null);
+  useEffect(() => {
+    if (windowY > 640 && !fullScreen) {
+      dispatch(setFullScreen(false));
+    } else {
+      dispatch(setFullScreen(true));
+    }
+  }, [windowY]);
 
   const handleClose = () => {
     navigate("/", { replace: true });
@@ -73,7 +81,6 @@ export const FrameLayout = () => {
           e.preventDefault();
           e.stopPropagation();
         }}
-        ref={scrollRef}
       >
         <Outlet />
       </section>

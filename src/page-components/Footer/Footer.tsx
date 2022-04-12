@@ -10,8 +10,10 @@ import { ReactComponent as EmailIcon } from "../../assets/svg/icons/icons8-plast
 import { ReactComponent as DownloadIcon } from "../../assets/svg/icons/icons8-plasticine-Downloads.svg";
 
 import { ReactComponent as TrashIcon } from "../../assets/svg/icons/icons8-plasticine-Trash Can.svg";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 export const Footer = () => {
+  const [windowY] = useWindowSize();
   return (
     <footer className={styles.footer}>
       <ul className={styles.contactList}>
@@ -20,7 +22,7 @@ export const Footer = () => {
           path={"https://github.com/Pavelgq"}
           Icon={GithubIcon}
         />
-        <FooterItem title={"linkedin"} path={"#"} Icon={LinkedinIcon} />
+        {/* <FooterItem title={"linkedin"} path={"#"} Icon={LinkedinIcon} /> */}
         <FooterItem
           title={"twitter"}
           path={"https://twitter.com/atmeengineer"}
@@ -37,10 +39,16 @@ export const Footer = () => {
           Icon={EmailIcon}
         />
       </ul>
-      <ul className={styles.otherList}>
-        <FooterItem title={"Загрузки"} path={"/welcome"} Icon={DownloadIcon} />
-        <FooterItem title={"Корзина"} path={"#"} Icon={TrashIcon} />
-      </ul>
+      {windowY > 640 && (
+        <ul className={styles.otherList}>
+          <FooterItem
+            title={"Загрузки"}
+            path={"/welcome"}
+            Icon={DownloadIcon}
+          />
+          <FooterItem title={"Корзина"} path={"#"} Icon={TrashIcon} />
+        </ul>
+      )}
     </footer>
   );
 };

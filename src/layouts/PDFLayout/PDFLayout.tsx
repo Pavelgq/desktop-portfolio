@@ -6,12 +6,19 @@ import { ReactComponent as PrintIcon } from "../../assets/svg/icons/icons8-Fluen
 import { ReactComponent as DownloadIcon } from "../../assets/svg/icons/icons8-Material Rounded-Download.svg";
 import { SideBar } from "../../components/SideBar/SideBar";
 import { SideBarAnchor } from "../../components/SideBar/SideBar.props";
+import { useSelector } from "react-redux";
+import { selectFullScreen } from "../../store/mainStore";
+import { useWindowSize } from "../../hooks/useWindowSize";
+
 /**
  * TODO: Увеличить, уменьшить, скачать, печатать
  * @returns
  */
 export const PDFLayout = () => {
   const [anchors, setAnchors] = useState<SideBarAnchor[]>();
+
+  const [windowY] = useWindowSize();
+  const fullScreen = useSelector(selectFullScreen);
   return (
     <div className={styles.container}>
       <div className={styles.navBar}>
@@ -23,7 +30,7 @@ export const PDFLayout = () => {
         </button>
       </div>
       <section className={styles.content}>
-        <SideBar anchors={anchors} />
+        {windowY > 640 ? <SideBar anchors={anchors} /> : <></>}
         <Outlet context={{ anchors, setAnchors }} />
       </section>
     </div>

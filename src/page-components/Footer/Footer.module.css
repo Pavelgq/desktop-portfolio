@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 0;
   display: flex;
-  min-width: 560px;
+  min-width: 320px;
   justify-content: space-between;
   background-color: var(--main-bg-color);
 
@@ -43,3 +43,23 @@
   background-color: #999;
 }
 
+@media screen and (max-width: 640px) {
+  .footer {
+    width: 100%;
+    border-radius: 0;
+  }
+  .contactList {
+    width: 100%;
+    margin: 10px 0;
+    justify-content: center;
+  }
+
+  .otherList::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+  }
+}

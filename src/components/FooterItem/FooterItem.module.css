@@ -53,3 +53,13 @@
   transform-origin: 50% 100%;
   transition: all 0.3s;
 }
+
+@media screen and (max-width: 640px) {
+  .item {
+    width: 80px;
+    height: auto;
+  }
+  .icon {
+    width: 70px;
+  }
+}
