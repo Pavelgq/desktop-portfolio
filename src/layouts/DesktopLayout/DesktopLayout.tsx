@@ -54,10 +54,6 @@ export const DesktopLayout = () => {
         <SlideConstruct>
           <InfoSidebar />
           <FunSidebar />
-          <InfoSidebar />
-          <FunSidebar />
-          <InfoSidebar />
-          <FunSidebar />
         </SlideConstruct>
       </div>
       <Outlet context={{ draggableItem }} />

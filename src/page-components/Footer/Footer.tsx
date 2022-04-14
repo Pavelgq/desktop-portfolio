@@ -11,44 +11,109 @@ import { ReactComponent as DownloadIcon } from "../../assets/svg/icons/icons8-pl
 
 import { ReactComponent as TrashIcon } from "../../assets/svg/icons/icons8-plasticine-Trash Can.svg";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { MouseEvent, useEffect, useState } from "react";
+import { checkMobile } from "../../utils/dom-utils";
+import cn from "classnames";
 
 export const Footer = () => {
-  const [windowY] = useWindowSize();
+  const [windowX] = useWindowSize();
+
+  const [defultWidth, setDefultWidth] = useState(0);
+
+  const handleMouseMove = (e: MouseEvent) => {
+    const list = document.querySelector("footer");
+    const listCoords = list?.getBoundingClientRect();
+    console.log("move");
+    if (!listCoords) {
+      return;
+    }
+    const items: NodeListOf<HTMLLIElement> =
+      document.querySelectorAll(".footerItem");
+    const targetPos = e.clientX;
+    items.forEach((item, i) => {
+      const itemCoords = item.getBoundingClientRect();
+      const itemCenterX = itemCoords.left + defultWidth / 2;
+      const way =
+        Math.abs(targetPos - itemCenterX) / (defultWidth * 4) > 1
+          ? 1
+          : Math.abs(targetPos - itemCenterX) / (defultWidth * 4);
+
+      const persent = 1 - 1.5 * way + 0.1 * way * way;
+      item.style.width = `${
+        defultWidth + defultWidth * (persent >= 0 ? persent : 0)
+      }px`;
+      item.style.height = `${
+        defultWidth + defultWidth * (persent >= 0 ? persent : 0)
+      }px`;
+    });
+  };
+
+  const handleMouseLeave = (e: MouseEvent) => {
+    console.log("leave");
+    const items: NodeListOf<HTMLLIElement> =
+      document.querySelectorAll(".footerItem");
+    items.forEach((item, i) => {
+      item.style.width = `${defultWidth}px`;
+      item.style.height = `${defultWidth}px`;
+    });
+  };
+
+  useEffect(() => {
+    const width = document?.querySelector(".footerItem");
+    setDefultWidth(width?.getBoundingClientRect().width || 0);
+  }, []);
+
   return (
-    <footer className={styles.footer}>
-      <ul className={styles.contactList}>
-        <FooterItem
-          title={"Github"}
-          path={"https://github.com/Pavelgq"}
-          Icon={GithubIcon}
-        />
-        {/* <FooterItem title={"linkedin"} path={"#"} Icon={LinkedinIcon} /> */}
-        <FooterItem
-          title={"twitter"}
-          path={"https://twitter.com/atmeengineer"}
-          Icon={TwitterIcon}
-        />
-        <FooterItem
-          title={"telegram"}
-          path={"https://t.me/atme3"}
-          Icon={TelegramIcon}
-        />
-        <FooterItem
-          title={"email"}
-          path={"mailto:pavelgq@yandex.ru?subject=Предложение работы"}
-          Icon={EmailIcon}
-        />
-      </ul>
-      {windowY > 640 && (
-        <ul className={styles.otherList}>
+    <div
+      className={cn(styles.container, "footerContainer")}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <footer className={styles.footer}>
+        <ul className={styles.contactList}>
           <FooterItem
-            title={"Загрузки"}
-            path={"/welcome"}
-            Icon={DownloadIcon}
+            className="footerItem"
+            title={"Github"}
+            path={"https://github.com/Pavelgq"}
+            Icon={GithubIcon}
           />
-          <FooterItem title={"Корзина"} path={"#"} Icon={TrashIcon} />
+          {/* <FooterItem title={"linkedin"} path={"#"} Icon={LinkedinIcon} /> */}
+          <FooterItem
+            className="footerItem"
+            title={"twitter"}
+            path={"https://twitter.com/atmeengineer"}
+            Icon={TwitterIcon}
+          />
+          <FooterItem
+            className="footerItem"
+            title={"telegram"}
+            path={"https://t.me/atme3"}
+            Icon={TelegramIcon}
+          />
+          <FooterItem
+            className="footerItem"
+            title={"email"}
+            path={"mailto:pavelgq@yandex.ru?subject=Предложение работы"}
+            Icon={EmailIcon}
+          />
         </ul>
-      )}
-    </footer>
+        {!checkMobile(windowX) && (
+          <ul className={styles.otherList}>
+            <FooterItem
+              className="footerItem"
+              title={"Загрузки"}
+              path={"/welcome"}
+              Icon={DownloadIcon}
+            />
+            <FooterItem
+              className="footerItem"
+              title={"Корзина"}
+              path={"#"}
+              Icon={TrashIcon}
+            />
+          </ul>
+        )}
+      </footer>
+    </div>
   );
 };

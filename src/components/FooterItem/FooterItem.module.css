@@ -1,3 +1,4 @@
+
 .item {
   display: inline-block;
   position: relative;
@@ -5,10 +6,10 @@
   width: 80px;
   height: auto;
 
-  transition: 0.5s;
+  /* transition: 0.5s; */
 }
 
-.item:hover .icon {
+/* .item:hover .icon {
   transform: scale(2);
   margin: 0 2em;
 }
@@ -16,7 +17,7 @@
 .item:hover + .icon, .item.prev .icon {
   transform: scale(1.5);
   margin: 0 1.5em;
-}
+} */
 
 .link {
   display: flex;
@@ -30,7 +31,7 @@
 .title {
   display: none;
   position: absolute;
-  bottom: 90px;
+  bottom: 130px;
   left: 0;
   width: 100%;
   background-color: rgba(3, 3, 3, 0.2);
@@ -47,7 +48,7 @@
 }
 
 .icon {
-  width: 50px;
+  width: 100%;
   height: auto;
   
   transform-origin: 50% 100%;

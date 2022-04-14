@@ -1,35 +1,43 @@
-.footer {
+.container {
   position: fixed;
   bottom: 0;
   display: flex;
   min-width: 320px;
+  height: 80px;
+  align-items: flex-start;
   justify-content: space-between;
   background-color: var(--main-bg-color);
 
   border: 2px solid #333;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-
+  border-radius: 20px;
   /* box-shadow: 10px 10px 0 #333; */
-
   z-index: 0;
+}
+
+.footer {
+  display: flex;
+  height: 80px;
 }
 
 .contactList {
   position: relative;
   display: flex;
   justify-content: flex-start;
+    align-items: flex-end;
   margin: 16px 0;
   padding: 0;
+  margin: 0;
 }
 
 .otherList {
   position: relative;
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
   list-style: none;
   margin: 16px 10px;
   padding: 0;
+  margin: 0;
 }
 
 .otherList::before {

@@ -3,8 +3,12 @@ import { SlideConstructProps } from "./SlideConstruct.props";
 
 import styles from "./SlideConstruct.module.css";
 import cn from "classnames";
+import { globalConfig } from "../../config";
+import { checkMobile } from "../../utils/dom-utils";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 export const SlideConstruct = ({ children }: SlideConstructProps) => {
+  const [windowX] = useWindowSize();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [length, setLength] = useState(Children.count(children));
   const [touchPosition, setTouchPosition] = useState(0);
@@ -50,6 +54,10 @@ export const SlideConstruct = ({ children }: SlideConstructProps) => {
     setTouchPosition(0);
   };
 
+  if (!checkMobile(windowX)) {
+    return <>{children}</>;
+  }
+
   return (
     <div
       className={styles.contentWrapper}
@@ -62,6 +70,7 @@ export const SlideConstruct = ({ children }: SlideConstructProps) => {
       >
         {children}
       </div>
+
       <div className={styles.dotesList}>
         {Children.map(children, (child, i) => {
           return (

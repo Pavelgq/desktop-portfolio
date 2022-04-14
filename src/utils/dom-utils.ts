@@ -1,3 +1,4 @@
+import { globalConfig } from "../config";
 
 
 export const getCoords = (elem: HTMLElement) => {   // кроме IE8-
@@ -6,4 +7,11 @@ export const getCoords = (elem: HTMLElement) => {   // кроме IE8-
     top: box.top + window.scrollY,
     left: box.left + window.scrollX
   };
+}
+
+export const checkMobile = (clietnWidth: number) => {
+  if (clietnWidth < globalConfig.mobileMaxWidth) {
+    return true;
+  }
+  return false;
 }

@@ -9,6 +9,7 @@ import { SideBarAnchor } from "../../components/SideBar/SideBar.props";
 import { useSelector } from "react-redux";
 import { selectFullScreen } from "../../store/mainStore";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { checkMobile } from "../../utils/dom-utils";
 
 /**
  * TODO: Увеличить, уменьшить, скачать, печатать
@@ -17,7 +18,7 @@ import { useWindowSize } from "../../hooks/useWindowSize";
 export const PDFLayout = () => {
   const [anchors, setAnchors] = useState<SideBarAnchor[]>();
 
-  const [windowY] = useWindowSize();
+  const [windowX] = useWindowSize();
   const fullScreen = useSelector(selectFullScreen);
   return (
     <div className={styles.container}>
@@ -30,7 +31,7 @@ export const PDFLayout = () => {
         </button>
       </div>
       <section className={styles.content}>
-        {windowY > 640 ? <SideBar anchors={anchors} /> : <></>}
+        {!checkMobile(windowX) ? <SideBar anchors={anchors} /> : <></>}
         <Outlet context={{ anchors, setAnchors }} />
       </section>
     </div>
