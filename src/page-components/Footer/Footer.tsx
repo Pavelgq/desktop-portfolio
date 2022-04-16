@@ -20,10 +20,20 @@ export const Footer = () => {
 
   const [defultWidth, setDefultWidth] = useState(0);
 
+  const handleMouseEnter = (e: MouseEvent) => {
+    const items: NodeListOf<HTMLLIElement> =
+      document.querySelectorAll(".footerItem");
+    items.forEach((item, i) => {
+      item.classList.add("easeInAnimation");
+    });
+  };
+
   const handleMouseMove = (e: MouseEvent) => {
+    if (checkMobile(windowX)) {
+      return;
+    }
     const list = document.querySelector("footer");
     const listCoords = list?.getBoundingClientRect();
-    console.log("move");
     if (!listCoords) {
       return;
     }
@@ -31,6 +41,7 @@ export const Footer = () => {
       document.querySelectorAll(".footerItem");
     const targetPos = e.clientX;
     items.forEach((item, i) => {
+      item.classList.remove("easeInAnimation");
       const itemCoords = item.getBoundingClientRect();
       const itemCenterX = itemCoords.left + defultWidth / 2;
       const way =
@@ -50,9 +61,11 @@ export const Footer = () => {
 
   const handleMouseLeave = (e: MouseEvent) => {
     console.log("leave");
+
     const items: NodeListOf<HTMLLIElement> =
       document.querySelectorAll(".footerItem");
     items.forEach((item, i) => {
+      item.classList.add("easeInAnimation");
       item.style.width = `${defultWidth}px`;
       item.style.height = `${defultWidth}px`;
     });
@@ -66,6 +79,7 @@ export const Footer = () => {
   return (
     <div
       className={cn(styles.container, "footerContainer")}
+      onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -80,19 +94,19 @@ export const Footer = () => {
           {/* <FooterItem title={"linkedin"} path={"#"} Icon={LinkedinIcon} /> */}
           <FooterItem
             className="footerItem"
-            title={"twitter"}
+            title={"Twitter"}
             path={"https://twitter.com/atmeengineer"}
             Icon={TwitterIcon}
           />
           <FooterItem
             className="footerItem"
-            title={"telegram"}
+            title={"Telegram"}
             path={"https://t.me/atme3"}
             Icon={TelegramIcon}
           />
           <FooterItem
             className="footerItem"
-            title={"email"}
+            title={"E-mail"}
             path={"mailto:pavelgq@yandex.ru?subject=Предложение работы"}
             Icon={EmailIcon}
           />

@@ -10,7 +10,6 @@
 
   border: 2px solid #333;
   border-radius: 20px;
-  /* box-shadow: 10px 10px 0 #333; */
   z-index: 0;
 }
 
@@ -43,19 +42,25 @@
 .otherList::before {
   position: absolute;
   content: "";
-  top: 0;
-  left: -10px;
+  top: 20%;
+  left: -5px;
   width: 2px;
-  height: 40px;
+  height: 60%;
   margin: 0 5px;
   background-color: #999;
 }
 
 @media screen and (max-width: 640px) {
-  .footer {
+  .container {
     width: 100%;
     border-radius: 0;
   }
+
+  .footer {
+    width: 100%;
+    align-items: center;
+  }
+
   .contactList {
     width: 100%;
     margin: 10px 0;

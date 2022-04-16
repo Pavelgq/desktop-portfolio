@@ -1,11 +1,13 @@
 
 .item {
-  display: inline-block;
+  display: inline-flex;
   position: relative;
+  justify-content: center;
+  align-items: center;
   list-style: none;
   width: 80px;
   height: auto;
-
+  
   /* transition: 0.5s; */
 }
 
@@ -45,6 +47,7 @@
 .item:hover .title {
   display: inline-block;
   opacity: 1;
+  transition: 0.5s;
 }
 
 .icon {
@@ -62,5 +65,10 @@
   }
   .icon {
     width: 70px;
+  }
+  .title {
+    
+    bottom: 90px;
+    
   }
 }

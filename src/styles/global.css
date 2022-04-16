@@ -25,3 +25,7 @@
   width: 100vw;
   height: 100vh;
 }
+
+.easeInAnimation {
+  transition: all 0.2s ease-out;
+}
