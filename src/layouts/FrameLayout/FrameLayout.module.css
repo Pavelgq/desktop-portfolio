@@ -76,20 +76,19 @@
 
 .content {
   display: flex;
-  height: 450px;
-
   background-color: var(--main-bg-color);
   border: 3px solid #333;
   border-top: 0;
   box-shadow: 10px 10px 0 #333;
-  min-height: 450px;
+  height: 450px;
 
   user-select:text;
+  overflow-y: auto;
 }
 
-.fullContent {
-  height: auto;
-}
+ .fullContent {
+   height: 100vh;
+ }
 
 .close {
   background-color: #c57878;
@@ -108,4 +107,8 @@
 
 svg {
   fill: var(--gray-light)
+}
+
+@media screen and (max-width: var(--mobile-max-width)) {
+ 
 }

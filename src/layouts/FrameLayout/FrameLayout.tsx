@@ -56,10 +56,15 @@ export const FrameLayout = () => {
           <button
             className={cn(styles.hatButton, styles.close)}
             onClick={handleClose}
+            aria-label="Закрыть окно"
           >
             <CloseIcon />
           </button>
-          <button className={cn(styles.hatButton)} onClick={handleFullScreen}>
+          <button
+            className={cn(styles.hatButton)}
+            onClick={handleFullScreen}
+            aria-label="На весь экран"
+          >
             <FullIcon />
           </button>
         </div>

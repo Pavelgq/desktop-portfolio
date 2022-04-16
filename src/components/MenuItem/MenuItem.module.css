@@ -1,6 +1,6 @@
 .item {
   list-style: none;
-  width: 120px;
+  width: 80px;
   height: auto;
 }
 
@@ -15,12 +15,26 @@
 
 
 .title {
+  width:100%;
+  text-align: center;
   margin-top: 3px;
   font-size: 16px;
   font-weight: 700;
   line-height: 17px;
   padding: 3px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+/* TODO
+.title:hover {
+  white-space: wrap;
+  text-overflow: clip;
+  overflow-wrap:break-word;
+  line-break: loose;
+  hyphens: auto;
+  word-break: break-all;
+} */
 
 
 
@@ -35,5 +49,7 @@
 
 .icon:hover + .title {
   color: #eee;
+  white-space: wrap;
+  text-overflow: clip;
   background-color: rgba(97, 122, 233, 0.719);
 }

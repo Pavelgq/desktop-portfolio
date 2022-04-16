@@ -11,6 +11,7 @@
   --gray-light: #333333;
   
   --desktop-min-width: 1200px;
+  --mobile-max-width: 640px; /*760?*/
   --mobile-min-width: 320px;
 
   --frame-width: 60vw;
