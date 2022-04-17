@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { selectFullScreen } from "../../store/mainStore";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { checkMobile } from "../../utils/dom-utils";
+import { NavBarButton } from "../../components";
 
 /**
  * TODO: Увеличить, уменьшить, скачать, печатать
@@ -18,17 +19,19 @@ import { checkMobile } from "../../utils/dom-utils";
 export const PDFLayout = () => {
   const [anchors, setAnchors] = useState<PdfSideBarAnchor[]>();
 
+  const handleClick = () => {};
+
   const [windowX] = useWindowSize();
   const fullScreen = useSelector(selectFullScreen);
   return (
     <div className={styles.container}>
       <div className={styles.navBar}>
-        <button className={styles.pdfButton}>
+        <NavBarButton className={styles.pdfButton}>
           <DownloadIcon />
-        </button>
-        <button className={styles.pdfButton}>
+        </NavBarButton>
+        <NavBarButton className={styles.pdfButton}>
           <PrintIcon />
-        </button>
+        </NavBarButton>
       </div>
       <section className={styles.content}>
         {!checkMobile(windowX) ? <PdfSideBar anchors={anchors} /> : <></>}

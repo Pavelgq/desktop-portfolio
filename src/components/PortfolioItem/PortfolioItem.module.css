@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  padding: 5px;
+}
+
+.previewImage {
+  max-width: 200px;
+  border: 2px solid var(--gray-light);
+}
+
+.previewLink {
+
+  margin-bottom: 10px;
+}
+
+
+.optionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.optionItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
