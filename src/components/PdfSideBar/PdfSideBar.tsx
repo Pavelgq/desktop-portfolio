@@ -1,10 +1,10 @@
-import { SideBarProps } from "./SideBar.props";
+import { PdfSideBarProps } from "./PdfSideBar.props";
 import cn from "classnames";
-import styles from "./SideBar.module.css";
+import styles from "./PdfSideBar.module.css";
 import { useSelector } from "react-redux";
 import { selectFullScreen } from "../../store/mainStore";
 
-export function SideBar({ anchors = [] }: SideBarProps): JSX.Element {
+export function PdfSideBar({ anchors = [] }: PdfSideBarProps): JSX.Element {
   const fullScreen = useSelector(selectFullScreen);
 
   if (!anchors.length) {

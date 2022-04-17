@@ -12,11 +12,13 @@ export const FooterItem = ({
   ...props
 }: FooterItemProps): JSX.Element => {
   return (
-    <li className={cn(styles.item, className)} {...props}>
-      <span className={styles.title}>{title}</span>
-      <a href={path} className={styles.link} target="_blank" rel="noreferrer">
-        <Icon className={styles.icon} />
-      </a>
-    </li>
+    <>
+      <li className={cn(styles.item, className)} {...props}>
+        <span className={styles.title}>{title}</span>
+        <a href={path} className={styles.link} target="_blank" rel="noreferrer">
+          <Icon className={styles.icon} />
+        </a>
+      </li>
+    </>
   );
 };

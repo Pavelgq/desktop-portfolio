@@ -1,18 +1,10 @@
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  UIEvent,
-  RefObject,
-  useLayoutEffect,
-} from "react";
+import { useEffect, useRef, useState, UIEvent, useLayoutEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useOutletContext } from "react-router-dom";
 import { WorkPlaceItem } from "../../components";
 import { HrTag } from "../../components/HrTag/HrTag";
 import { HTag } from "../../components/HTag/HTag";
-import { SideBarAnchor } from "../../components/SideBar/SideBar.props";
+import { PdfSideBarAnchor } from "../../components/PdfSideBar/PdfSideBar.props";
 import {
   selectFrameScroll,
   setCurrentFrameScroll,
@@ -21,8 +13,10 @@ import {
 import styles from "./Resume.module.css";
 
 interface ContextAnchorI {
-  anchors: SideBarAnchor[];
-  setAnchors: React.Dispatch<React.SetStateAction<SideBarAnchor[] | undefined>>;
+  anchors: PdfSideBarAnchor[];
+  setAnchors: React.Dispatch<
+    React.SetStateAction<PdfSideBarAnchor[] | undefined>
+  >;
 }
 
 export const Resume = () => {

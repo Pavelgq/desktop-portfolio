@@ -4,8 +4,8 @@ import styles from "./PDFLayout.module.css";
 import { useState } from "react";
 import { ReactComponent as PrintIcon } from "../../assets/svg/icons/icons8-Fluency System Regular-Print.svg";
 import { ReactComponent as DownloadIcon } from "../../assets/svg/icons/icons8-Material Rounded-Download.svg";
-import { SideBar } from "../../components/SideBar/SideBar";
-import { SideBarAnchor } from "../../components/SideBar/SideBar.props";
+import { PdfSideBar } from "../../components/PdfSideBar/PdfSideBar";
+import { PdfSideBarAnchor } from "../../components/PdfSideBar/PdfSideBar.props";
 import { useSelector } from "react-redux";
 import { selectFullScreen } from "../../store/mainStore";
 import { useWindowSize } from "../../hooks/useWindowSize";
@@ -16,7 +16,7 @@ import { checkMobile } from "../../utils/dom-utils";
  * @returns
  */
 export const PDFLayout = () => {
-  const [anchors, setAnchors] = useState<SideBarAnchor[]>();
+  const [anchors, setAnchors] = useState<PdfSideBarAnchor[]>();
 
   const [windowX] = useWindowSize();
   const fullScreen = useSelector(selectFullScreen);
@@ -31,7 +31,7 @@ export const PDFLayout = () => {
         </button>
       </div>
       <section className={styles.content}>
-        {!checkMobile(windowX) ? <SideBar anchors={anchors} /> : <></>}
+        {!checkMobile(windowX) ? <PdfSideBar anchors={anchors} /> : <></>}
         <Outlet context={{ anchors, setAnchors }} />
       </section>
     </div>

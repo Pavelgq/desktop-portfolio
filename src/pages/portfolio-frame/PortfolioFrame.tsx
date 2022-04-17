@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { FolderSideBar } from "../../components";
 import { setTargetWindowTitle } from "../../store/mainStore";
 import styles from "./PortfolioFrame.module.css";
 

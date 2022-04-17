@@ -21,6 +21,7 @@ export function RoutesList(): JSX.Element {
           <Route path="welcome" element={<WelcomeFrame />} />
           <Route path="folder" element={<FolderLayout />}>
             <Route path="portfolio" element={<PortfolioFrame />} />
+            <Route path="courses" element={<PortfolioFrame />} />
           </Route>
           <Route path="resume" element={<PDFLayout />}>
             <Route index element={<Resume />} />

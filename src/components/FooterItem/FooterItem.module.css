@@ -35,7 +35,9 @@
   position: absolute;
   bottom: 130px;
   left: 0;
-  width: 100%;
+  right: 0;
+  min-width: 80px;
+  margin: 0 auto;
   background-color: rgba(3, 3, 3, 0.2);
   padding: 4px 2px;
   border-radius: 12px;

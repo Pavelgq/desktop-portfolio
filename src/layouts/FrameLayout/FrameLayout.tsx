@@ -17,6 +17,7 @@ import {
   DraggableWrapper,
 } from "../../components/DraggableWrapper/DraggableWrapper";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { checkMobile } from "../../utils/dom-utils";
 
 interface ContextI {
   draggableItem: {
@@ -26,7 +27,7 @@ interface ContextI {
 }
 
 export const FrameLayout = () => {
-  const [windowY] = useWindowSize();
+  const [windowX] = useWindowSize();
   const { draggableItem } = useOutletContext<ContextI>();
   console.log(draggableItem);
   const title = useSelector(selectTitle);
@@ -35,12 +36,13 @@ export const FrameLayout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (windowY > 640 && !fullScreen) {
-      dispatch(setFullScreen(false));
-    } else {
+    if (checkMobile(windowX) && fullScreen) {
       dispatch(setFullScreen(true));
+    } else {
+      console.log(windowX, fullScreen);
+      dispatch(setFullScreen(false));
     }
-  }, [windowY]);
+  }, [windowX]);
 
   const handleClose = () => {
     navigate("/", { replace: true });

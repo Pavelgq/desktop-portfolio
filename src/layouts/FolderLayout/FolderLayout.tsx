@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
-import { SideBarAnchor } from "../../components/SideBar/SideBar.props";
+import { PdfSideBarAnchor } from "../../components/PdfSideBar/PdfSideBar.props";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { selectFullScreen } from "../../store/mainStore";
 import styles from "./FolderLayout.module.css";
@@ -12,6 +12,8 @@ import { ReactComponent as ContentLineIcon } from "../../assets/svg/icons/conten
 import { ReactComponent as ContentCardIcon } from "../../assets/svg/icons/content-cards.svg";
 import { NavBarButton } from "../../components/NavBarButton/NavBarButton";
 import cn from "classnames";
+import { FolderSideBar } from "../../components";
+import { checkMobile } from "../../utils/dom-utils";
 
 export const FolderLayout = () => {
   const [infoBar, setInfoBar] = useState(false);
@@ -40,11 +42,12 @@ export const FolderLayout = () => {
           className={styles.folder}
           onClick={() => setInfoBar(!infoBar)}
         >
-          {infoBar ? <OpenInfoIcon /> : <CloseInfoIcon />}
+          {!infoBar ? <OpenInfoIcon /> : <CloseInfoIcon />}
         </NavBarButton>
       </div>
       <section className={styles.content}>
         <Outlet context={{ infoBar, palletView }} />
+        {!checkMobile(windowX) && infoBar ? <FolderSideBar /> : <></>}
       </section>
     </div>
   );
