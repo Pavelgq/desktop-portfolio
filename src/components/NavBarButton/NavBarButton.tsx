@@ -3,13 +3,23 @@ import { NavBarButtonProps } from "./NavBarButton.props";
 import styles from "./NavBarButton.module.css";
 
 export const NavBarButton = ({
-  icon,
-  action,
+  active,
+  children,
   className,
+  ...props
 }: NavBarButtonProps) => {
   return (
-    <button className={cn(className)} onClick={action}>
-      {icon}
+    <button
+      className={cn(
+        styles.button,
+        {
+          [styles.active]: active,
+        },
+        className
+      )}
+      {...props}
+    >
+      {children}
     </button>
   );
 };

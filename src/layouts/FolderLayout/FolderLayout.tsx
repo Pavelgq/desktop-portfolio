@@ -6,14 +6,16 @@ import { useWindowSize } from "../../hooks/useWindowSize";
 import { selectFullScreen } from "../../store/mainStore";
 import styles from "./FolderLayout.module.css";
 
-import { ReactComponent as OpenInfoIcon } from "../../assets/svg/icons/open-icon.svg";
-import { ReactComponent as CloseInfoIcon } from "../../assets/svg/icons/icons8-Material Rounded-Download.svg";
-import { ReactComponent as ContentLineIcon } from "../../assets/svg/icons/icons8-Material Rounded-Download.svg";
-import { ReactComponent as ContentCardIcon } from "../../assets/svg/icons/icons8-Material Rounded-Download.svg";
+import { ReactComponent as OpenInfoIcon } from "../../assets/svg/icons/open-panel.svg";
+import { ReactComponent as CloseInfoIcon } from "../../assets/svg/icons/close-panel.svg";
+import { ReactComponent as ContentLineIcon } from "../../assets/svg/icons/content-line.svg";
+import { ReactComponent as ContentCardIcon } from "../../assets/svg/icons/content-cards.svg";
 import { NavBarButton } from "../../components/NavBarButton/NavBarButton";
+import cn from "classnames";
 
 export const FolderLayout = () => {
-  const [anchors, setAnchors] = useState<SideBarAnchor[]>();
+  const [infoBar, setInfoBar] = useState(false);
+  const [palletView, setPalletView] = useState(false);
 
   const [windowX] = useWindowSize();
   const fullScreen = useSelector(selectFullScreen);
@@ -22,22 +24,27 @@ export const FolderLayout = () => {
       <div className={styles.navBar}>
         <NavBarButton
           className={styles.folder}
-          icon={OpenInfoIcon}
-          action={(): void => {}}
-        />
+          active={palletView}
+          onClick={() => setPalletView(!palletView)}
+        >
+          <ContentLineIcon />
+        </NavBarButton>
         <NavBarButton
           className={styles.folder}
-          icon={OpenInfoIcon}
-          action={(): void => {}}
-        />
+          active={!palletView}
+          onClick={() => setPalletView(!palletView)}
+        >
+          <ContentCardIcon />
+        </NavBarButton>
         <NavBarButton
           className={styles.folder}
-          icon={OpenInfoIcon}
-          action={(): void => {}}
-        />
+          onClick={() => setInfoBar(!infoBar)}
+        >
+          {infoBar ? <OpenInfoIcon /> : <CloseInfoIcon />}
+        </NavBarButton>
       </div>
       <section className={styles.content}>
-        <Outlet context={{ anchors, setAnchors }} />
+        <Outlet context={{ infoBar, palletView }} />
       </section>
     </div>
   );
