@@ -8,6 +8,8 @@
 .previewImage {
   max-width: 200px;
   border: 2px solid var(--gray-light);
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 .previewLink {
@@ -15,6 +17,9 @@
   margin-bottom: 10px;
 }
 
+.title {
+  margin-bottom: 10px;
+}
 
 .optionList {
   list-style: none;

@@ -5,6 +5,7 @@ import { HTag } from "../HTag/HTag";
 import { PortfolioItemProps } from "./PortfolioItem.props";
 import defaultPreview from "../../assets/img/portfolio-default.png";
 import styles from "./PortfolioItem.module.css";
+import cn from "classnames";
 
 export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
   return (
@@ -15,7 +16,9 @@ export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
         alt={item.name}
       />
 
-      <HTag tag="h3">{item.name}</HTag>
+      <HTag tag="h3" className={styles.title}>
+        {item.name}
+      </HTag>
       <p className={styles.description}>{item.description}</p>
       <a
         className={styles.previewLink}

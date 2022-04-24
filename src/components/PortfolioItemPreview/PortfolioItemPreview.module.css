@@ -1,0 +1,17 @@
+.itemContainer {
+  display: flex;
+}
+
+.itemTable {
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+}
+
+.itemTile {
+  flex-direction: column;
+}
+
+.itemTable >.previewImage {
+  height: 30px;
+}

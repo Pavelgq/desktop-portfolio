@@ -15,7 +15,7 @@
 }
 
 .content {
-  height: 100%;
   display: flex;
+  height: calc(100% - 40px);
   justify-content: space-between;
 }

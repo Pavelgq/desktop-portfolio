@@ -20,4 +20,5 @@ export interface PortfolioItemI {
   previewImage?: string;
   
   instruments: string[]; 
+  info?: string;
 }
