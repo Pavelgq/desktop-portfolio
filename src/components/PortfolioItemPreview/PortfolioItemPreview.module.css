@@ -1,5 +1,10 @@
 .itemContainer {
   display: flex;
+  flex-wrap: nowrap;
+  padding: 2px 5px;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid var(--gray-light);
 }
 
 .itemTable {
@@ -10,6 +15,7 @@
 
 .itemTile {
   flex-direction: column;
+  justify-content: center;
 }
 
 .itemTable >.previewImage {

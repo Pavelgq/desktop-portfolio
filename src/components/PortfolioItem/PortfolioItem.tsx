@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Tag } from "..";
+import { ImgTag, Tag } from "..";
 import { PortfolioOptionsI } from "../../interfaces/portfolio";
 import { HTag } from "../HTag/HTag";
 import { PortfolioItemProps } from "./PortfolioItem.props";
@@ -10,8 +10,9 @@ import cn from "classnames";
 export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
   return (
     <div className={styles.container}>
-      <img
-        className={styles.previewImage}
+      <ImgTag
+        width={250}
+        height={150}
         src={item.previewImage || defaultPreview}
         alt={item.name}
       />

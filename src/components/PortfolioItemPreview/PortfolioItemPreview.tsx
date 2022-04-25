@@ -1,7 +1,7 @@
 import { HTag } from "../HTag/HTag";
 import { PortfolioItemProps } from "../PortfolioItem/PortfolioItem.props";
 import { Link } from "react-router-dom";
-import { Tag } from "..";
+import { ImgTag, Tag } from "..";
 import { PortfolioOptionsI } from "../../interfaces/portfolio";
 import defaultPreview from "../../assets/img/portfolio-default.png";
 import styles from "./PortfolioItemPreview.module.css";
@@ -18,8 +18,9 @@ export const PortfolioItemView = ({
         [styles.itemTile]: variant === "tile",
       })}
     >
-      <img
-        className={styles.previewImage}
+      <ImgTag
+        width={50}
+        height={30}
         src={item.previewImage || defaultPreview}
         alt={item.name}
       />

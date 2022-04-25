@@ -1,5 +1,7 @@
+import cn from "classnames";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useOutletContext } from "react-router-dom";
 import {
   FolderSideBar,
   PortfolioItem,
@@ -8,7 +10,6 @@ import {
 import { PortfolioItemI } from "../../interfaces/portfolio";
 import { setTargetWindowTitle } from "../../store/mainStore";
 import styles from "./PortfolioFrame.module.css";
-
 export const portfolioData: PortfolioItemI[] = [
   {
     id: 1,
@@ -75,15 +76,30 @@ export const portfolioData: PortfolioItemI[] = [
   },
 ];
 
+interface ContextFolderI {
+  infoBar: boolean;
+  palletView: boolean;
+}
+
 export const PortfolioFrame = () => {
+  const { infoBar, palletView } = useOutletContext<ContextFolderI>();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setTargetWindowTitle("Портфолио"));
   }, []);
   return (
-    <div>
+    <div
+      className={cn(styles.itemList, {
+        [styles.table]: palletView,
+        [styles.tile]: !palletView,
+      })}
+    >
       {portfolioData.map((item, i) => (
-        <PortfolioItemView key={item.id} item={item} />
+        <PortfolioItemView
+          key={item.id}
+          item={item}
+          variant={palletView ? "table" : "tile"}
+        />
       ))}
     </div>
   );

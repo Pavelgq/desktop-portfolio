@@ -5,6 +5,7 @@ export * from './HTag/HTag';
 export * from './HrTag/HrTag';
 export * from './NavBarButton/NavBarButton';
 export * from './Tag/Tag';
+export * from './ImgTag/ImgTag';
 
 //molecules
 export * from './MenuItem/MenuItem';

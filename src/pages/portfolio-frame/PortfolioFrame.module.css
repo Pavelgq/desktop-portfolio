@@ -1,0 +1,8 @@
+.itemList {
+  width: 100%;
+}
+
+.tile {
+  display: flex;
+  flex-wrap: wrap;
+}
