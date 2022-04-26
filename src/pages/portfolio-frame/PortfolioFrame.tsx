@@ -99,6 +99,7 @@ export const PortfolioFrame = () => {
           key={item.id}
           item={item}
           variant={palletView ? "table" : "tile"}
+          className={styles.portfolioItem}
         />
       ))}
     </div>

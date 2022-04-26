@@ -16,6 +16,11 @@
 
 .content {
   display: flex;
+  width: 100%;
   height: calc(100% - 40px);
   justify-content: space-between;
+}
+
+.contentWrapper {
+  flex: 1;
 }

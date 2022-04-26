@@ -10,21 +10,23 @@ import cn from "classnames";
 export const PortfolioItemView = ({
   item,
   variant = "table",
+  className,
 }: PortfolioItemProps): JSX.Element => {
   return (
     <div
-      className={cn(styles.itemContainer, {
+      className={cn(styles.itemContainer, className, {
         [styles.itemTable]: variant === "table",
         [styles.itemTile]: variant === "tile",
       })}
     >
       <ImgTag
+        className={styles.image}
         width={50}
         height={30}
         src={item.previewImage || defaultPreview}
         alt={item.name}
       />
-      <HTag tag="h4">{item.name}</HTag>
+      <span className={styles.title}>{item.name}</span>
     </div>
   );
 };

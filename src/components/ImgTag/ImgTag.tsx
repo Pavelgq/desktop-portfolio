@@ -8,6 +8,8 @@ export const ImgTag = ({
   alt,
   width,
   height,
+  className,
+  ...props
 }: ImgTagProps): JSX.Element => {
   const [status, setStatus] = useState<"ready" | "loading" | "error">(
     "loading"
@@ -24,7 +26,7 @@ export const ImgTag = ({
   return (
     <div
       style={{ maxWidth: width, maxHeight: height }}
-      className={cn(styles.wrapper, {
+      className={cn(styles.wrapper, className, {
         [styles.skelet]: status === "loading",
         [styles.error]: status === "error",
       })}
@@ -36,6 +38,7 @@ export const ImgTag = ({
         alt={alt}
         onLoad={handleImageLoaded}
         onError={handleImageErrored}
+        {...props}
       />
     </div>
   );

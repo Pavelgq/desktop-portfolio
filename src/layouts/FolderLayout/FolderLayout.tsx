@@ -21,20 +21,25 @@ export const FolderLayout = () => {
 
   const [windowX] = useWindowSize();
   const fullScreen = useSelector(selectFullScreen);
+
+  const handleChangePalletTable = () =>
+    palletView && setPalletView(!palletView);
+  const handleChangePalletTile = () =>
+    !palletView && setPalletView(!palletView);
   return (
     <div className={styles.container}>
       <div className={styles.navBar}>
         <NavBarButton
           className={styles.folder}
           active={palletView}
-          onClick={() => setPalletView(!palletView)}
+          onClick={handleChangePalletTile}
         >
           <ContentLineIcon />
         </NavBarButton>
         <NavBarButton
           className={styles.folder}
           active={!palletView}
-          onClick={() => setPalletView(!palletView)}
+          onClick={handleChangePalletTable}
         >
           <ContentCardIcon />
         </NavBarButton>
@@ -46,7 +51,10 @@ export const FolderLayout = () => {
         </NavBarButton>
       </div>
       <section className={styles.content}>
-        <Outlet context={{ infoBar, palletView }} />
+        <div className={styles.contentWrapper}>
+          <Outlet context={{ infoBar, palletView }} />
+        </div>
+
         {!checkMobile(windowX) && infoBar ? <FolderSideBar /> : <></>}
       </section>
     </div>
