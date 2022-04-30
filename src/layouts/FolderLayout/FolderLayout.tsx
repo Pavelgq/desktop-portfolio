@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import { PdfSideBarAnchor } from "../../components/PdfSideBar/PdfSideBar.props";
 import { useWindowSize } from "../../hooks/useWindowSize";
@@ -14,48 +14,64 @@ import { NavBarButton } from "../../components/NavBarButton/NavBarButton";
 import cn from "classnames";
 import { FolderSideBar } from "../../components";
 import { checkMobile } from "../../utils/dom-utils";
+import { portfolioData } from "../../pages/portfolio-frame/PortfolioFrame";
+import {
+  selectFolderCurrentId,
+  selectFolderInfoBar,
+  selectFolderPalletView,
+  setFolderInfoBarState,
+  setFolderPalletView,
+} from "../../store/folderStore";
 
 export const FolderLayout = () => {
-  const [infoBar, setInfoBar] = useState(false);
-  const [palletView, setPalletView] = useState(false);
-
   const [windowX] = useWindowSize();
   const fullScreen = useSelector(selectFullScreen);
+  const currentId = useSelector(selectFolderCurrentId);
+  const infoBar = useSelector(selectFolderInfoBar);
+  const palletView = useSelector(selectFolderPalletView);
 
-  const handleChangePalletTable = () =>
-    palletView && setPalletView(!palletView);
-  const handleChangePalletTile = () =>
-    !palletView && setPalletView(!palletView);
+  const dispatch = useDispatch();
+
+  const handleChangePalletTable = () => {
+    dispatch(setFolderPalletView("Table"));
+  };
+  const handleChangePalletTile = () => dispatch(setFolderPalletView("Tile"));
   return (
     <div className={styles.container}>
       <div className={styles.navBar}>
         <NavBarButton
           className={styles.folder}
-          active={palletView}
-          onClick={handleChangePalletTile}
+          active={palletView === "Table"}
+          onClick={handleChangePalletTable}
         >
           <ContentLineIcon />
         </NavBarButton>
         <NavBarButton
           className={styles.folder}
-          active={!palletView}
-          onClick={handleChangePalletTable}
+          active={palletView === "Tile"}
+          onClick={handleChangePalletTile}
         >
           <ContentCardIcon />
         </NavBarButton>
         <NavBarButton
           className={styles.folder}
-          onClick={() => setInfoBar(!infoBar)}
+          onClick={() => dispatch(setFolderInfoBarState(!infoBar))}
         >
           {!infoBar ? <OpenInfoIcon /> : <CloseInfoIcon />}
         </NavBarButton>
       </div>
       <section className={styles.content}>
         <div className={styles.contentWrapper}>
-          <Outlet context={{ infoBar, palletView }} />
+          <Outlet />
         </div>
 
-        {!checkMobile(windowX) && infoBar ? <FolderSideBar /> : <></>}
+        {!checkMobile(windowX) && infoBar ? (
+          <FolderSideBar
+            data={portfolioData.find((item) => item.id === currentId)}
+          />
+        ) : (
+          <></>
+        )}
       </section>
     </div>
   );

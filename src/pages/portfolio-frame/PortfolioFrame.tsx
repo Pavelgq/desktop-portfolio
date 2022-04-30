@@ -1,6 +1,6 @@
 import cn from "classnames";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { MouseEvent, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useOutletContext } from "react-router-dom";
 import {
   FolderSideBar,
@@ -8,6 +8,11 @@ import {
   PortfolioItemView,
 } from "../../components";
 import { PortfolioItemI } from "../../interfaces/portfolio";
+import {
+  selectFolderInfoBar,
+  selectFolderPalletView,
+  setFolderCuttentId,
+} from "../../store/folderStore";
 import { setTargetWindowTitle } from "../../store/mainStore";
 import styles from "./PortfolioFrame.module.css";
 export const portfolioData: PortfolioItemI[] = [
@@ -76,30 +81,32 @@ export const portfolioData: PortfolioItemI[] = [
   },
 ];
 
-interface ContextFolderI {
-  infoBar: boolean;
-  palletView: boolean;
-}
-
 export const PortfolioFrame = () => {
-  const { infoBar, palletView } = useOutletContext<ContextFolderI>();
+  const infoBar = useSelector(selectFolderInfoBar);
+  const palletView = useSelector(selectFolderPalletView);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setTargetWindowTitle("Портфолио"));
   }, []);
+
+  const handleSelect = (id: number) => {
+    dispatch(setFolderCuttentId(id));
+  };
+
   return (
     <div
       className={cn(styles.itemList, {
-        [styles.table]: palletView,
-        [styles.tile]: !palletView,
+        [styles.table]: palletView === "Table",
+        [styles.tile]: palletView === "Tile",
       })}
     >
       {portfolioData.map((item, i) => (
         <PortfolioItemView
           key={item.id}
           item={item}
-          variant={palletView ? "table" : "tile"}
+          variant={palletView}
           className={styles.portfolioItem}
+          handleClick={handleSelect}
         />
       ))}
     </div>

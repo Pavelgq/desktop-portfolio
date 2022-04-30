@@ -11,12 +11,19 @@
   overflow: hidden;
 }
 .itemContainer:hover {
-  background-color: rgba(00, 100, 110, 0.6);
+  color: var(--text-color-light);
+  background-color: var(--select-item);
+}
+
+.active {
+  color: var(--text-color-light);
+   background-color: var(--select-item);
 }
 
 .itemTable {
   flex-direction: row;
   flex-wrap: nowrap;
+  width: 100%;
 }
 
 .itemTile {

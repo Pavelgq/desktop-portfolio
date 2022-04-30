@@ -4,8 +4,9 @@ import { portfolioData } from "../../pages/portfolio-frame/PortfolioFrame";
 import { selectFullScreen } from "../../store/mainStore";
 import { PortfolioItem } from "../PortfolioItem/PortfolioItem";
 import styles from "./FolderSideBar.module.css";
+import { FolderSideBarProps } from "./FolderSideBar.props";
 
-export function FolderSideBar() {
+export function FolderSideBar({ data }: FolderSideBarProps): JSX.Element {
   const fullScreen = useSelector(selectFullScreen);
   return (
     <div
@@ -13,9 +14,7 @@ export function FolderSideBar() {
         [styles.fullScreen]: fullScreen,
       })}
     >
-      {portfolioData.map((data, i) => (
-        <PortfolioItem item={data} key={data.id} />
-      ))}
+      {data && <PortfolioItem item={data} key={data.id} />}
     </div>
   );
 }
