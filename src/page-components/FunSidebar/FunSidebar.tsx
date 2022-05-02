@@ -6,18 +6,20 @@ import { ReactComponent as StormtrooperIcon } from "../../assets/svg/icons/icons
 export const FunSidebar = () => {
   return (
     <nav className={styles.sidebar}>
-      <MenuItem
-        className={styles.item}
-        title={"Games"}
-        path={"/error"}
-        Icon={StormtrooperIcon}
-      />
-      <MenuItem
-        className={styles.item}
-        title={"Mems"}
-        path={"/error"}
-        Icon={FolderIcon}
-      />
+      <ul className={styles.list}>
+        <MenuItem
+          className={styles.item}
+          title={"Games"}
+          path={"/error"}
+          Icon={StormtrooperIcon}
+        />
+        <MenuItem
+          className={styles.item}
+          title={"Mems"}
+          path={"/error"}
+          Icon={FolderIcon}
+        />
+      </ul>
     </nav>
   );
 };

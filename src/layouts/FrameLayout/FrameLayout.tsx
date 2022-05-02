@@ -29,7 +29,6 @@ interface ContextI {
 export const FrameLayout = () => {
   const [windowX] = useWindowSize();
   const { draggableItem } = useOutletContext<ContextI>();
-  console.log(draggableItem);
   const title = useSelector(selectTitle);
   const fullScreen = useSelector(selectFullScreen);
   const dispatch = useDispatch();
@@ -39,7 +38,6 @@ export const FrameLayout = () => {
     if (checkMobile(windowX) && fullScreen) {
       dispatch(setFullScreen(true));
     } else {
-      console.log(windowX, fullScreen);
       dispatch(setFullScreen(false));
     }
   }, [windowX]);

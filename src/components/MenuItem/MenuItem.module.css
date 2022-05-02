@@ -22,9 +22,9 @@
   font-weight: 700;
   line-height: 17px;
   padding: 3px 5px;
-  white-space: nowrap;
+  /* white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; */
 }
 /* TODO
 .title:hover {
@@ -51,5 +51,16 @@
   color: #eee;
   white-space: wrap;
   text-overflow: clip;
-  background-color: rgba(97, 122, 233, 0.719);
+  background-color: var(--select-item);
+}
+
+.activeLink >.icon{
+   background-color: rgba(10, 20, 30, 0.2);
+}
+
+.activeLink >.title {
+  color: #eee;
+  white-space: wrap;
+  text-overflow: clip;
+  background-color: var(--select-item);
 }

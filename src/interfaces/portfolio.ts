@@ -3,10 +3,12 @@ export interface PortfolioOptionsI {
  licence: {
    name: 'Лицензия';
    value: string;
+   link: boolean;
  };
   codeLink?: {
    name: 'Исходный код';
    value: string;
+   link: boolean;
  };
 }
 

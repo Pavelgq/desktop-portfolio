@@ -9,7 +9,7 @@
   --text-color: #333;
   --text-color-light: #eee;
   
-  --select-item: #003cff;
+  --select-item: rgba(97, 122, 233, 0.7);
   --gray-light: #333333;
   --white: #eee;
   
@@ -32,6 +32,7 @@
 
 .easeInAnimation {
   transition: all 0.2s ease-out;
+
 }
 
 .footerItem {

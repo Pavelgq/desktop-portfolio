@@ -7,36 +7,38 @@ import { ReactComponent as DocumentIcon } from "../../assets/svg/icons/document-
 export const InfoSidebar = () => {
   return (
     <nav className={styles.sidebar}>
-      {/* <MenuItem
+      <ul className={styles.list}>
+        {/* <MenuItem
         className={styles.item}
         title={"Nudes"}
         path={"/error"}
         Icon={FolderIcon}
       /> */}
-      <MenuItem
-        className={styles.item}
-        title={"Портфолио"}
-        path={"/frame/folder/portfolio"}
-        Icon={FolderIcon}
-      />
-      <MenuItem
-        className={styles.item}
-        title={"Резюме_Гордеев.pdf"}
-        path={"/frame/resume"}
-        Icon={PdfIcon}
-      />
-      <MenuItem
-        className={styles.item}
-        title={"Readme"}
-        path={"/frame/welcome"}
-        Icon={DocumentIcon}
-      />
-      <MenuItem
-        className={styles.item}
-        title={"Todo"}
-        path={"/error"}
-        Icon={FolderIcon}
-      />
+        <MenuItem
+          className={styles.item}
+          title={"Портфолио"}
+          path={"/frame/folder/portfolio"}
+          Icon={FolderIcon}
+        />
+        <MenuItem
+          className={styles.item}
+          title={"Резюме_Гордеев.pdf"}
+          path={"/frame/resume"}
+          Icon={PdfIcon}
+        />
+        <MenuItem
+          className={styles.item}
+          title={"Readme"}
+          path={"/frame/welcome"}
+          Icon={DocumentIcon}
+        />
+        <MenuItem
+          className={styles.item}
+          title={"Todo"}
+          path={"/error"}
+          Icon={FolderIcon}
+        />
+      </ul>
     </nav>
   );
 };

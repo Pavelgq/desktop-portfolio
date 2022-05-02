@@ -30,14 +30,24 @@ export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
         Просмотр
       </a>
       <ul className={styles.optionList}>
-        {Object.keys(item.options).map((option, i) => (
-          <li key={i} className={styles.optionItem}>
-            <span>{item.options[option as keyof PortfolioOptionsI]?.name}</span>
-            <span>
-              {item.options[option as keyof PortfolioOptionsI]?.value}
-            </span>
+        {item.options.licence && (
+          <li className={styles.optionItem}>
+            <span>{item.options.licence.name}</span>
+            <span>{item.options.licence.value}</span>
           </li>
-        ))}
+        )}
+        {item.options.codeLink && (
+          <li className={styles.optionItem}>
+            <span>{item.options.codeLink.name}</span>
+            <a
+              href={item.options.codeLink.value}
+              target="_blank"
+              rel="noreferrer"
+            >
+              ссылка
+            </a>
+          </li>
+        )}
       </ul>
 
       <div className={styles.tags}>

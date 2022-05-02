@@ -24,10 +24,12 @@ export const portfolioData: PortfolioItemI[] = [
       licence: {
         name: "Лицензия",
         value: "CFD",
+        link: false,
       },
       codeLink: {
         name: "Исходный код",
         value: "https://github.com/Pavelgq/power-lines-calculator-admin",
+        link: true,
       },
     },
     previewLink: "https://pavelgq.github.io/power-lines-calculator-admin/",
@@ -45,10 +47,12 @@ export const portfolioData: PortfolioItemI[] = [
       licence: {
         name: "Лицензия",
         value: "CFD",
+        link: false,
       },
       codeLink: {
         name: "Исходный код",
         value: "https://github.com/Pavelgq/power-lines-calculators-server",
+        link: true,
       },
     },
     previewLink: "https://hidden-inlet-89012.herokuapp.com",
@@ -66,10 +70,12 @@ export const portfolioData: PortfolioItemI[] = [
       licence: {
         name: "Лицензия",
         value: "CFD",
+        link: false,
       },
       codeLink: {
         name: "Исходный код",
         value: "https://github.com/Pavelgq/speech-therapy-games",
+        link: true,
       },
     },
     previewLink: "https://pavelgq.github.io/speech-therapy-games/",
@@ -99,6 +105,7 @@ export const PortfolioFrame = () => {
         [styles.table]: palletView === "Table",
         [styles.tile]: palletView === "Tile",
       })}
+      onClick={() => handleSelect(0)}
     >
       {portfolioData.map((item, i) => (
         <PortfolioItemView

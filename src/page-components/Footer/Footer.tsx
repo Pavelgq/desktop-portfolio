@@ -3,7 +3,7 @@ import styles from "./Footer.module.css";
 
 import { ReactComponent as TelegramIcon } from "../../assets/svg/icons/icons8-plasticine-Telegram App.svg";
 import { ReactComponent as GithubIcon } from "../../assets/svg/icons/icons8-plasticine-Github Squared.svg";
-import { ReactComponent as LinkedinIcon } from "../../assets/svg/icons/icons8-plasticine-LinkedIn.svg";
+//import { ReactComponent as LinkedinIcon } from "../../assets/svg/icons/icons8-plasticine-LinkedIn.svg";
 import { ReactComponent as TwitterIcon } from "../../assets/svg/icons/icons8-plasticine-Twitter.svg";
 import { ReactComponent as EmailIcon } from "../../assets/svg/icons/icons8-plasticine-Mail.svg";
 
