@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
-import { PdfSideBarAnchor } from "../../components/PdfSideBar/PdfSideBar.props";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { selectFullScreen } from "../../store/mainStore";
 import styles from "./FolderLayout.module.css";
@@ -11,7 +9,6 @@ import { ReactComponent as CloseInfoIcon } from "../../assets/svg/icons/close-pa
 import { ReactComponent as ContentLineIcon } from "../../assets/svg/icons/content-line.svg";
 import { ReactComponent as ContentCardIcon } from "../../assets/svg/icons/content-cards.svg";
 import { NavBarButton } from "../../components/NavBarButton/NavBarButton";
-import cn from "classnames";
 import { FolderSideBar } from "../../components";
 import { checkMobile } from "../../utils/dom-utils";
 import { portfolioData } from "../../pages/portfolio-frame/PortfolioFrame";

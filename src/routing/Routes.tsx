@@ -1,5 +1,4 @@
-import React from "react";
-import { Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { NotFound } from "../pages/not-found/NotFound";
 import {
   FrameLayout,

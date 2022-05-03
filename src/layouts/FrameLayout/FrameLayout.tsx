@@ -1,7 +1,7 @@
 import { Outlet, useNavigate, useOutletContext } from "react-router-dom";
 import cn from "classnames";
 import styles from "./FrameLayout.module.css";
-import { DragEvent, useRef, useState, UIEvent, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectFullScreen,
@@ -27,6 +27,7 @@ interface ContextI {
 }
 
 export const FrameLayout = () => {
+  console.log("frame");
   const [windowX] = useWindowSize();
   const { draggableItem } = useOutletContext<ContextI>();
   const title = useSelector(selectTitle);
