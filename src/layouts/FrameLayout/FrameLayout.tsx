@@ -9,8 +9,8 @@ import {
   setFullScreen,
   toggleFullScreen,
 } from "../../store/mainStore";
-import { ReactComponent as CloseIcon } from "../../assets/svg/icons/icons8-iOS Glyph-Close.svg";
-import { ReactComponent as FullIcon } from "../../assets/svg/icons/icons8-Plumpy-Full Screen.svg";
+import { ReactComponent as CloseIcon } from "../../assets/svg/icons/close.svg";
+import { ReactComponent as FullIcon } from "../../assets/svg/icons/fullScreen.svg";
 import { HTag } from "../../components";
 import {
   CustomDragLayer,

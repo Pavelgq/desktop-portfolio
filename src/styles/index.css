@@ -9,12 +9,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'PT Sans Narrow',
   sans-serif;
-  background: linear-gradient(90deg, #f598a8, #f6edb2);
-  
+
   box-sizing: border-box;
-  height: 100vh;
-  overflow: hidden;
-  -webkit-overflow-scrolling: touch;
+  
 }
 
 

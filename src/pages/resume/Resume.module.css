@@ -5,6 +5,11 @@
   padding: 0 10px;
 }
 
+.resumePreview {
+  height: auto;
+  overflow: auto;
+}
+
 
 .line {
   margin: 1px 0;

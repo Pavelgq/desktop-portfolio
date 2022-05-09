@@ -8,7 +8,7 @@ import {
 } from "../layouts";
 import { BlankFrame } from "../pages/blank-frame/BlankFrame";
 import { PortfolioFrame } from "../pages/portfolio-frame/PortfolioFrame";
-import { Resume } from "../pages/resume/Resume";
+import { ResumePreview, ResumeWrapper } from "../pages/resume/Resume";
 import { WelcomeFrame } from "../pages/welcome-frame/WelcomeFrame";
 
 export function RoutesList(): JSX.Element {
@@ -23,11 +23,12 @@ export function RoutesList(): JSX.Element {
             <Route path="courses" element={<PortfolioFrame />} />
           </Route>
           <Route path="resume" element={<PDFLayout />}>
-            <Route index element={<Resume />} />
+            <Route index element={<ResumeWrapper />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Route>
       </Route>
+      <Route path="/resume-print" element={<ResumePreview />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

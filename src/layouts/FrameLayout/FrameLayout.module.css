@@ -47,8 +47,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15px;
-  height: 15px;
+  width: 17px;
+  height: 17px;
 
   padding: 0;
 
@@ -96,13 +96,15 @@
 
 .hatButton svg {
   display: none;
-  width: 10px;
-  height: 10px;
+
+  width: 13px;
+  height: 13px;
   fill: var(--gray-light)
 }
 
 .hatMenu:hover svg {
   display: block;
+  
 }
 
 svg {
