@@ -10,6 +10,7 @@ import { BlankFrame } from "../pages/blank-frame/BlankFrame";
 import { PortfolioFrame } from "../pages/portfolio-frame/PortfolioFrame";
 import { ResumePreview, ResumeWrapper } from "../pages/resume/Resume";
 import { WelcomeFrame } from "../pages/welcome-frame/WelcomeFrame";
+import { CoursesFrame } from "../pages/courses-frame/CoursesFrame";
 
 export function RoutesList(): JSX.Element {
   return (
@@ -20,7 +21,7 @@ export function RoutesList(): JSX.Element {
           <Route path="welcome" element={<WelcomeFrame />} />
           <Route path="folder" element={<FolderLayout />}>
             <Route path="portfolio" element={<PortfolioFrame />} />
-            <Route path="courses" element={<PortfolioFrame />} />
+            <Route path="courses" element={<CoursesFrame />} />
           </Route>
           <Route path="resume" element={<PDFLayout />}>
             <Route index element={<ResumeWrapper />} />

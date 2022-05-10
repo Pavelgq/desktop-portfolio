@@ -1,13 +1,8 @@
 import cn from "classnames";
-import { MouseEvent, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useOutletContext } from "react-router-dom";
-import {
-  FolderSideBar,
-  PortfolioItem,
-  PortfolioItemView,
-} from "../../components";
-import { portfolioData } from "../../data/portfolio";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { PortfolioItemView } from "../../components";
+import { coursesData } from "../../data/portfolio";
 import { PortfolioItemI } from "../../interfaces/portfolio";
 import {
   selectFolderInfoBar,
@@ -15,14 +10,14 @@ import {
   setFolderCuttentId,
 } from "../../store/folderStore";
 import { setTargetWindowTitle } from "../../store/mainStore";
-import styles from "./PortfolioFrame.module.css";
+import styles from "./CoursesFrame.module.css";
 
-export const PortfolioFrame = () => {
+export const CoursesFrame = () => {
   const infoBar = useSelector(selectFolderInfoBar);
   const palletView = useSelector(selectFolderPalletView);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setTargetWindowTitle("Портфолио"));
+    dispatch(setTargetWindowTitle("Курсы"));
   }, []);
 
   const handleSelect = (id: number) => {
@@ -37,7 +32,7 @@ export const PortfolioFrame = () => {
       })}
       onClick={() => handleSelect(0)}
     >
-      {portfolioData.map((item, i) => (
+      {coursesData.map((item, i) => (
         <PortfolioItemView
           key={item.id}
           item={item}

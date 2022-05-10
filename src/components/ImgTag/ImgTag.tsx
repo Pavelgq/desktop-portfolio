@@ -6,14 +6,24 @@ import cn from "classnames";
 export const ImgTag = ({
   src,
   alt,
-  width,
-  height,
+  width = 0,
+  height = 0,
   className,
   ...props
 }: ImgTagProps): JSX.Element => {
   const [status, setStatus] = useState<"ready" | "loading" | "error">(
     "loading"
   );
+
+  const setStyle = () => {
+    if (width === 0 || height === 0) {
+      return {};
+    }
+    return {
+      width: width,
+      height: height,
+    };
+  };
 
   const handleImageLoaded = () => {
     setStatus("ready");
@@ -25,7 +35,7 @@ export const ImgTag = ({
 
   return (
     <div
-      style={{ maxWidth: width, maxHeight: height }}
+      style={setStyle()}
       className={cn(styles.wrapper, className, {
         [styles.skelet]: status === "loading",
         [styles.error]: status === "error",

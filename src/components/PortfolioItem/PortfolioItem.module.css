@@ -6,13 +6,13 @@
 }
 
 .previewImage {
-  max-width: 200px;
+  max-width: 90%;
   border: 2px solid var(--gray-light);
   margin: 0 auto;
   margin-bottom: 10px;
 }
 
-.previewLink {
+.previewLinkWrapper {
 
   margin-bottom: 10px;
 }

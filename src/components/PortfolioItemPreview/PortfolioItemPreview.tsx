@@ -46,7 +46,10 @@ export const PortfolioItemView = ({
         src={item.previewImage || defaultPreview}
         alt={item.name}
       />
-      <span className={styles.title}>{truncate(11, item.name)}</span>
+      {variant === "Table" && <span className={styles.title}>{item.name}</span>}
+      {variant === "Tile" && (
+        <span className={styles.title}>{truncate(11, item.name)}</span>
+      )}
     </button>
   );
 };

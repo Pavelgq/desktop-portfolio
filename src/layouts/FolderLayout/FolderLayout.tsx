@@ -11,7 +11,6 @@ import { ReactComponent as ContentCardIcon } from "../../assets/svg/icons/conten
 import { NavBarButton } from "../../components/NavBarButton/NavBarButton";
 import { FolderSideBar } from "../../components";
 import { checkMobile } from "../../utils/dom-utils";
-import { portfolioData } from "../../pages/portfolio-frame/PortfolioFrame";
 import {
   selectFolderCurrentId,
   selectFolderInfoBar,
@@ -19,6 +18,8 @@ import {
   setFolderInfoBarState,
   setFolderPalletView,
 } from "../../store/folderStore";
+import { PortfolioItemI } from "../../interfaces/portfolio";
+import { portfolioData } from "../../data/portfolio";
 
 export const FolderLayout = () => {
   const [windowX] = useWindowSize();
@@ -64,7 +65,9 @@ export const FolderLayout = () => {
 
         {!checkMobile(windowX) && infoBar ? (
           <FolderSideBar
-            data={portfolioData.find((item) => item.id === currentId)}
+            data={portfolioData.find(
+              (item: PortfolioItemI) => item.id === currentId
+            )}
           />
         ) : (
           <></>

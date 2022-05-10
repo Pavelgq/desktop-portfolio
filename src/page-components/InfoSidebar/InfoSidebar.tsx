@@ -34,8 +34,8 @@ export const InfoSidebar = () => {
         />
         <MenuItem
           className={styles.item}
-          title={"Todo"}
-          path={"/error"}
+          title={"Курсы"}
+          path={"/frame/folder/courses"}
           Icon={FolderIcon}
         />
       </ul>

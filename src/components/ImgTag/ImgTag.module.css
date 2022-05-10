@@ -2,6 +2,9 @@
   position: relative;
   display: flex;
   justify-content: center;
+
+  /* border: 2px solid var(--white); */
+  /* padding: 5px; */
 }
 
 .error {
@@ -22,11 +25,12 @@
   width: 100%;
   height: auto;
   opacity: 1;
-  transition: opacity .5s ease-in;
+  margin-bottom: 5px;
+  /* transition: opacity .5s ease-in; */
 }
 
 .skelet .image {
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 

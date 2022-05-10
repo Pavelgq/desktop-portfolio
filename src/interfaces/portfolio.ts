@@ -1,10 +1,15 @@
 
 export interface PortfolioOptionsI {
- licence: {
-   name: 'Лицензия';
-   value: string;
-   link: boolean;
- };
+  version?: {
+    name: 'Версия';
+    value: string;
+    link: boolean;
+  };
+  type?: {
+    name: 'Тип';
+    value: string;
+    link: boolean;
+  };
   codeLink?: {
    name: 'Исходный код';
    value: string;
@@ -12,14 +17,17 @@ export interface PortfolioOptionsI {
  };
 }
 
+
 export interface PortfolioItemI {
   id: number;
   name: string;
   description: string;
-  finishDate: Date;
+  startDate?: Date | string;
+  finishDate: Date | string;
   options: PortfolioOptionsI;
   previewLink?: string;
   previewImage?: string;
+  previewImageSmall?: string;
   
   instruments: string[]; 
   info?: string;
