@@ -1,4 +1,4 @@
-import { ImgTag, Tag } from "..";
+import { ImgTag, Modal, Tag } from "..";
 import { HTag } from "../HTag/HTag";
 import { PortfolioItemProps } from "./PortfolioItem.props";
 import defaultPreview from "../../assets/img/portfolio-default.png";
@@ -12,6 +12,7 @@ export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
       <HTag tag="h3" className={styles.title}>
         {item.name}
       </HTag>
+      <p className={styles.period}><span>{item.startDate}</span>-<span>{item.finishDate}</span></p>
       <p className={styles.description}>{item.description}</p>
       <div className={styles.previewLinkWrapper}>
         <a
@@ -47,11 +48,12 @@ export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
 
       <div className={styles.tags}>
         {item.instruments.map((tag, i) => (
-          <Tag key={i} color="gray">
+          <Tag key={i} color="gray" className={styles.tag}>
             {tag}
           </Tag>
         ))}
       </div>
+      
     </div>
   );
 };

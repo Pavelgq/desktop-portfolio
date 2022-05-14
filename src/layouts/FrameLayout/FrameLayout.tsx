@@ -40,7 +40,9 @@ export const FrameLayout = () => {
     if (checkMobile(windowX) && !fullScreen) {
       dispatch(setFullScreen(true));
     } else {
-      dispatch(setFullScreen(false));
+      if (!checkMobile(windowX)) {
+        dispatch(setFullScreen(false));
+      }
     }
   }, [windowX]);
 

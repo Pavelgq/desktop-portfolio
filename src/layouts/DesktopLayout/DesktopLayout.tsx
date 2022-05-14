@@ -10,6 +10,7 @@ import { selectFullScreen } from "../../store/mainStore";
 import { SlideConstruct } from "../../components/SlideConstruct/SlideConstruct";
 import { animated, useSpringRef, useTransition } from "@react-spring/web";
 import { vh } from "../../hooks/useWindowSize";
+import { Modal } from "../../components";
 
 export interface DragItem {
   type: string;
@@ -65,6 +66,7 @@ export const DesktopLayout = () => {
       <Outlet context={{ draggableItem }} />
 
       <Footer />
+      <Modal visible={true} title={"Error"} content={"lol kek"} footer={"asd"} onClose={() => {}}  />
     </div>
   );
 };

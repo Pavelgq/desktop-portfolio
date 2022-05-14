@@ -39,5 +39,15 @@
   display: flex;
   flex-wrap: wrap;
 }
+.tag {
+  margin-bottom: 5px;
+}
 
 
+.period {
+  margin: 1px 0;
+  font-size: 12px;
+  line-height: 12px;
+  color: var(--gray-light);
+  font-style: italic;
+}

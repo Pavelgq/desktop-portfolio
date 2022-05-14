@@ -1,13 +1,10 @@
-.container {
-  /* position: relative; */
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  width: 60vw;
-  /* margin-top: 100px; */
-  left: 20vw;
-  top: 10vh;
-  z-index: 2;
+.modal {
+  position: fixed;
+  top: calc(50% - 90px);
+  left: calc(50% - 150px);
+  width: 30vw;
+  height: auto;
+  z-index: 9;
 }
 
 .hat {
@@ -23,11 +20,6 @@
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 
-}
-
-.fullScreen > .hat {
-  border-radius: 0;
-  user-select: none;
 }
 
 .hatMenu {
@@ -65,30 +57,18 @@
   font-size: 16px;
 }
 
-.fullScreen {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  left: 0;
-  top: 0;
-  margin-top: 0;
-}
+.dialog {
 
-.content {
   display: flex;
   background-color: var(--main-bg-color);
   border: 3px solid #333;
   border-top: 0;
   box-shadow: 10px 10px 0 #333;
-  height: 450px;
+  height: 150px;
 
   user-select:text;
   overflow-y: auto;
 }
-
- .fullContent {
-   height: 100vh;
- }
 
 .close {
   background-color: #c57878;
@@ -109,8 +89,4 @@
 
 svg {
   fill: var(--gray-light)
-}
-
-@media screen and (max-width: var(--mobile-max-width)) {
- 
 }
