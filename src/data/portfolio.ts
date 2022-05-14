@@ -314,4 +314,51 @@ export const coursesData: PortfolioItemI[] = [
       "Учебный проект на основе WebSocket. Чат комната с серверной авторизацией (изменение пользовательских данных, аватара, сохраниение истории на сервере и пр.)",
     instruments: ["css", "WebSocket", "ES6", ""],
   },
+  {
+    id: 7,
+    name: "top-app",
+    startDate: '6 октября 2021',
+    finishDate: '7 ноября 2021',
+    options: {
+      type: {
+        name: "Тип",
+        value: "SSG",
+        link: false,
+      },
+      codeLink: {
+        name: "Исходный код",
+        value: "https://github.com/Pavelgq/top-app",
+        link: true,
+      },
+    },
+    previewLink: "https://top-lfyybgh45-pavelgq.vercel.app/courses/financial-analytics",
+    previewImage: "/img/courses/top-app.png",
+    description:
+      "Учебный проект на NextJS от LoftSchool. ",
+    instruments: ["nextJS", "ts"],
+  },
+  {
+    id: 8,
+    name: "medium-clone",
+    startDate: '8 января 2021',
+    finishDate: '10 марта 2021',
+    options: {
+      type: {
+        name: "Тип",
+        value: "SPA",
+        link: false,
+      },
+      codeLink: {
+        name: "Исходный код",
+        value: "https://github.com/Pavelgq/medium-clone-reactjs",
+        link: true,
+      },
+    },
+    previewLink: "",
+    previewImage: "/img/courses/top-app.png",
+    description:
+      "Учебный проект на NextJS от LoftSchool. ",
+    instruments: ["nextJS", "ts"],
+  },
 ];
+
