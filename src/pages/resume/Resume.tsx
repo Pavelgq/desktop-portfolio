@@ -21,7 +21,6 @@ interface ContextAnchorI {
 
 export const ResumeWrapper = () => {
   const location = useLocation();
-  console.log(location);
   const dispatch = useDispatch();
   const { anchors, setAnchors } = useOutletContext<ContextAnchorI>();
   const [scroll, setScroll] = useState<number | undefined>(0);

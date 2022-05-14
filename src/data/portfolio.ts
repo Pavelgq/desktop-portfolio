@@ -212,7 +212,7 @@ export const coursesData: PortfolioItemI[] = [
       },
       codeLink: {
         name: "Исходный код",
-        value: "https://github.com/Pavelgq/nerds",
+        value: "https://github.com/Pavelgq/sedona",
         link: true,
       },
     },
@@ -243,7 +243,7 @@ export const coursesData: PortfolioItemI[] = [
     previewImage: "/img/courses/cat-energy.png",
     description:
       "Адаптивный макет сайта интернет магазина от HTML Academy.",
-    instruments: ["less", "gulp"],
+    instruments: ["less", "gulp", "ES6"],
   },
   {
     id: 4,
@@ -312,7 +312,7 @@ export const coursesData: PortfolioItemI[] = [
     previewImage: "",
     description:
       "Учебный проект на основе WebSocket. Чат комната с серверной авторизацией (изменение пользовательских данных, аватара, сохраниение истории на сервере и пр.)",
-    instruments: ["css", "WebSocket", "ES6", ""],
+    instruments: ["css", "WebSocket", "ES6"],
   },
   {
     id: 7,
@@ -334,8 +334,8 @@ export const coursesData: PortfolioItemI[] = [
     previewLink: "https://top-lfyybgh45-pavelgq.vercel.app/courses/financial-analytics",
     previewImage: "/img/courses/top-app.png",
     description:
-      "Учебный проект на NextJS от LoftSchool. ",
-    instruments: ["nextJS", "ts"],
+      "Учебный проект на NextJS от Udemy. ",
+    instruments: ["nextJS", "react", "ts"],
   },
   {
     id: 8,
@@ -354,11 +354,11 @@ export const coursesData: PortfolioItemI[] = [
         link: true,
       },
     },
-    previewLink: "",
+    previewLink: "https://pavelgq.github.io/medium-clone-reactjs/",
     previewImage: "/img/courses/top-app.png",
     description:
-      "Учебный проект на NextJS от LoftSchool. ",
-    instruments: ["nextJS", "ts"],
+      "Учебный проект по React Hooks от Udemy. ",
+    instruments: ["react", "ts", 'sass'],
   },
 ];
 

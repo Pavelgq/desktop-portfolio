@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { selectFullScreen } from "../../store/mainStore";
 import { SlideConstruct } from "../../components/SlideConstruct/SlideConstruct";
 import { animated, useSpringRef, useTransition } from "@react-spring/web";
+import { vh } from "../../hooks/useWindowSize";
 
 export interface DragItem {
   type: string;
@@ -18,14 +19,13 @@ export interface DragItem {
 }
 
 export const DesktopLayout = () => {
-  const location = useLocation();
-  const transRef = useSpringRef();
-
+ 
   const fullScreen = useSelector(selectFullScreen);
   const [draggableItem, setDraggableItem] = useState<{
     top: number;
     left: number;
   }>({ top: 0, left: 0 });
+
 
   const moveBox = useCallback(
     (id: string, left: number, top: number) => {
@@ -53,8 +53,10 @@ export const DesktopLayout = () => {
     [moveBox]
   );
   return (
-    <div className={styles.container} ref={drop}>
-      <div className={styles.innerContainer}>
+    <div className={styles.container} ref={drop} style={{
+        height: `${vh*100}px`
+      }}>
+      <div className={styles.innerContainer} >
         <SlideConstruct>
           <InfoSidebar />
           <FunSidebar />

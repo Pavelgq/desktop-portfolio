@@ -11,7 +11,7 @@ export interface FolderStoreInterface {
 
 const initialState: FolderStoreInterface = {
   folderPalletView: 'Tile',
-  folderInfoBarState: false,
+  folderInfoBarState: true,
   folderCurrentId: 0,
 }
 

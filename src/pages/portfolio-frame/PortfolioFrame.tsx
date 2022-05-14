@@ -8,16 +8,21 @@ import {
   PortfolioItemView,
 } from "../../components";
 import { portfolioData } from "../../data/portfolio";
+import { useWindowSize } from "../../hooks/useWindowSize";
 import { PortfolioItemI } from "../../interfaces/portfolio";
 import {
+  selectFolderCurrentId,
   selectFolderInfoBar,
   selectFolderPalletView,
   setFolderCuttentId,
 } from "../../store/folderStore";
 import { setTargetWindowTitle } from "../../store/mainStore";
+import { checkMobile } from "../../utils/dom-utils";
 import styles from "./PortfolioFrame.module.css";
 
 export const PortfolioFrame = () => {
+  const [windowX] = useWindowSize();
+  const currentId = useSelector(selectFolderCurrentId);
   const infoBar = useSelector(selectFolderInfoBar);
   const palletView = useSelector(selectFolderPalletView);
   const dispatch = useDispatch();
@@ -30,6 +35,7 @@ export const PortfolioFrame = () => {
   };
 
   return (
+    <>
     <div
       className={cn(styles.itemList, {
         [styles.table]: palletView === "Table",
@@ -47,5 +53,15 @@ export const PortfolioFrame = () => {
         />
       ))}
     </div>
+    {!checkMobile(windowX) && infoBar ? (
+          <FolderSideBar
+            data={portfolioData.find(
+              (item: PortfolioItemI) => item.id === currentId
+            )}
+          />
+        ) : (
+          <></>
+        )}
+    </>
   );
 };

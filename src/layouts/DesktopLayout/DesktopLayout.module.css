@@ -22,7 +22,12 @@
 }
 
 @media screen and (max-width: 640px) {
+  .container {
+    overflow: hidden;
+    min-height: -webkit-fill-available;
+  }
   .innerContainer {
-    
+    height: -webkit-fill-available;
+    overflow: hidden;
   }
 }

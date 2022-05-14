@@ -18,3 +18,13 @@
   margin: 30px;
   margin-top: 0;
 }
+
+@media screen and (max-width: 640px) {
+  .list {
+    flex-direction: row;
+  }
+  .item {
+      margin: 20px;
+      margin-top: 0;
+  }
+}

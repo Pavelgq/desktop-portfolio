@@ -22,5 +22,6 @@
 }
 
 .contentWrapper {
+  display: flex;
   flex: 1;
 }

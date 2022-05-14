@@ -24,7 +24,7 @@ import { portfolioData } from "../../data/portfolio";
 export const FolderLayout = () => {
   const [windowX] = useWindowSize();
   const fullScreen = useSelector(selectFullScreen);
-  const currentId = useSelector(selectFolderCurrentId);
+  
   const infoBar = useSelector(selectFolderInfoBar);
   const palletView = useSelector(selectFolderPalletView);
 
@@ -63,15 +63,7 @@ export const FolderLayout = () => {
           <Outlet />
         </div>
 
-        {!checkMobile(windowX) && infoBar ? (
-          <FolderSideBar
-            data={portfolioData.find(
-              (item: PortfolioItemI) => item.id === currentId
-            )}
-          />
-        ) : (
-          <></>
-        )}
+        
       </section>
     </div>
   );

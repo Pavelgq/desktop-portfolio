@@ -1,18 +1,23 @@
 import cn from "classnames";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { PortfolioItemView } from "../../components";
-import { coursesData } from "../../data/portfolio";
+import { FolderSideBar, PortfolioItemView } from "../../components";
+import { coursesData, portfolioData } from "../../data/portfolio";
+import { useWindowSize } from "../../hooks/useWindowSize";
 import { PortfolioItemI } from "../../interfaces/portfolio";
 import {
+  selectFolderCurrentId,
   selectFolderInfoBar,
   selectFolderPalletView,
   setFolderCuttentId,
 } from "../../store/folderStore";
 import { setTargetWindowTitle } from "../../store/mainStore";
+import { checkMobile } from "../../utils/dom-utils";
 import styles from "./CoursesFrame.module.css";
 
 export const CoursesFrame = () => {
+   const [windowX] = useWindowSize();
+  const currentId = useSelector(selectFolderCurrentId);
   const infoBar = useSelector(selectFolderInfoBar);
   const palletView = useSelector(selectFolderPalletView);
   const dispatch = useDispatch();
@@ -25,6 +30,7 @@ export const CoursesFrame = () => {
   };
 
   return (
+    <>
     <div
       className={cn(styles.itemList, {
         [styles.table]: palletView === "Table",
@@ -42,5 +48,15 @@ export const CoursesFrame = () => {
         />
       ))}
     </div>
+    {!checkMobile(windowX) && infoBar ? (
+          <FolderSideBar
+            data={coursesData.find(
+              (item: PortfolioItemI) => item.id === currentId
+            )}
+          />
+        ) : (
+          <></>
+        )}
+    </>
   );
 };

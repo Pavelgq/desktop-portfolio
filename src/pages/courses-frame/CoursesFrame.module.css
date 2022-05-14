@@ -1,0 +1,26 @@
+.itemList {
+  width: 100%;
+  height: 100%;
+}
+
+.tile {
+  display: flex;
+  /* grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  grid-gap: 8px; */
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: flex-start;
+  align-content: flex-start
+}
+
+/* .portfolioItem {
+  width: 100px;
+} */
+
+.table.portfolioItem:nth-child(2n) {
+  background-color: white;
+}
+.table.portfolioItem:nth-child(2n+1) {
+  background-color: var(--main-bg-color);
+}

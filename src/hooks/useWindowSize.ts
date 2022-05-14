@@ -12,3 +12,5 @@ export function useWindowSize() {
   }, []);
   return size;
 }
+
+export const vh = window.innerHeight * 0.01; 

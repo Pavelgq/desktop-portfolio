@@ -36,7 +36,8 @@ export const FrameLayout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (checkMobile(windowX) && fullScreen) {
+    console.log('windowX', windowX, checkMobile(windowX), fullScreen)
+    if (checkMobile(windowX) && !fullScreen) {
       dispatch(setFullScreen(true));
     } else {
       dispatch(setFullScreen(false));

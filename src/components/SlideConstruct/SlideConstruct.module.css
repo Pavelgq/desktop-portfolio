@@ -53,3 +53,10 @@
   border-radius: 50%;
   background-color: #fff;
 }
+
+@media screen and (max-width: 640px) {
+  .contentWrapper{
+     overflow: hidden;
+    height: -webkit-fill-available;
+  }
+}
