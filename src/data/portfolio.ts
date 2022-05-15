@@ -270,7 +270,7 @@ export const coursesData: PortfolioItemI[] = [
   },
   {
     id: 5,
-    name: "Другофильтр",
+    name: "Друго-Фильтр",
     startDate: '16 апреля 2020',
     finishDate: '26 апреля 2020',
     options: {

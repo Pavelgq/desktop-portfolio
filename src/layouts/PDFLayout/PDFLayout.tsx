@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import cn from "classnames";
 import styles from "./PDFLayout.module.css";
 import { useState } from "react";
@@ -17,19 +17,27 @@ import { NavBarButton } from "../../components";
  * @returns
  */
 export const PDFLayout = () => {
+  const navigate = useNavigate();
   const [anchors, setAnchors] = useState<PdfSideBarAnchor[]>();
 
   const handleClick = () => {};
 
   const [windowX] = useWindowSize();
   const fullScreen = useSelector(selectFullScreen);
+
+  const handlePrint = () => {
+    // navigate("/print", { replace: true });
+    window.open("/print", "_blank");
+  };
+  const handleDownload = () => {};
+
   return (
     <div className={styles.container}>
       <div className={styles.navBar}>
         <NavBarButton className={styles.pdfButton}>
           <DownloadIcon />
         </NavBarButton>
-        <NavBarButton className={styles.pdfButton}>
+        <NavBarButton className={styles.pdfButton} onClick={handlePrint}>
           <PrintIcon />
         </NavBarButton>
       </div>

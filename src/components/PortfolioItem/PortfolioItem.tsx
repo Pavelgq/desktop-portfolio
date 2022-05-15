@@ -40,6 +40,12 @@ export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
       </div>
 
       <ul className={styles.optionList}>
+        {item.options.type && (
+          <li className={styles.optionItem}>
+            <span>{item.options.type.name}</span>
+            <span>{item.options.type.value}</span>
+          </li>
+        )}
         {item.options.version && (
           <li className={styles.optionItem}>
             <span>{item.options.version.name}</span>

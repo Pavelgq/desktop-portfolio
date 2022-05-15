@@ -29,7 +29,7 @@ export function RoutesList(): JSX.Element {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Route>
-      <Route path="/resume-print" element={<ResumePreview />} />
+      <Route path="/print" element={<ResumePreview />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

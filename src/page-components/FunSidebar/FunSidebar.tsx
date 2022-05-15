@@ -10,7 +10,7 @@ export const FunSidebar = () => {
         <MenuItem
           className={styles.item}
           title={"Games"}
-          path={"/frame"}
+          path={"/frame/games"}
           Icon={StormtrooperIcon}
         />
         <MenuItem

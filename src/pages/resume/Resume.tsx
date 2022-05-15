@@ -10,6 +10,7 @@ import {
   setCurrentFrameScroll,
   setTargetWindowTitle,
 } from "../../store/mainStore";
+import { getAge } from "../../utils/calc-utils";
 import styles from "./Resume.module.css";
 
 interface ContextAnchorI {
@@ -88,6 +89,9 @@ export const ResumeWrapper = () => {
 };
 
 export const ResumePreview = () => {
+  useEffect(() => {
+    window.print();
+  }, []);
   return (
     <article className={styles.resumePreview}>
       <Resume />
@@ -103,11 +107,27 @@ export const Resume = () => {
         <HrTag thickness="medium" className={styles.line} />
         <span>FRONTEND РАЗРАБОТЧИК</span>
       </div>
+      <div>
+        <ul className={styles.noPointList}>
+          <li className={styles.item}>
+            <span className={styles.itemCategory}>Город: </span>
+            <span className={styles.itemValue}>Санкт-Петербург</span>
+          </li>
+          <li className={styles.item}>
+            <span className={styles.itemCategory}>Метро: </span>
+            <span className={styles.itemValue}>Лесная</span>
+          </li>
+          <li className={styles.item}>
+            <span className={styles.itemCategory}>Дата рождения: </span>
+            <span className={styles.itemValue}>
+              06.12.1991 ({getAge(new Date(1991, 12, 6))})
+            </span>
+          </li>
+        </ul>
+      </div>
       <div className={styles.about}>
-        <HTag tag="h3">
-          <a id={"about"} href="#about">
-            О себе
-          </a>
+        <HTag tag="h3" id={"about"}>
+          О себе
         </HTag>
         <p className="paragraph">
           Фронтенд разработчик с бэкграундом инженера по автоматизации на пороге
@@ -120,23 +140,21 @@ export const Resume = () => {
           <li>серьезно относится к архитектуре проекта,</li>
           <li>работать в команде и закрывать проекты в одиночку,</li>
           <li>
-            думать на несколько шагов наперед и быть внимательным к мелочам,{" "}
+            думать на несколько шагов вперед и быть внимательным к мелочам,
           </li>
           <li>
-            выстраивать свое рабочее время, брать ответственность за свои
-            решения,
+            рационально выстраивать свое рабочее время, брать ответственность за
+            свои решения,
           </li>
           <li>
             параллельно вести несколько проектов и переключатся при
-            необходимости
+            необходимости, но теряюсь когда их больше пяти
           </li>
         </ul>
       </div>
       <div>
-        <HTag tag="h3">
-          <a id={"skils"} href="#skils">
-            Навыки
-          </a>
+        <HTag tag="h3" id={"skils"}>
+          Навыки
         </HTag>
         <ul className={styles.list}>
           <li>HTML, CSS, Javascript (Typescript),</li>
@@ -146,10 +164,8 @@ export const Resume = () => {
         </ul>
       </div>
       <div>
-        <HTag tag="h3">
-          <a id={"experience"} href="#experience">
-            Опыт работы
-          </a>
+        <HTag tag="h3" id={"experience"}>
+          Опыт работы
         </HTag>
         <ul className={styles.placeList}>
           <WorkPlaceItem
@@ -158,13 +174,29 @@ export const Resume = () => {
             interval={"СЕНТЯБРЬ 2015 – НАСТОЯЩЕЕ ВРЕМЯ"}
             info={<></>}
           />
+          <WorkPlaceItem
+            place={`Фриланс проект "ТЭК", Санкт-Петербург`}
+            role={"frontend разработчик"}
+            interval={"ДЕКАБРЬ 2018 – ОКТЯБРЬ 2019"}
+            info={<></>}
+          />
+          <WorkPlaceItem
+            place={`Фриланс проект "Speach-Therapy", Санкт-Петербург`}
+            role={"Frontend разработчик"}
+            interval={"СЕНТЯБРЬ 2020 – ЯНВАРЬ 2021"}
+            info={<></>}
+          />
+          <WorkPlaceItem
+            place={`Фриланс проект "ТЭК Админ и ТЭК Сервер", Санкт-Петербург`}
+            role={"Frontend разработчик"}
+            interval={"НОЯБРЬ 2021 – НАСТОЯЩЕЕ ВРЕМЯ"}
+            info={<></>}
+          />
         </ul>
       </div>
       <div>
-        <HTag tag="h3">
-          <a id={"education"} href="#education">
-            Образование
-          </a>
+        <HTag tag="h3" id={"education"}>
+          Образование
         </HTag>
         <ul className={styles.placeList}>
           <WorkPlaceItem
@@ -172,18 +204,65 @@ export const Resume = () => {
               "СПб НИУ ИТМО (Информационных Технологий, Механики и Оптики), Санкт-Петербург"
             }
             role={"бакалавр"}
-            interval={"МЕСЯЦ 2011 – МЕСЯЦ 2015"}
+            interval={"СЕНТЯБРЬ 2011 – ИЮНЬ 2015"}
             info={<></>}
           />
         </ul>
       </div>
       <div>
-        <HTag tag="h3">
-          <a id={"courses"} href="#courses">
-            Курсы
-          </a>
+        <HTag tag="h3" id={"courses"}>
+          Курсы
         </HTag>
-        <ul className={styles.placeList}></ul>
+        <ul className={styles.placeList}>
+          <WorkPlaceItem
+            place={`HTML Academy`}
+            role={"Верстка..."}
+            interval={"Завершен: МАРТ 2020"}
+            info={<></>}
+          />
+          <WorkPlaceItem
+            place={`HTML Academy`}
+            role={"Верстка..."}
+            interval={"Завершен: ФЕВРАЛЬ 2020"}
+            info={<></>}
+          />
+          <WorkPlaceItem
+            place={`HTML Academy`}
+            role={"Верстка..."}
+            interval={"Завершен: АПРЕЛЬ 2020"}
+            info={<></>}
+          />
+          <WorkPlaceItem
+            place={`Loftschool`}
+            role={"JavaScript"}
+            interval={"Завершен: ИЮНЬ 2020"}
+            info={<></>}
+          />
+          <WorkPlaceItem
+            place={`HTML Academy`}
+            role={"Node JS Express..."}
+            interval={"Завершен: СЕНТЯБРЬ 2020"}
+            info={<></>}
+          />
+          <WorkPlaceItem
+            place={`UDEMY`}
+            role={"React Hooks"}
+            interval={"Завершен: МАРТ 2021"}
+            info={<></>}
+          />
+          <WorkPlaceItem
+            place={`UDEMY`}
+            role={"NEXT JS + Typescript"}
+            interval={"Завершен: НОЯБРЬ 2021"}
+            info={<></>}
+          />
+          <WorkPlaceItem
+            place={`Hexlet`}
+            role={"Redux"}
+            interval={"Завершен: НОЯБРЬ 2021"}
+            info={<></>}
+          />
+        </ul>
       </div>
     </>
   );
