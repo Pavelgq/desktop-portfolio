@@ -5,8 +5,12 @@ import update from "immutability-helper";
 import { useDrop, XYCoord } from "react-dnd";
 import { useState, useCallback, TouchEvent, useEffect } from "react";
 import { ItemTypes } from "../../interfaces/common";
-import { useSelector } from "react-redux";
-import { selectFullScreen } from "../../store/mainStore";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  resetAlarmMessage,
+  selectAlarmMessage,
+  selectFullScreen,
+} from "../../store/mainStore";
 import { SlideConstruct } from "../../components/SlideConstruct/SlideConstruct";
 import { animated, useSpringRef, useTransition } from "@react-spring/web";
 import { vh } from "../../hooks/useWindowSize";
@@ -20,13 +24,13 @@ export interface DragItem {
 }
 
 export const DesktopLayout = () => {
- 
+  const dispatch = useDispatch();
   const fullScreen = useSelector(selectFullScreen);
+  const alarmMessage = useSelector(selectAlarmMessage);
   const [draggableItem, setDraggableItem] = useState<{
     top: number;
     left: number;
   }>({ top: 0, left: 0 });
-
 
   const moveBox = useCallback(
     (id: string, left: number, top: number) => {
@@ -54,10 +58,14 @@ export const DesktopLayout = () => {
     [moveBox]
   );
   return (
-    <div className={styles.container} ref={drop} style={{
-        height: `${vh*100}px`
-      }}>
-      <div className={styles.innerContainer} >
+    <div
+      className={styles.container}
+      ref={drop}
+      style={{
+        height: `${vh * 100}px`,
+      }}
+    >
+      <div className={styles.innerContainer}>
         <SlideConstruct>
           <InfoSidebar />
           <FunSidebar />
@@ -66,7 +74,13 @@ export const DesktopLayout = () => {
       <Outlet context={{ draggableItem }} />
 
       <Footer />
-      <Modal visible={true} title={"Error"} content={"lol kek"} footer={"asd"} onClose={() => {}}  />
+      <Modal
+        visible={alarmMessage.showMessage}
+        title={alarmMessage.title}
+        content={alarmMessage.content}
+        Icon={alarmMessage.Icon}
+        onClose={() => dispatch(resetAlarmMessage())}
+      />
     </div>
   );
 };

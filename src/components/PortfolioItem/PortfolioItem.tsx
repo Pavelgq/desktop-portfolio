@@ -3,8 +3,22 @@ import { HTag } from "../HTag/HTag";
 import { PortfolioItemProps } from "./PortfolioItem.props";
 import defaultPreview from "../../assets/img/portfolio-default.png";
 import styles from "./PortfolioItem.module.css";
+import { MouseEvent } from "react";
+import { useDispatch } from "react-redux";
+import { setAlarmMessage } from "../../store/mainStore";
 
 export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
+  const dispatch = useDispatch();
+
+  const handleClick = (e: MouseEvent, link: string) => {
+    e.preventDefault();
+    if (link) {
+      window.open(link, "_blank");
+    } else {
+      dispatch(setAlarmMessage("fixed"));
+    }
+  };
+
   return (
     <div className={styles.container}>
       <ImgTag src={item.previewImage || defaultPreview} alt={item.name} />
@@ -12,17 +26,17 @@ export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
       <HTag tag="h3" className={styles.title}>
         {item.name}
       </HTag>
-      <p className={styles.period}><span>{item.startDate}</span>-<span>{item.finishDate}</span></p>
+      <p className={styles.period}>
+        <span>{item.startDate}</span>-<span>{item.finishDate}</span>
+      </p>
       <p className={styles.description}>{item.description}</p>
       <div className={styles.previewLinkWrapper}>
-        <a
-          className={styles.previewLink}
-          href={item.previewLink}
-          target={"_blank"}
-          rel="noreferrer"
+        <button
+          className={styles.linkButton}
+          onClick={(e: MouseEvent) => handleClick(e, item.previewLink || "")}
         >
           Просмотр
-        </a>
+        </button>
       </div>
 
       <ul className={styles.optionList}>
@@ -35,13 +49,14 @@ export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
         {item.options.codeLink && (
           <li className={styles.optionItem}>
             <span>{item.options.codeLink.name}</span>
-            <a
-              href={item.options.codeLink.value}
-              target="_blank"
-              rel="noreferrer"
+            <button
+              className={styles.linkButton}
+              onClick={(e: MouseEvent) =>
+                handleClick(e, item.options.codeLink?.value || "")
+              }
             >
               ссылка
-            </a>
+            </button>
           </li>
         )}
       </ul>
@@ -53,7 +68,6 @@ export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
           </Tag>
         ))}
       </div>
-      
     </div>
   );
 };

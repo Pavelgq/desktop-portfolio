@@ -3,14 +3,29 @@ import cn from "classnames";
 
 import styles from "./FooterItem.module.css";
 import { FooterItemProps } from "./FooterItem.props";
+import { MouseEvent } from "react";
+import { useDispatch } from "react-redux";
+import { setAlarmMessage } from "../../store/mainStore";
 
 export const FooterItem = ({
   Icon,
   path,
   title,
+  isOuterLink = true,
   className,
   ...props
 }: FooterItemProps): JSX.Element => {
+  const dispatch = useDispatch();
+
+  const handleClick = (e: MouseEvent, link: string) => {
+    e.preventDefault();
+    if (link) {
+      window.open(link, "_blank");
+    } else {
+      dispatch(setAlarmMessage("inWork"));
+    }
+  };
+
   return (
     <>
       <li className={cn(styles.item, className)} {...props}>
@@ -18,9 +33,23 @@ export const FooterItem = ({
           <span>{title}</span>
         </div>
 
-        <a href={path} className={styles.link} target="_blank" rel="noreferrer">
-          <Icon className={styles.icon} />
-        </a>
+        {isOuterLink ? (
+          <a
+            href={path}
+            className={styles.link}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Icon className={styles.icon} />
+          </a>
+        ) : (
+          <button
+            className={styles.link}
+            onClick={(e: MouseEvent) => handleClick(e, "")}
+          >
+            <Icon className={styles.icon} />
+          </button>
+        )}
       </li>
     </>
   );

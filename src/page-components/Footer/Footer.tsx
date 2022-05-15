@@ -116,13 +116,15 @@ export const Footer = () => {
             <FooterItem
               className="footerItem"
               title={"Загрузки"}
-              path={"/welcome"}
+              path={"/frame/not-found"}
+              isOuterLink={false}
               Icon={DownloadIcon}
             />
             <FooterItem
               className="footerItem"
               title={"Корзина"}
-              path={"#"}
+              path={"/frame/not-found"}
+              isOuterLink={false}
               Icon={TrashIcon}
             />
           </ul>

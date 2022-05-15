@@ -51,3 +51,12 @@
   color: var(--gray-light);
   font-style: italic;
 }
+
+.linkButton {
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}

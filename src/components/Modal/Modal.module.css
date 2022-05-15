@@ -90,3 +90,17 @@
 svg {
   fill: var(--gray-light)
 }
+
+.icon {
+
+}
+
+.dialogContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content {
+  margin: 0 10px;
+}
