@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d66c11dd.css",
+    "main.js": "/static/js/main.4c689ee2.js",
+    "static/media/page-not-found.svg": "/static/media/page-not-found.2c298d57cd71172c6a3adb0020f1348b.svg",
+    "static/media/icons8-plasticine-Stormtrooper.svg": "/static/media/icons8-plasticine-Stormtrooper.56dd092ff5aa68178af612f7325364f1.svg",
+    "static/media/death-star.svg": "/static/media/death-star.73a34cba9e232581b2589dbceee9b1a5.svg",
+    "static/media/coding.png": "/static/media/coding.dfa1ca367f9797c98bda.png",
+    "static/media/portfolio-default.png": "/static/media/portfolio-default.f87262afad187d1c552f.png",
+    "static/media/icons8-plasticine-Twitter.svg": "/static/media/icons8-plasticine-Twitter.9fddbc6125aed7b0dda3e2b6db61084a.svg",
+    "static/media/document-icon.svg": "/static/media/document-icon.be5a28da06df3ea50dc690c846b1e0cc.svg",
+    "static/media/icons8-plasticine-Trash Can.svg": "/static/media/icons8-plasticine-Trash Can.0cda6667c300ec2dbda7baa0123f1cc0.svg",
+    "static/media/icons8-plasticine-Telegram App.svg": "/static/media/icons8-plasticine-Telegram App.104a377886b09e48e2f1a92646a9c1a1.svg",
+    "static/media/info.svg": "/static/media/info.4ea76c866193f1bfe0e2ba2f6834dbb4.svg",
+    "static/media/big-key.svg": "/static/media/big-key.3dc304a622598ee70dc296d3b721e6b1.svg",
+    "static/media/icons8-plasticine-Github Squared.svg": "/static/media/icons8-plasticine-Github Squared.841f778c2b357d5f63685fb49d4374c3.svg",
+    "static/media/icons8-plasticine-PDF.svg": "/static/media/icons8-plasticine-PDF.c1d8fcc2118cd37a77974522b477a212.svg",
+    "static/media/icons8-plasticine-Mail.svg": "/static/media/icons8-plasticine-Mail.6e963da0aeec51d7d5b1648190f1d3b3.svg",
+    "static/media/icons8-plasticine-Downloads.svg": "/static/media/icons8-plasticine-Downloads.bf6aabecb573508eeabd7660302037fa.svg",
+    "static/media/icons8-plasticine-Folder.svg": "/static/media/icons8-plasticine-Folder.03eb26d28ea39e1295254ceeaf9b8435.svg",
+    "static/media/fullScreen.svg": "/static/media/fullScreen.0c71b79d623f8a7e98a9a4ed6e7e7057.svg",
+    "static/media/icons8-Material Rounded-Download.svg": "/static/media/icons8-Material Rounded-Download.2aa982d28485c56b2c516cdd9b1ed6dc.svg",
+    "static/media/icons8-Fluency System Regular-Print.svg": "/static/media/icons8-Fluency System Regular-Print.5385b77bfd18f2a76e7249d42932a1f6.svg",
+    "static/media/close.svg": "/static/media/close.65a7018d6d4b4f615865bab4bb94eaaf.svg",
+    "static/media/content-cards.svg": "/static/media/content-cards.ba776e62d8fd06482e767662544e0015.svg",
+    "static/media/close-panel.svg": "/static/media/close-panel.db577afa5d7d8825ee85538e345cf838.svg",
+    "static/media/open-panel.svg": "/static/media/open-panel.b1284fac8b746e67dd4a5d42eccba986.svg",
+    "static/media/content-line.svg": "/static/media/content-line.4dd1703205f3100d8972f90da647da5a.svg",
+    "index.html": "/index.html",
+    "main.d66c11dd.css.map": "/static/css/main.d66c11dd.css.map",
+    "main.4c689ee2.js.map": "/static/js/main.4c689ee2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d66c11dd.css",
+    "static/js/main.4c689ee2.js"
+  ]
+}
