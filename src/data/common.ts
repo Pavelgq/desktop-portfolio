@@ -1,5 +1,6 @@
 import { ModalDataI } from "../interfaces/common";
 import { ReactComponent as BigKeyIcon } from "../assets/svg/big-key.svg";
+import { ReactComponent as DeathStarIcon } from "../assets/svg/icons/death-star.svg";
 
 type AlarmsType = {
   'empty': ModalDataI,
@@ -26,7 +27,9 @@ export const alarms: AlarmsType = {
   },
   'defence': {
     title: 'Защищено',
-    content: 'К сожалению, меня попросили не показывать данный ресурс. Приношу извинения. '
+    content: 'К сожалению, меня попросили не показывать данный ресурс. Приношу извинения.',
+    Icon: DeathStarIcon
+
   },
 
 }

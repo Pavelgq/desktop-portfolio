@@ -22,3 +22,30 @@
 .placeList {
   list-style: none;
 }
+
+.title {
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 20%;
+  height: auto;
+  margin-right: 20px;
+  border: 2px solid var(--gray-light);
+  padding: 5px;
+}
+
+.mainInfo {
+  display: flex;
+}
+
+.noPointList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.list li, .placeList li {
+  margin-bottom: 4px;
+}

@@ -7,9 +7,10 @@ import defaultPreview from "../../assets/img/portfolio-default.png";
 import styles from "./PortfolioItemPreview.module.css";
 import cn from "classnames";
 import { MouseEvent } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectFolderCurrentId } from "../../store/folderStore";
 import { truncate } from "../../utils/view-utils";
+import { setAlarmMessage } from "../../store/mainStore";
 
 export const PortfolioItemView = ({
   item,
@@ -25,6 +26,18 @@ export const PortfolioItemView = ({
 
   const currentId = useSelector(selectFolderCurrentId);
 
+  const dispatch = useDispatch();
+
+  const handleDoubleClick = (e: MouseEvent, link: string) => {
+    e.preventDefault();
+    if (link) {
+      window.open(link, "_blank");
+    } else {
+      item.defence
+        ? dispatch(setAlarmMessage("defence"))
+        : dispatch(setAlarmMessage("fixed"));
+    }
+  };
   return (
     <button
       type="button"
@@ -34,9 +47,7 @@ export const PortfolioItemView = ({
         [styles.active]: item.id === currentId,
       })}
       onClick={handleSelect}
-      onDoubleClick={() =>
-        item.previewLink && window.open(item.previewLink, "_blank")
-      }
+      onDoubleClick={(e) => handleDoubleClick(e, item.previewLink || "")}
       title={item.name}
     >
       <ImgTag

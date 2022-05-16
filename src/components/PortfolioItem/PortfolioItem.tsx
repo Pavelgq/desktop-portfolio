@@ -15,7 +15,9 @@ export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
     if (link) {
       window.open(link, "_blank");
     } else {
-      dispatch(setAlarmMessage("fixed"));
+      item.defence
+        ? dispatch(setAlarmMessage("defence"))
+        : dispatch(setAlarmMessage("fixed"));
     }
   };
 

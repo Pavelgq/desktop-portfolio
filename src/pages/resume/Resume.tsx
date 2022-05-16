@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, UIEvent, useLayoutEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useOutletContext } from "react-router-dom";
-import { WorkPlaceItem } from "../../components";
+import { ImgTag, WorkPlaceItem } from "../../components";
 import { HrTag } from "../../components/HrTag/HrTag";
 import { HTag } from "../../components/HTag/HTag";
 import { PdfSideBarAnchor } from "../../components/PdfSideBar/PdfSideBar.props";
@@ -30,21 +30,22 @@ export const ResumeWrapper = () => {
   const scrolledElement = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (location.pathname.split("/").length <= 1) {
-      return;
-    }
+    // if (location.pathname.split("/").length <= 1) {
+    //   return;
+    // }
     dispatch(setTargetWindowTitle("Резюме_Гордеев.pdf"));
     setAnchors([
       {
         id: 0,
-        name: "О себе",
-        anchor: "about",
-      },
-      {
-        id: 1,
         name: "Навыки",
         anchor: "skils",
       },
+      {
+        id: 1,
+        name: "О себе",
+        anchor: "about",
+      },
+
       {
         id: 2,
         name: "Опыт работы",
@@ -60,13 +61,18 @@ export const ResumeWrapper = () => {
         name: "Курсы",
         anchor: "courses",
       },
+      {
+        id: 5,
+        name: "Дополнительно",
+        anchor: "additionally",
+      },
     ]);
   }, []);
 
   useLayoutEffect(() => {
-    if (location.pathname.split("/").length <= 1) {
-      return;
-    }
+    // if (location.pathname.split("/").length <= 1) {
+    //   return;
+    // }
     if (currentScroll !== scroll) {
       scrolledElement?.current?.scroll(0, currentScroll);
     }
@@ -102,28 +108,46 @@ export const ResumePreview = () => {
 export const Resume = () => {
   return (
     <>
-      <div>
+      <div className={styles.title}>
         <HTag tag="h2">Гордеев Павел</HTag>
         <HrTag thickness="medium" className={styles.line} />
         <span>FRONTEND РАЗРАБОТЧИК</span>
       </div>
-      <div>
-        <ul className={styles.noPointList}>
-          <li className={styles.item}>
-            <span className={styles.itemCategory}>Город: </span>
-            <span className={styles.itemValue}>Санкт-Петербург</span>
-          </li>
-          <li className={styles.item}>
-            <span className={styles.itemCategory}>Метро: </span>
-            <span className={styles.itemValue}>Лесная</span>
-          </li>
-          <li className={styles.item}>
-            <span className={styles.itemCategory}>Дата рождения: </span>
-            <span className={styles.itemValue}>
-              06.12.1991 ({getAge(new Date(1991, 12, 6))})
-            </span>
-          </li>
-        </ul>
+      <div className={styles.mainInfo}>
+        <ImgTag
+          className={styles.avatar}
+          src="/img/avatar-min.jpg"
+          alt="Фотография автора"
+        />
+        <div>
+          <ul className={styles.noPointList}>
+            <li className={styles.item}>
+              <span className={styles.itemCategory}>Город: </span>
+              <span className={styles.itemValue}>Санкт-Петербург</span>
+            </li>
+            <li className={styles.item}>
+              <span className={styles.itemCategory}>Метро: </span>
+              <span className={styles.itemValue}>Лесная</span>
+            </li>
+            <li className={styles.item}>
+              <span className={styles.itemCategory}>Дата рождения: </span>
+              <span className={styles.itemValue}>
+                06.12.1991 ({getAge(new Date(1991, 12, 6))})
+              </span>
+            </li>
+          </ul>
+          <div>
+            <HTag tag="h3" id={"skils"}>
+              Навыки
+            </HTag>
+            <ul className={styles.list}>
+              <li>HTML, CSS, Javascript (Typescript),</li>
+              <li>React JS, Redux(+Saga),</li>
+              <li>Git, Webpack, Gulp,</li>
+              <li>Node JS, Express JS</li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div className={styles.about}>
         <HTag tag="h3" id={"about"}>
@@ -216,52 +240,67 @@ export const Resume = () => {
         <ul className={styles.placeList}>
           <WorkPlaceItem
             place={`HTML Academy`}
-            role={"Верстка..."}
-            interval={"Завершен: МАРТ 2020"}
-            info={<></>}
-          />
-          <WorkPlaceItem
-            place={`HTML Academy`}
-            role={"Верстка..."}
+            role={"HTML и CSS. Профессиональная вёрстка сайтов"}
             interval={"Завершен: ФЕВРАЛЬ 2020"}
             info={<></>}
           />
           <WorkPlaceItem
             place={`HTML Academy`}
-            role={"Верстка..."}
+            role={"HTML и CSS. Адаптивная вёрстка и автоматизация"}
             interval={"Завершен: АПРЕЛЬ 2020"}
             info={<></>}
           />
           <WorkPlaceItem
             place={`Loftschool`}
-            role={"JavaScript"}
+            role={"Комплексное обучение JavaScript"}
             interval={"Завершен: ИЮНЬ 2020"}
             info={<></>}
           />
           <WorkPlaceItem
             place={`HTML Academy`}
-            role={"Node JS Express..."}
+            role={"Node.js. Разработка серверов приложений и API"}
             interval={"Завершен: СЕНТЯБРЬ 2020"}
             info={<></>}
           />
           <WorkPlaceItem
             place={`UDEMY`}
-            role={"React Hooks"}
+            role={"React + Redux - Профессиональная Разработка"}
             interval={"Завершен: МАРТ 2021"}
             info={<></>}
           />
           <WorkPlaceItem
             place={`UDEMY`}
-            role={"NEXT JS + Typescript"}
+            role={"React + Next.js - с нуля. TypeScript, Hooks, SSR и CSS Grid"}
             interval={"Завершен: НОЯБРЬ 2021"}
             info={<></>}
           />
           <WorkPlaceItem
             place={`Hexlet`}
-            role={"Redux"}
+            role={"JS: Redux (React)"}
             interval={"Завершен: НОЯБРЬ 2021"}
             info={<></>}
           />
+        </ul>
+      </div>
+      <div>
+        <HTag tag="h3" id={"additionally"}>
+          Дополнительно
+        </HTag>
+        <ul className={styles.list}>
+          <li>Женат, две кошки. </li>
+          <li>
+            Английский Pre-Intermediate. В работе не мешает, но помогает не так,
+            как хотелось бы. Есть большое желание улучшить. Пытаюсь заниматься в
+            свободное время.
+          </li>
+          <li>
+            Водительское удостоверение категории В. Один раз уже менял из-за
+            завершения срока действия.
+          </li>
+          <li>
+            Из хобби в голову приходит только программирование. Этот сайт, к
+            примеру, похож на хобби.
+          </li>
         </ul>
       </div>
     </>

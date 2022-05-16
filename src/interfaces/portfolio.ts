@@ -31,4 +31,5 @@ export interface PortfolioItemI {
   
   instruments: string[]; 
   info?: string;
+  defence?: boolean;
 }
