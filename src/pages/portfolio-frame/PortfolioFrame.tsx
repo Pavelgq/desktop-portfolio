@@ -36,24 +36,23 @@ export const PortfolioFrame = () => {
 
   return (
     <>
-    <div
-      className={cn(styles.itemList, {
+
+      <div className={cn(styles.itemList, {
         [styles.table]: palletView === "Table",
         [styles.tile]: palletView === "Tile",
-      })}
-      onClick={() => handleSelect(0)}
-    >
-      {portfolioData.map((item, i) => (
-        <PortfolioItemView
-          key={item.id}
-          item={item}
-          variant={palletView}
-          className={styles.portfolioItem}
-          handleClick={handleSelect}
-        />
-      ))}
-    </div>
-    {!checkMobile(windowX) && infoBar ? (
+      })}>
+          {portfolioData.map((item, i) => (
+                  <PortfolioItemView
+                    key={item.id}
+                    item={item}
+                    variant={palletView}
+                    className={styles.portfolioItem}
+                    handleClick={handleSelect}
+                  />
+                ))}
+
+        </div>
+      {!checkMobile(windowX) && infoBar ? (
           <FolderSideBar
             data={portfolioData.find(
               (item: PortfolioItemI) => item.id === currentId

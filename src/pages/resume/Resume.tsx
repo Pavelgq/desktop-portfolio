@@ -141,8 +141,10 @@ export const Resume = () => {
               Навыки
             </HTag>
             <ul className={styles.list}>
-              <li>HTML, CSS, Javascript (Typescript),</li>
-              <li>React JS, Redux(+Saga),</li>
+              <li>HTML, CSS (LESS, SASS), </li>
+              <li>Javascript (ES6+), Typescript,</li>
+              <li>React JS (Hooks), Redux (+Saga),</li>
+              <li>Canvas (PixiJS), WebSocket,  </li>
               <li>Git, Webpack, Gulp,</li>
               <li>Node JS, Express JS</li>
             </ul>
@@ -171,8 +173,8 @@ export const Resume = () => {
             свои решения,
           </li>
           <li>
-            параллельно вести несколько проектов и переключатся при
-            необходимости, но теряюсь когда их больше пяти
+            параллельно вести несколько проектов, переключатся при
+            необходимости, понимать почему это плохо.
           </li>
         </ul>
       </div>
@@ -294,12 +296,11 @@ export const Resume = () => {
             свободное время.
           </li>
           <li>
-            Водительское удостоверение категории В. Один раз уже менял из-за
+            Водительское удостоверение категории В. Один раз менял из-за
             завершения срока действия.
           </li>
           <li>
-            Из хобби в голову приходит только программирование. Этот сайт, к
-            примеру, похож на хобби.
+            Из хобби в голову приходит только программирование. 
           </li>
         </ul>
       </div>

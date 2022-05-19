@@ -30,3 +30,16 @@
 .active {
   background-color: #888;
 }
+
+
+@media screen and (max-width: 640px) {
+  .button {
+    height: 55px;
+    width: 55px;
+  }
+
+  .button svg {
+    width: 40px;
+    height: 40px;
+  }
+}

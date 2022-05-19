@@ -51,12 +51,12 @@ export const FolderLayout = () => {
         >
           <ContentCardIcon />
         </NavBarButton>
-        <NavBarButton
+        {!checkMobile(windowX) && <NavBarButton
           className={styles.folder}
           onClick={() => dispatch(setFolderInfoBarState(!infoBar))}
         >
           {!infoBar ? <OpenInfoIcon /> : <CloseInfoIcon />}
-        </NavBarButton>
+        </NavBarButton>}
       </div>
       <section className={styles.content}>
         <div className={styles.contentWrapper}>
