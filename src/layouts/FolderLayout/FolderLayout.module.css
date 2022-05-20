@@ -18,10 +18,21 @@
   display: flex;
   width: 100%;
   height: calc(100% - 40px);
+  
   justify-content: space-between;
+  
 }
 
 .contentWrapper {
   display: flex;
   flex: 1;
+}
+
+@media screen and (max-width: 640px) {
+  .navBar {
+    height: 80px;
+  }
+  .content {
+    height: calc(100% - 80px);
+  }
 }

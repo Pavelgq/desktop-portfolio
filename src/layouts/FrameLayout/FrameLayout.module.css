@@ -111,6 +111,8 @@ svg {
   fill: var(--gray-light)
 }
 
-@media screen and (max-width: var(--mobile-max-width)) {
- 
+@media screen and (max-width: 640px) {
+ .hat {
+   display: none;
+  }
 }

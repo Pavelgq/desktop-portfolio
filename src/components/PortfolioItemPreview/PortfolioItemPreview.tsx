@@ -1,8 +1,5 @@
-import { HTag } from "../HTag/HTag";
 import { PortfolioItemProps } from "../PortfolioItem/PortfolioItem.props";
-import { Link, useNavigate } from "react-router-dom";
-import { ImgTag, Tag } from "..";
-import { PortfolioOptionsI } from "../../interfaces/portfolio";
+import { ImgTag } from "..";
 import defaultPreview from "../../assets/img/portfolio-default.png";
 import styles from "./PortfolioItemPreview.module.css";
 import cn from "classnames";
@@ -52,8 +49,8 @@ export const PortfolioItemView = ({
     >
       <ImgTag
         className={styles.image}
-        width={50}
-        height={30}
+        width={160}
+        height={100}
         src={item.previewImage || defaultPreview}
         alt={item.name}
       />

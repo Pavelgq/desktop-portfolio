@@ -73,6 +73,7 @@ export const Footer = () => {
 
   useEffect(() => {
     const width = document?.querySelector(".footerItem");
+    console.log('footer effect', width, width?.getBoundingClientRect().width )
     setDefultWidth(width?.getBoundingClientRect().width || 0);
   }, []);
 

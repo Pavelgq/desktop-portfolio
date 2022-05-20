@@ -10,11 +10,13 @@ import {
   resetAlarmMessage,
   selectAlarmMessage,
   selectFullScreen,
+  selectMainLoading,
 } from "../../store/mainStore";
 import { SlideConstruct } from "../../components/SlideConstruct/SlideConstruct";
 import { animated, useSpringRef, useTransition } from "@react-spring/web";
 import { vh } from "../../hooks/useWindowSize";
 import { Modal } from "../../components";
+import cn from "classnames";
 
 export interface DragItem {
   type: string;
@@ -25,6 +27,8 @@ export interface DragItem {
 
 export const DesktopLayout = () => {
   const dispatch = useDispatch();
+
+  const mainLoading = useSelector(selectMainLoading);
   const fullScreen = useSelector(selectFullScreen);
   const alarmMessage = useSelector(selectAlarmMessage);
   const [draggableItem, setDraggableItem] = useState<{
@@ -59,7 +63,9 @@ export const DesktopLayout = () => {
   );
   return (
     <div
-      className={styles.container}
+      className={cn(styles.container, {
+        [styles.hidden]: mainLoading,
+      })}
       ref={drop}
       style={{
         height: `${vh * 100}px`,

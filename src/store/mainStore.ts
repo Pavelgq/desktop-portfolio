@@ -9,6 +9,7 @@ export interface MainStoreInterface {
   currentFrameScroll: number;
   alarmMessage: AlarmNamesType;
   showAlarm: boolean;
+  mainLoaging: boolean;
 }
 
 const initialState: MainStoreInterface = {
@@ -17,6 +18,7 @@ const initialState: MainStoreInterface = {
   currentFrameScroll: 0,
   alarmMessage: 'empty',
   showAlarm: false,
+  mainLoaging: true,
 }
 
 export const mainSlice = createSlice({
@@ -42,14 +44,18 @@ export const mainSlice = createSlice({
     resetAlarmMessage(state) {
       state.alarmMessage = 'empty';
       state.showAlarm = false;
+    },
+    loadingComplite(state) {
+      state.mainLoaging = false;
     }
   }
 })
 
-export const {setTargetWindowTitle, toggleFullScreen, setCurrentFrameScroll, setFullScreen, setAlarmMessage, resetAlarmMessage} = mainSlice.actions;
+export const {setTargetWindowTitle, toggleFullScreen, setCurrentFrameScroll, setFullScreen, setAlarmMessage, resetAlarmMessage, loadingComplite} = mainSlice.actions;
 
 export default mainSlice.reducer;
 
+export const selectMainLoading = (state: RootState) => state.main.mainLoaging;
 export const selectTitle = (state: RootState) => state.main.targetWindowTitle;
 export const selectFullScreen = (state: RootState) => state.main.fullScreen;
 export const selectFrameScroll = (state: RootState) => state.main.currentFrameScroll;

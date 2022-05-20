@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import "normalize.css";
 import "./styles/index.css";
 import "./styles/global.css";
@@ -9,14 +9,16 @@ import { store } from "./store/store";
 import { Provider } from "react-redux";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { PageLoading } from "./pages/page-loading/PageLoading";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <DndProvider backend={HTML5Backend}>
-        <BrowserRouter>
+        <HashRouter>
+          <PageLoading />
           <RoutesList />
-        </BrowserRouter>
+        </HashRouter>
       </DndProvider>
     </Provider>
   </React.StrictMode>,

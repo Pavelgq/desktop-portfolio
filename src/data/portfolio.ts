@@ -356,7 +356,7 @@ export const coursesData: PortfolioItemI[] = [
       },
     },
     previewLink: "https://pavelgq.github.io/medium-clone-reactjs/",
-    previewImage: "/img/courses/top-app.png",
+    previewImage: "/img/courses/medium-clone.png",
     description:
       "Учебный проект по React Hooks от Udemy. ",
     instruments: ["react", "ts", 'sass'],

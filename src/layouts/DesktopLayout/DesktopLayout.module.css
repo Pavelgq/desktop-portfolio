@@ -12,6 +12,12 @@
   background: linear-gradient(90deg, #f598a8, #f6edb2);
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
+  opacity: 1;
+
+}
+
+.hidden {
+  opacity:0;
 }
 
 .innerContainer {
