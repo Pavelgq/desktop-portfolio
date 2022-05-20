@@ -9,13 +9,15 @@ import { store } from "./store/store";
 import { Provider } from "react-redux";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { PageLoading } from "./pages/page-loading/PageLoading";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <DndProvider backend={HTML5Backend}>
         <HashRouter>
-          <RoutesList />
+          <PageLoading />
+          {/* <RoutesList /> */}
         </HashRouter>
       </DndProvider>
     </Provider>
