@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import "normalize.css";
 import "./styles/index.css";
 import "./styles/global.css";
@@ -14,9 +14,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <DndProvider backend={HTML5Backend}>
-        <BrowserRouter>
+        <HashRouter>
           <RoutesList />
-        </BrowserRouter>
+        </HashRouter>
       </DndProvider>
     </Provider>
   </React.StrictMode>,
