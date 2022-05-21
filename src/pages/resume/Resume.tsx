@@ -1,29 +1,26 @@
 import { useEffect, useRef, useState, UIEvent, useLayoutEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useOutletContext } from "react-router-dom";
-import { ImgTag, WorkPlaceItem } from "../../components";
+import { useLocation, useNavigationType} from "react-router-dom";
+import { ImgTag, PdfSideBar, WorkPlaceItem } from "../../components";
 import { HrTag } from "../../components/HrTag/HrTag";
 import { HTag } from "../../components/HTag/HTag";
 import { PdfSideBarAnchor } from "../../components/PdfSideBar/PdfSideBar.props";
+import { useWindowSize } from "../../hooks/useWindowSize";
 import {
   selectFrameScroll,
   setCurrentFrameScroll,
   setTargetWindowTitle,
 } from "../../store/mainStore";
 import { getAge } from "../../utils/calc-utils";
+import { checkMobile } from "../../utils/dom-utils";
 import styles from "./Resume.module.css";
 
-interface ContextAnchorI {
-  anchors: PdfSideBarAnchor[];
-  setAnchors: React.Dispatch<
-    React.SetStateAction<PdfSideBarAnchor[] | undefined>
-  >;
-}
 
 export const ResumeWrapper = () => {
+  const [windowX] = useWindowSize();
+  const [anchors, setAnchors] = useState<PdfSideBarAnchor[]>();
   const location = useLocation();
   const dispatch = useDispatch();
-  const { anchors, setAnchors } = useOutletContext<ContextAnchorI>();
   const [scroll, setScroll] = useState<number | undefined>(0);
   const currentScroll = useSelector(selectFrameScroll);
 
@@ -84,18 +81,26 @@ export const ResumeWrapper = () => {
   };
 
   return (
-    <article
-      className={styles.resume}
-      ref={scrolledElement}
-      onScroll={handleScroll}
-    >
-      <Resume />
-    </article>
+    <section className={styles.content}>
+      {!checkMobile(windowX) ? <PdfSideBar anchors={anchors} /> : <></>}
+      <article
+        className={styles.resume}
+        ref={scrolledElement}
+        onScroll={handleScroll}
+      >
+        <Resume />
+      </article>
+    </section>
+    
   );
 };
 
 export const ResumePreview = () => {
+  const navType = useNavigationType();
   useEffect(() => {
+    if (navType === 'POP') {
+      console.log('Новая вкладка')
+    }
     window.print();
   }, []);
   return (

@@ -1,15 +1,10 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
-import cn from "classnames";
+import { Outlet } from "react-router-dom";
 import styles from "./PDFLayout.module.css";
-import { useState } from "react";
 import { ReactComponent as PrintIcon } from "../../assets/svg/icons/icons8-Fluency System Regular-Print.svg";
 import { ReactComponent as DownloadIcon } from "../../assets/svg/icons/icons8-Material Rounded-Download.svg";
-import { PdfSideBar } from "../../components/PdfSideBar/PdfSideBar";
-import { PdfSideBarAnchor } from "../../components/PdfSideBar/PdfSideBar.props";
 import { useSelector } from "react-redux";
 import { selectFullScreen } from "../../store/mainStore";
 import { useWindowSize } from "../../hooks/useWindowSize";
-import { checkMobile } from "../../utils/dom-utils";
 import { NavBarButton } from "../../components";
 
 /**
@@ -17,8 +12,6 @@ import { NavBarButton } from "../../components";
  * @returns
  */
 export const PDFLayout = () => {
-  const navigate = useNavigate();
-  const [anchors, setAnchors] = useState<PdfSideBarAnchor[]>();
 
   const handleClick = () => {};
 
@@ -27,7 +20,7 @@ export const PDFLayout = () => {
 
   const handlePrint = () => {
     // navigate("/print", { replace: true });
-    window.open("/print", "_blank");
+    window.open("/#/print", "_blank");
   };
   const handleDownload = () => {};
 
@@ -42,10 +35,8 @@ export const PDFLayout = () => {
         </NavBarButton>
       </div>
       <section className={styles.content}>
-        {!checkMobile(windowX) ? <PdfSideBar anchors={anchors} /> : <></>}
-        <Outlet context={{ anchors, setAnchors }} />
+        <Outlet />
       </section>
     </div>
   );
 };
-//TODO: Outlet возвращает объект с якорями или ничего + функцию для создания страницы печати или скачивания pdf

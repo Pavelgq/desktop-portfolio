@@ -16,9 +16,9 @@
 
 }
 
-.hidden {
+/* .hidden {
   opacity:0;
-}
+} */
 
 .innerContainer {
   display: flex;

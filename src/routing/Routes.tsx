@@ -11,6 +11,7 @@ import { PortfolioFrame } from "../pages/portfolio-frame/PortfolioFrame";
 import { ResumePreview, ResumeWrapper } from "../pages/resume/Resume";
 import { WelcomeFrame } from "../pages/welcome-frame/WelcomeFrame";
 import { CoursesFrame } from "../pages/courses-frame/CoursesFrame";
+import { CustomTerminal } from "../pages/custom-terminal/CustomTerminal";
 
 export function RoutesList(): JSX.Element {
   return (
@@ -19,6 +20,7 @@ export function RoutesList(): JSX.Element {
         <Route index element={<BlankFrame />}></Route>
         <Route path="frame" element={<FrameLayout />}>
           <Route path="welcome" element={<WelcomeFrame />} />
+          <Route path="terminal" element={<CustomTerminal />} />
           <Route path="folder" element={<FolderLayout />}>
             <Route path="portfolio" element={<PortfolioFrame />} />
             <Route path="courses" element={<CoursesFrame />} />

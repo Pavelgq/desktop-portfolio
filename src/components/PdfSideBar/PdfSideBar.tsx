@@ -3,6 +3,7 @@ import cn from "classnames";
 import styles from "./PdfSideBar.module.css";
 import { useSelector } from "react-redux";
 import { selectFullScreen } from "../../store/mainStore";
+import { Link } from "react-router-dom";
 
 export function PdfSideBar({ anchors = [] }: PdfSideBarProps): JSX.Element {
   const fullScreen = useSelector(selectFullScreen);
@@ -19,9 +20,9 @@ export function PdfSideBar({ anchors = [] }: PdfSideBarProps): JSX.Element {
       <ol className={styles.list}>
         {anchors.map((anchor) => (
           <li key={anchor.id}>
-            <a href={`#${anchor.anchor}`} className={styles.link}>
+            <Link to={`#${anchor.anchor}`} className={styles.link}>
               {anchor.name}
-            </a>
+            </Link>
           </li>
         ))}
       </ol>

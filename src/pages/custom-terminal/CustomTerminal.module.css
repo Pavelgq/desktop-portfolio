@@ -1,0 +1,11 @@
+.terminal {
+  width: 100%;
+  
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+.terminal div {
+  box-sizing: border-box;
+  
+}

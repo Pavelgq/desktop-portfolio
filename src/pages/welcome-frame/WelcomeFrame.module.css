@@ -8,11 +8,25 @@
   align-items: center;
 }
 
-.image {
+.imageMove {
   
+  position: absolute;
+  margin-top: -2px;
+  transform-origin: center top;
+  animation: rocking 8s infinite ease-in-out;
 }
 
 .subtitle {
+ 
   margin: 0 10%;
+ 
   text-align: center;
+}
+
+@keyframes rocking {
+  0% {transform: rotate(10deg)}
+  25% {transform: rotate(-10deg)}
+  50% {transform: rotate(10deg)}
+  75% {transform: rotate(-10deg)}
+  100% {transform: rotate(10deg)}
 }

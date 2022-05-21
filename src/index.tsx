@@ -16,7 +16,6 @@ ReactDOM.render(
     <Provider store={store}>
       <DndProvider backend={HTML5Backend}>
         <HashRouter>
-          <PageLoading />
           <RoutesList />
         </HashRouter>
       </DndProvider>
