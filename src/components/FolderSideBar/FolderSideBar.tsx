@@ -5,11 +5,11 @@ import { PortfolioItem } from "../PortfolioItem/PortfolioItem";
 import styles from "./FolderSideBar.module.css";
 import { FolderSideBarProps } from "./FolderSideBar.props";
 
-export function FolderSideBar({ data }: FolderSideBarProps): JSX.Element {
+export function FolderSideBar({ data, className }: FolderSideBarProps): JSX.Element {
   const fullScreen = useSelector(selectFullScreen);
   return (
     <div
-      className={cn(styles.container, {
+      className={cn(className, styles.container, {
         [styles.fullScreen]: fullScreen,
       })}
     >

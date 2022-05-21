@@ -15,6 +15,7 @@ import {
   selectFolderInfoBar,
   selectFolderPalletView,
   setFolderCuttentId,
+  setFolderInfoBarState,
 } from "../../store/folderStore";
 import { setTargetWindowTitle } from "../../store/mainStore";
 import { checkMobile } from "../../utils/dom-utils";
@@ -27,6 +28,9 @@ export const PortfolioFrame = () => {
   const palletView = useSelector(selectFolderPalletView);
   const dispatch = useDispatch();
   useEffect(() => {
+    if (checkMobile(windowX)) {
+      dispatch(setFolderInfoBarState(true))
+    }
     dispatch(setTargetWindowTitle("Портфолио"));
   }, []);
 
@@ -52,14 +56,16 @@ export const PortfolioFrame = () => {
                 ))}
 
         </div>
-      {!checkMobile(windowX) && infoBar ? (
-          <FolderSideBar
+      {infoBar ? (
+          <FolderSideBar className={cn({
+            [styles.sideBarMobile] : checkMobile(windowX)
+          })}
             data={portfolioData.find(
               (item: PortfolioItemI) => item.id === currentId
             )}
           />
         ) : (
-          <></>
+         <></>
         )}
     </>
   );

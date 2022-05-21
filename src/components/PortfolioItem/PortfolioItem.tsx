@@ -6,8 +6,10 @@ import styles from "./PortfolioItem.module.css";
 import { MouseEvent } from "react";
 import { useDispatch } from "react-redux";
 import { setAlarmMessage } from "../../store/mainStore";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
+  
   const dispatch = useDispatch();
 
   const handleClick = (e: MouseEvent, link: string) => {
