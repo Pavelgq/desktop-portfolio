@@ -3,6 +3,7 @@ import cn from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import { loadingComplite, selectMainLoading } from "../../store/mainStore";
 import styles from "./PageLoading.module.css";
+import { ReactComponent as HammerIcon } from "../../assets/svg/hammer.svg";
 
 export const PageLoading = () => {
   const mainLoading = useSelector(selectMainLoading);
@@ -24,6 +25,7 @@ export const PageLoading = () => {
         [styles.hidden]: !mainLoading,
       })}
     >
+      <HammerIcon className={styles.icon} />
       <div className={styles.progress}></div>
     </div>
   );

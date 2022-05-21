@@ -1,19 +1,27 @@
 .screen {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100vw;
   height: 100vh;
   /* background-color: black; */
   background-color: gold;
-  box-shadow: 0 -200px 100px -120px rgb(220, 167, 20) inset;
-  animation: background 3s infinite alternate;
-
+  background: linear-gradient(45deg, #a1ffd3, #f9ffd1);
+  animation: background 4s infinite alternate;
+  background-size: 200%;
   opacity: 1;
+
+  z-index: 10;
 }
 
 .hidden {
-  width: 0;
-  height: 0;
-  opacity: 0;
-  transition: opacity 0.7s ease-in;
+  /* width: 0;
+  height: 0; */
+  opacity: 0; 
+  transform: translateY(-100%);
+  transition: all 0.7s ease-in;
 }
 
 .progress {
@@ -38,6 +46,12 @@
     animation: load 5s linear;
 }
 
+.icon {
+
+  
+  animation: hammer 3.5s infinite linear;
+}
+
 @keyframes load {
   0% {width: 0}
   10% {width: 5%}
@@ -54,8 +68,33 @@
 }
 
 @keyframes background {
-  50% {
-    background: skyblue;
-    box-shadow: 0 -200px -100px -100px yellowgreen inset;
-  }
+    0% {
+        background-position: 80% 0%;
+    }
+    25% {
+        background-position: 40% 40%;
+    }
+    50% {
+        background-position: 20% 100%;
+    }
+    75% {
+        background-position: 40% 40%;
+    }
+    100% {
+        background-position: 80% 0%;
+    }
+}
+
+@keyframes hammer {
+  0% {transform: rotate(-70deg)}
+  10% {transform: rotate(-125deg)}
+  17% {transform: rotate(-70deg)}
+  28% {transform: rotate(-125deg)}
+  45% {transform: rotate(-45deg)}
+  50% {transform: rotate(-125deg)}
+  65% {transform: rotate(-70deg)}
+  73% {transform: rotate(-125deg)}
+  86% {transform: rotate(-70deg)}
+  90% {transform: rotate(-125deg)}
+  100% {transform: rotate(-70deg)}
 }
