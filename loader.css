@@ -9,7 +9,7 @@
   /* background-color: black; */
   background-color: gold;
   background: linear-gradient(45deg, #a1ffd3, #f9ffd1);
-  animation: background 4s infinite alternate;
+  animation: background 3s infinite alternate;
   background-size: 200%;
   opacity: 1;
 
@@ -43,7 +43,7 @@
     width: 100%;
     height: 4px;
     background: white;
-    animation: load 5s linear;
+    animation: load 3s linear;
 }
 
 .icon-loader {
