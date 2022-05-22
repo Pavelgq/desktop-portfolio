@@ -7,6 +7,7 @@ import { useState, useCallback, TouchEvent, useEffect } from "react";
 import { ItemTypes } from "../../interfaces/common";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  loadingComplite,
   resetAlarmMessage,
   selectAlarmMessage,
   selectFullScreen,
@@ -35,6 +36,16 @@ export const DesktopLayout = () => {
     top: number;
     left: number;
   }>({ top: 0, left: 0 });
+
+  useEffect(() => {
+    const loader = document.querySelector(".screen-loader");
+
+    document.fonts.ready.then(function () {
+      console.log("tear");
+      loader?.classList.add("hidden");
+      dispatch(loadingComplite());
+    });
+  }, []);
 
   const moveBox = useCallback(
     (id: string, left: number, top: number) => {

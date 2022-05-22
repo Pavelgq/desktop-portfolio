@@ -8,6 +8,7 @@
 .previewImage {
   max-width: 90%;
   border: 2px solid var(--gray-light);
+  padding: 3px;
   margin: 0 auto;
   margin-bottom: 10px;
 }
@@ -18,7 +19,7 @@
 }
 
 .title {
-  margin-bottom: 10px;
+  margin-left: 0;
 }
 
 .optionList {

@@ -1,20 +1,22 @@
+import cn from "classnames";
 import { useEffect, useRef, useState, UIEvent, useLayoutEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigationType} from "react-router-dom";
+import { useLocation, useNavigationType } from "react-router-dom";
 import { ImgTag, PdfSideBar, WorkPlaceItem } from "../../components";
 import { HrTag } from "../../components/HrTag/HrTag";
 import { HTag } from "../../components/HTag/HTag";
 import { PdfSideBarAnchor } from "../../components/PdfSideBar/PdfSideBar.props";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import {
+  loadingComplite,
   selectFrameScroll,
+  selectMainLoading,
   setCurrentFrameScroll,
   setTargetWindowTitle,
 } from "../../store/mainStore";
 import { getAge } from "../../utils/calc-utils";
 import { checkMobile } from "../../utils/dom-utils";
 import styles from "./Resume.module.css";
-
 
 export const ResumeWrapper = () => {
   const [windowX] = useWindowSize();
@@ -73,7 +75,7 @@ export const ResumeWrapper = () => {
     if (currentScroll !== scroll) {
       scrolledElement?.current?.scroll(0, currentScroll);
     }
-  }, [anchors]);
+  }, [anchors, currentScroll]);
 
   const handleScroll = (e: UIEvent<HTMLElement>) => {
     setScroll(scrolledElement.current?.scrollTop);
@@ -84,25 +86,29 @@ export const ResumeWrapper = () => {
     <section className={styles.content}>
       {!checkMobile(windowX) ? <PdfSideBar anchors={anchors} /> : <></>}
       <article
-        className={styles.resume}
+        className={cn(styles.resume, "scrollSmooth")}
         ref={scrolledElement}
         onScroll={handleScroll}
       >
         <Resume />
       </article>
     </section>
-    
   );
 };
 
 export const ResumePreview = () => {
+  const dispatch = useDispatch();
   const navType = useNavigationType();
+  const mainLoading = useSelector(selectMainLoading);
   useEffect(() => {
-    if (navType === 'POP') {
-      console.log('Новая вкладка')
+    if (navType === "POP") {
+      console.log("Новая вкладка");
+      const loader = document.querySelector(".screen-loader");
+      loader?.classList.add("hidden");
+      dispatch(loadingComplite());
     }
-    window.print();
-  }, []);
+    if (!mainLoading) window.print();
+  }, [mainLoading]);
   return (
     <article className={styles.resumePreview}>
       <Resume />
@@ -120,6 +126,8 @@ export const Resume = () => {
       </div>
       <div className={styles.mainInfo}>
         <ImgTag
+          width={160}
+          height={262}
           className={styles.avatar}
           src="/img/avatar-min.jpg"
           alt="Фотография автора"
@@ -166,7 +174,7 @@ export const Resume = () => {
           развивающейся it-компании и нацелен на долгосрочное сотрудничество.
         </p>
         <p className="paragraph">За свою карьеру приобрел полезные навыки:</p>
-        <ul>
+        <ul className={styles.list}>
           <li>находить решение для любой задачи,</li>
           <li>серьезно относиться к архитектуре проекта,</li>
           <li>работать в команде и закрывать проекты в одиночку,</li>
@@ -181,17 +189,6 @@ export const Resume = () => {
             параллельно вести несколько проектов, переключаться при
             необходимости, понимать почему это плохо.
           </li>
-        </ul>
-      </div>
-      <div>
-        <HTag tag="h3" id={"skils"}>
-          Навыки
-        </HTag>
-        <ul className={styles.list}>
-          <li>HTML, CSS, Javascript (Typescript),</li>
-          <li>React JS, Redux(+Saga),</li>
-          <li>Git, Webpack, Gulp,</li>
-          <li>Node JS, Express JS</li>
         </ul>
       </div>
       <div>
@@ -297,7 +294,7 @@ export const Resume = () => {
           <li>Женат, две кошки. </li>
           <li>
             Английский Pre-Intermediate. В работе не мешает, но помогает не так,
-            как хотелось бы. Есть большое желание улучшить. Заниматься в
+            как хотелось бы. Есть большое желание улучшить. Занимаюсь в
             свободное время.
           </li>
           <li>Водительское удостоверение категории В.</li>

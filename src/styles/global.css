@@ -38,3 +38,7 @@
 .footerItem {
   transition: all 0.1s ease-out;
 }
+
+.customDragLayer .scrollSmooth {
+  scroll-behavior: auto;
+}

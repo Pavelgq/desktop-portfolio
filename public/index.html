@@ -43,16 +43,19 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="load-page"></div>
-    <div id="root">
+    <script>
+      const loadPage = document.getElementById('load-page');
+      
+    </script>
+    <div id="load-page">
       <div
         class='screen-loader'
       >
-        <svg class="icon-loader" />
         <img src="./img/hammer.svg" alt="Молоток" class="icon-loader" />
         <div class="progress-loader"></div>
       </div>
-      </div>
+    </div>
+    <div id="root"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

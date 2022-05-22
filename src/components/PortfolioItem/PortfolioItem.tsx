@@ -9,7 +9,6 @@ import { setAlarmMessage } from "../../store/mainStore";
 import { useWindowSize } from "../../hooks/useWindowSize";
 
 export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
-  
   const dispatch = useDispatch();
 
   const handleClick = (e: MouseEvent, link: string) => {
@@ -25,7 +24,11 @@ export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
 
   return (
     <div className={styles.container}>
-      <ImgTag src={item.previewImage || defaultPreview} alt={item.name} />
+      <ImgTag
+        src={item.previewImage || defaultPreview}
+        alt={item.name}
+        className={styles.previewImage}
+      />
 
       <HTag tag="h3" className={styles.title}>
         {item.name}

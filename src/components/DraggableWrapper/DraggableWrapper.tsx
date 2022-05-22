@@ -2,8 +2,8 @@ import { CSSProperties, FC, memo, ReactNode, useEffect } from "react";
 import { useDrag, useDragLayer } from "react-dnd";
 import { ItemTypes } from "../../interfaces/common";
 import { getEmptyImage } from "react-dnd-html5-backend";
-
 import styles from "./DraggableWrapper.module.css";
+import cn from "classnames";
 
 // const style: CSSProperties = {
 //   position: "absolute",
@@ -107,7 +107,7 @@ export const DraggableWrapper: FC<DraggableWrapperProps> = memo(
         ref={drag}
         style={getStyles(left, top, isDragging)}
         area-role="DraggableWrapper"
-        className={styles.draggableZone}
+        className={cn(styles.draggableZone, "originDragLayer")}
       >
         <Box children={children} />
       </div>
@@ -130,6 +130,7 @@ export const BoxDragPreview = memo(function BoxDragPreview({ children }: any) {
         display: "inline-block",
       }}
       area-role="DraggableWrapper"
+      className="customDragLayer"
     >
       <Box preview children={children} />
     </div>

@@ -29,7 +29,7 @@ export const portfolioData: PortfolioItemI[] = [
     id: 2,
     name: "ТЭК Сервер",
     startDate: '30 ноября 2021',
-    finishDate: '2 марта 2021',
+    finishDate: '2 марта 2022',
     options: {
       version: {
         name: "Версия",
