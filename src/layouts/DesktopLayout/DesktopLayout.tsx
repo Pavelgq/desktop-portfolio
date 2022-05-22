@@ -41,9 +41,10 @@ export const DesktopLayout = () => {
     const loader = document.querySelector(".screen-loader");
 
     document.fonts.ready.then(function () {
-      console.log("tear");
-      loader?.classList.add("hidden");
-      dispatch(loadingComplite());
+      setTimeout(() => {
+        loader?.classList.add("hidden");
+        dispatch(loadingComplite());
+      }, 3000);
     });
   }, []);
 

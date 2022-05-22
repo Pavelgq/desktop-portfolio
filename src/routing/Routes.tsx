@@ -19,7 +19,7 @@ export function RoutesList(): JSX.Element {
       <Route path="/" element={<DesktopLayout />}>
         <Route index element={<BlankFrame />}></Route>
         <Route path="frame" element={<FrameLayout />}>
-          <Route path="welcome" element={<WelcomeFrame />} />
+          <Route path="readme" element={<WelcomeFrame />} />
           <Route path="terminal" element={<CustomTerminal />} />
           <Route path="folder" element={<FolderLayout />}>
             <Route path="portfolio" element={<PortfolioFrame />} />

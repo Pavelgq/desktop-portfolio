@@ -21,7 +21,7 @@ export const WorkPlaceItem = ({
         <span className={styles.separator}>&mdash;</span>
         <span>{role}</span>
       </div>
-      <span>{interval}</span>
+      <span className={styles.interval}>{interval}</span>
       {info}
     </li>
   );

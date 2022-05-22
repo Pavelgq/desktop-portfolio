@@ -7,9 +7,14 @@
   display: inline;
   /* justify-content: start;
   align-items: center; */
+  margin-bottom: 5px;
 }
 
 .separator {
   display: inline-block;
   margin: 0 5px;
+}
+
+.interval {
+  margin-bottom: 5px;
 }

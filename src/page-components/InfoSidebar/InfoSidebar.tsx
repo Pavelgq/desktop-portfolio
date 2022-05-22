@@ -29,7 +29,7 @@ export const InfoSidebar = () => {
         <MenuItem
           className={styles.item}
           title={"Readme"}
-          path={"/frame/welcome"}
+          path={"/frame/readme"}
           Icon={DocumentIcon}
         />
         <MenuItem
