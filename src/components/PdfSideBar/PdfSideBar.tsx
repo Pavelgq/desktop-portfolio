@@ -3,8 +3,8 @@ import cn from "classnames";
 import styles from "./PdfSideBar.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFullScreen, setCurrentFrameScroll } from "../../store/mainStore";
-// import { Link } from "react-router-dom";
-import { Link, Events, scrollSpy } from "react-scroll";
+import { Link } from "react-router-dom";
+
 import { MouseEvent, useEffect } from "react";
 
 export function PdfSideBar({ anchors = [] }: PdfSideBarProps): JSX.Element {

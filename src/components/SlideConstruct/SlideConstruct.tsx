@@ -42,7 +42,6 @@ export const SlideConstruct = ({ children }: SlideConstructProps) => {
 
     const currentTouch = e.touches[0].clientX;
     const diff = touchDown - currentTouch;
-    console.log(diff);
     if (diff > 5) {
       next();
     }
