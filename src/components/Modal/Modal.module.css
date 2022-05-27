@@ -1,7 +1,7 @@
 .modal {
   position: fixed;
   top: calc(50% - 90px);
-  left: calc(50% - 150px);
+  left: calc(50% - 15vw);
   width: 30vw;
   height: auto;
   z-index: 9;
@@ -19,7 +19,6 @@
   box-shadow: 10px 10px 0 #333;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-
 }
 
 .hatMenu {
@@ -58,7 +57,6 @@
 }
 
 .dialog {
-
   display: flex;
   background-color: var(--main-bg-color);
   border: 3px solid #333;
@@ -66,7 +64,7 @@
   box-shadow: 10px 10px 0 #333;
   height: 150px;
 
-  user-select:text;
+  user-select: text;
   overflow-y: auto;
 }
 
@@ -79,20 +77,18 @@
 
   width: 13px;
   height: 13px;
-  fill: var(--gray-light)
+  fill: var(--gray-light);
 }
 
 .hatMenu:hover svg {
   display: block;
-  
 }
 
 svg {
-  fill: var(--gray-light)
+  fill: var(--gray-light);
 }
 
 .icon {
-
 }
 
 .dialogContent {
@@ -103,4 +99,11 @@ svg {
 
 .content {
   margin: 0 10px;
+}
+
+@media screen and (max-width: 640px) {
+  .modal {
+    width: 100%;
+    left: 0;
+  }
 }

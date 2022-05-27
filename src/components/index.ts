@@ -17,3 +17,6 @@ export * from './WorkPlaceItem/WorkPlaceItem';
 export * from './PortfolioItem/PortfolioItem';
 export * from './PortfolioItemPreview/PortfolioItemPreview';
 export * from './Modal/Modal';
+
+
+export * from './ScrollObserver/ScrollObserver';

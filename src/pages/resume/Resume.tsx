@@ -6,6 +6,7 @@ import { ImgTag, PdfSideBar, WorkPlaceItem } from "../../components";
 import { HrTag } from "../../components/HrTag/HrTag";
 import { HTag } from "../../components/HTag/HTag";
 import { PdfSideBarAnchor } from "../../components/PdfSideBar/PdfSideBar.props";
+import { ScrollObserver } from "../../components/ScrollObserver/ScrollObserver";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import {
   loadingComplite,
@@ -68,14 +69,14 @@ export const ResumeWrapper = () => {
     ]);
   }, []);
 
-  useLayoutEffect(() => {
-    // if (location.pathname.split("/").length <= 1) {
-    //   return;
-    // }
-    if (currentScroll !== scroll) {
-      scrolledElement?.current?.scroll(0, currentScroll);
-    }
-  }, [anchors, currentScroll]);
+  // useLayoutEffect(() => {
+  //   // if (location.pathname.split("/").length <= 1) {
+  //   //   return;
+  //   // }
+  //   if (currentScroll !== scroll) {
+  //     scrolledElement?.current?.scroll(0, currentScroll);
+  //   }
+  // }, [anchors, currentScroll]);
 
   const handleScroll = (e: UIEvent<HTMLElement>) => {
     setScroll(scrolledElement.current?.scrollTop);
@@ -85,13 +86,16 @@ export const ResumeWrapper = () => {
   return (
     <section className={styles.content}>
       {!checkMobile(windowX) ? <PdfSideBar anchors={anchors} /> : <></>}
-      <article
+      <ScrollObserver className={cn(styles.resume)} currentScroll={currentScroll} setCurrentScroll={setCurrentFrameScroll} trigger={anchors}>
+        <Resume />
+      </ScrollObserver>
+      {/* <article
         className={cn(styles.resume, "scrollSmooth")}
         ref={scrolledElement}
         onScroll={handleScroll}
       >
         <Resume />
-      </article>
+      </article> */}
     </section>
   );
 };

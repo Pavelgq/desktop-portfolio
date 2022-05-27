@@ -1,11 +1,12 @@
 import cn from "classnames";
-import { MouseEvent, useEffect } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useOutletContext } from "react-router-dom";
 import {
   FolderSideBar,
   PortfolioItem,
   PortfolioItemView,
+  ScrollObserver,
 } from "../../components";
 import { portfolioData } from "../../data/portfolio";
 import { useWindowSize } from "../../hooks/useWindowSize";
@@ -14,8 +15,12 @@ import {
   selectFolderCurrentId,
   selectFolderInfoBar,
   selectFolderPalletView,
+  selectFolderScrollPosition,
+  selectSidebarScrollPosition,
   setFolderCuttentId,
   setFolderInfoBarState,
+  setFolderScrollPosition,
+  setSidebarScrollPosition,
 } from "../../store/folderStore";
 import { setTargetWindowTitle } from "../../store/mainStore";
 import { checkMobile } from "../../utils/dom-utils";
@@ -26,6 +31,8 @@ export const PortfolioFrame = () => {
   const currentId = useSelector(selectFolderCurrentId);
   const infoBar = useSelector(selectFolderInfoBar);
   const palletView = useSelector(selectFolderPalletView);
+  const currentItemsScrollPosition = useSelector(selectFolderScrollPosition);
+
   const dispatch = useDispatch();
   useEffect(() => {
     if (checkMobile(windowX)) {
@@ -40,11 +47,10 @@ export const PortfolioFrame = () => {
 
   return (
     <>
-
-      <div className={cn(styles.itemList, {
+      <ScrollObserver className={cn(styles.itemList, {
         [styles.table]: palletView === "Table",
         [styles.tile]: palletView === "Tile",
-      })}>
+      })} currentScroll={currentItemsScrollPosition} setCurrentScroll={setFolderScrollPosition}>
           {portfolioData.map((item, i) => (
                   <PortfolioItemView
                     key={item.id}
@@ -55,9 +61,10 @@ export const PortfolioFrame = () => {
                   />
                 ))}
 
-        </div>
+          </ScrollObserver>
       {infoBar ? (
-          <FolderSideBar className={cn({
+          
+            <FolderSideBar className={cn({
             [styles.sideBarMobile] : checkMobile(windowX)
           })}
             data={portfolioData.find(
