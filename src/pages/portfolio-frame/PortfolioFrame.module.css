@@ -18,10 +18,15 @@
 .table.portfolioItem:nth-child(2n) {
   background-color: white;
 }
-.table.portfolioItem:nth-child(2n+1) {
+.table.portfolioItem:nth-child(2n + 1) {
   background-color: var(--main-bg-color);
 }
 
 .sideBarMobile {
   position: absolute;
+}
+
+.sideBar {
+  width: 50%;
+  overflow-y: auto;
 }
