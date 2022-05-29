@@ -61,3 +61,11 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+.info {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 14px;
+  color: var(--gray-light);
+  font-style: italic;
+}

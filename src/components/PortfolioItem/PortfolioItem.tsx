@@ -45,7 +45,7 @@ export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
           Просмотр
         </button>
       </div>
-
+      {item.info && <span className={styles.info}>{item.info}</span>}
       <ul className={styles.optionList}>
         {item.options.type && (
           <li className={styles.optionItem}>

@@ -200,7 +200,7 @@ export const Resume = () => {
         <HTag tag="h3" id={"experience"} className={styles.title}>
           Опыт работы
         </HTag>
-        <ul className={styles.placeList}>
+        <ul className={styles.noPointList}>
           <WorkPlaceItem
             place={"АО “Завод Энергозащитных Устройств”, Санкт-Петербург"}
             role={"инженер"}
