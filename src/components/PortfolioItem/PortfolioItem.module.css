@@ -69,3 +69,7 @@
   color: var(--gray-light);
   font-style: italic;
 }
+
+@media screen and (max-width: 640px) {
+  
+}

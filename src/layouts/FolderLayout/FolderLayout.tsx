@@ -24,7 +24,7 @@ import { portfolioData } from "../../data/portfolio";
 export const FolderLayout = () => {
   const [windowX] = useWindowSize();
   const fullScreen = useSelector(selectFullScreen);
-  
+
   const infoBar = useSelector(selectFolderInfoBar);
   const palletView = useSelector(selectFolderPalletView);
 
@@ -51,19 +51,17 @@ export const FolderLayout = () => {
         >
           <ContentCardIcon />
         </NavBarButton>
-        {!checkMobile(windowX) && <NavBarButton
+        <NavBarButton
           className={styles.folder}
           onClick={() => dispatch(setFolderInfoBarState(!infoBar))}
         >
           {!infoBar ? <OpenInfoIcon /> : <CloseInfoIcon />}
-        </NavBarButton>}
+        </NavBarButton>
       </div>
       <section className={styles.content}>
         <div className={styles.contentWrapper}>
           <Outlet />
         </div>
-
-        
       </section>
     </div>
   );

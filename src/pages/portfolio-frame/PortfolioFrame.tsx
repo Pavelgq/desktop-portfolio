@@ -36,44 +36,48 @@ export const PortfolioFrame = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (checkMobile(windowX)) {
-      dispatch(setFolderInfoBarState(true))
+      dispatch(setFolderInfoBarState(true));
     }
     dispatch(setTargetWindowTitle("Портфолио"));
   }, []);
 
   const handleSelect = (id: number) => {
     dispatch(setFolderCuttentId(id));
+    !infoBar && dispatch(setFolderInfoBarState(true));
   };
 
   return (
     <>
-      <ScrollObserver className={cn(styles.itemList, {
-        [styles.table]: palletView === "Table",
-        [styles.tile]: palletView === "Tile",
-      })} currentScroll={currentItemsScrollPosition} setCurrentScroll={setFolderScrollPosition}>
-          {portfolioData.map((item, i) => (
-                  <PortfolioItemView
-                    key={item.id}
-                    item={item}
-                    variant={palletView}
-                    className={styles.portfolioItem}
-                    handleClick={handleSelect}
-                  />
-                ))}
-
-          </ScrollObserver>
-      {infoBar ? (
-          
-            <FolderSideBar className={cn({
-            [styles.sideBarMobile] : checkMobile(windowX)
-          })}
-            data={portfolioData.find(
-              (item: PortfolioItemI) => item.id === currentId
-            )}
+      <ScrollObserver
+        className={cn(styles.itemList, {
+          [styles.table]: palletView === "Table",
+          [styles.tile]: palletView === "Tile",
+        })}
+        currentScroll={currentItemsScrollPosition}
+        setCurrentScroll={setFolderScrollPosition}
+      >
+        {portfolioData.map((item, i) => (
+          <PortfolioItemView
+            key={item.id}
+            item={item}
+            variant={palletView}
+            className={styles.portfolioItem}
+            handleClick={handleSelect}
           />
-        ) : (
-         <></>
-        )}
+        ))}
+      </ScrollObserver>
+      {infoBar ? (
+        <FolderSideBar
+          className={cn({
+            [styles.sideBarMobile]: checkMobile(windowX),
+          })}
+          data={portfolioData.find(
+            (item: PortfolioItemI) => item.id === currentId
+          )}
+        />
+      ) : (
+        <></>
+      )}
     </>
   );
 };

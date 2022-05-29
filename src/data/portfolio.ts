@@ -48,7 +48,6 @@ export const portfolioData: PortfolioItemI[] = [
     description:
       'Серверная программа для проекта "ТЭК Админ". Предоставляет интерфейс для сбора, хранения и обработки данных.',
     instruments: ["nodejs", "express", "REST API", "PostgreSQL"],
-    info: "Логин: admin, пароль: admin",
   },
   {
     id: 3,
@@ -73,7 +72,6 @@ export const portfolioData: PortfolioItemI[] = [
     description:
       "Коллекция игр для Speech проекта. Здесь генерируются игры из приходящих с сервера данных. ",
     instruments: ["ES6", "pixijs", 'OOP'],
-    info: "Логин: admin, пароль: admin",
   },
   {
     id: 4,
