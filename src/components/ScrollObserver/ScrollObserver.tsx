@@ -11,6 +11,7 @@ export const ScrollObserver = React.memo(
     className,
     children,
     trigger,
+    ...props
   }: ScrollOpserverProps) => {
     const [scroll, setScroll] = useState<number | undefined>(0);
     const dispatch = useDispatch();
@@ -34,6 +35,7 @@ export const ScrollObserver = React.memo(
         className={cn("scrollWrapper", "scrollSmooth", className)}
         ref={scrolledElement}
         onScroll={handleScroll}
+        {...props}
       >
         {children}
       </div>

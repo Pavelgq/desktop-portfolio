@@ -7,13 +7,13 @@ import { PortfolioItem } from "../PortfolioItem/PortfolioItem";
 import styles from "./FolderSideBar.module.css";
 import { FolderSideBarProps } from "./FolderSideBar.props";
 
-export function FolderSideBar({ data, className }: FolderSideBarProps): JSX.Element {
+export function FolderSideBar({ data, className, children, ref, ...props }: FolderSideBarProps): JSX.Element {
   const fullScreen = useSelector(selectFullScreen);
     const currentSideBarScrollPosition = useSelector(selectSidebarScrollPosition);
   return (
     <ScrollObserver className={cn(className, styles.container, {
         [styles.fullScreen]: fullScreen,
-      })} currentScroll={currentSideBarScrollPosition} setCurrentScroll={setSidebarScrollPosition}>
+      })} currentScroll={currentSideBarScrollPosition} setCurrentScroll={setSidebarScrollPosition} {...props}>
       {data && <PortfolioItem item={data} key={data.id} />}
     </ScrollObserver>
   );

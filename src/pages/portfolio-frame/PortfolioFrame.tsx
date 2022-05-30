@@ -48,14 +48,10 @@ export const PortfolioFrame = () => {
   };
 
   const close = () => {
-    console.log("...");
     dispatch(setFolderInfoBarState(false));
   };
 
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-    e.preventDefault();
-    console.log(".");
     const touchDown = e.touches[0].clientX;
     setTouchPosition(touchDown);
   };
@@ -69,7 +65,7 @@ export const PortfolioFrame = () => {
     const currentTouch = e.touches[0].clientX;
     const diff = touchDown - currentTouch;
 
-    if (diff < -5) {
+    if (diff < -6) {
       close();
     }
 
@@ -96,7 +92,6 @@ export const PortfolioFrame = () => {
           />
         ))}
       </ScrollObserver>
-      {/* {infoBar ? ( */}
       <FolderSideBar
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
@@ -109,9 +104,6 @@ export const PortfolioFrame = () => {
           (item: PortfolioItemI) => item.id === currentId
         )}
       />
-      {/* ) : (
-        <></>
-      )} */}
     </>
   );
 };

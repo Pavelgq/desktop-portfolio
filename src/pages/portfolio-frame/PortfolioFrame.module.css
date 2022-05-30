@@ -29,12 +29,11 @@
 }
 
 .sideBarMobile {
-  position: relative;
+  position: absolute;
   width: 100%;
   transform: translateX(100%);
   transition: all 0.7s ease-in;
 }
-
 
 .show {
   display: block;
