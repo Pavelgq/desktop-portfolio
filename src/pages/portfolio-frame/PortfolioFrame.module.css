@@ -21,12 +21,22 @@
 .table.portfolioItem:nth-child(2n + 1) {
   background-color: var(--main-bg-color);
 }
-
-.sideBarMobile {
-  position: absolute;
-}
-
 .sideBar {
   width: 50%;
+  position: relative;
+  display: none;
   overflow-y: auto;
+}
+
+.sideBarMobile {
+  position: relative;
+  width: 100%;
+  transform: translateX(100%);
+  transition: all 0.7s ease-in;
+}
+
+
+.show {
+  display: block;
+  transform: translateX(0%);
 }

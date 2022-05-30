@@ -20,15 +20,19 @@ import {
 } from "../../store/folderStore";
 import { PortfolioItemI } from "../../interfaces/portfolio";
 import { portfolioData } from "../../data/portfolio";
+import { useEffect } from "react";
 
 export const FolderLayout = () => {
   const [windowX] = useWindowSize();
   const fullScreen = useSelector(selectFullScreen);
+  const dispatch = useDispatch();
 
   const infoBar = useSelector(selectFolderInfoBar);
   const palletView = useSelector(selectFolderPalletView);
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    checkMobile(windowX) && dispatch(setFolderInfoBarState(false));
+  }, []);
 
   const handleChangePalletTable = () => {
     dispatch(setFolderPalletView("Table"));

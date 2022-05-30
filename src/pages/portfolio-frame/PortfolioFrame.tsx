@@ -1,5 +1,5 @@
 import cn from "classnames";
-import { MouseEvent, useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState, TouchEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useOutletContext } from "react-router-dom";
 import {
@@ -32,6 +32,7 @@ export const PortfolioFrame = () => {
   const infoBar = useSelector(selectFolderInfoBar);
   const palletView = useSelector(selectFolderPalletView);
   const currentItemsScrollPosition = useSelector(selectFolderScrollPosition);
+  const [touchPosition, setTouchPosition] = useState(0);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -44,6 +45,35 @@ export const PortfolioFrame = () => {
   const handleSelect = (id: number) => {
     dispatch(setFolderCuttentId(id));
     !infoBar && dispatch(setFolderInfoBarState(true));
+  };
+
+  const close = () => {
+    console.log("...");
+    dispatch(setFolderInfoBarState(false));
+  };
+
+  const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    e.preventDefault();
+    console.log(".");
+    const touchDown = e.touches[0].clientX;
+    setTouchPosition(touchDown);
+  };
+  const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
+    const touchDown = touchPosition;
+
+    if (!touchDown) {
+      return;
+    }
+
+    const currentTouch = e.touches[0].clientX;
+    const diff = touchDown - currentTouch;
+
+    if (diff < -5) {
+      close();
+    }
+
+    setTouchPosition(0);
   };
 
   return (
@@ -66,18 +96,22 @@ export const PortfolioFrame = () => {
           />
         ))}
       </ScrollObserver>
-      {infoBar ? (
-        <FolderSideBar
-          className={cn({
-            [styles.sideBarMobile]: checkMobile(windowX),
-          })}
-          data={portfolioData.find(
-            (item: PortfolioItemI) => item.id === currentId
-          )}
-        />
-      ) : (
+      {/* {infoBar ? ( */}
+      <FolderSideBar
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        className={cn({
+          [styles.sideBar]: !checkMobile(windowX),
+          [styles.sideBarMobile]: checkMobile(windowX),
+          [styles.show]: infoBar,
+        })}
+        data={portfolioData.find(
+          (item: PortfolioItemI) => item.id === currentId
+        )}
+      />
+      {/* ) : (
         <></>
-      )}
+      )} */}
     </>
   );
 };
