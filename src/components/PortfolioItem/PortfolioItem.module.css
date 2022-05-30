@@ -7,6 +7,8 @@
 
 .previewImage {
   max-width: 90%;
+  width: 200px;
+  height: 120px;
   border: 2px solid var(--gray-light);
   padding: 3px;
   margin: 0 auto;
@@ -14,7 +16,6 @@
 }
 
 .previewLinkWrapper {
-
   margin-bottom: 10px;
 }
 
@@ -44,7 +45,6 @@
   margin-bottom: 5px;
 }
 
-
 .period {
   margin: 1px 0;
   font-size: 12px;
@@ -71,5 +71,4 @@
 }
 
 @media screen and (max-width: 640px) {
-  
 }

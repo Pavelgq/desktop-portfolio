@@ -25,7 +25,6 @@
   width: 50%;
   position: relative;
   display: none;
-  overflow-y: auto;
 }
 
 .sideBarMobile {
@@ -36,6 +35,6 @@
 }
 
 .show {
-  display: block;
+  display: flex;
   transform: translateX(0%);
 }

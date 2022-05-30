@@ -31,6 +31,9 @@ export const FolderLayout = () => {
   const palletView = useSelector(selectFolderPalletView);
 
   useEffect(() => {
+    if (!windowX) {
+      return
+    }
     checkMobile(windowX) && dispatch(setFolderInfoBarState(false));
   }, []);
 

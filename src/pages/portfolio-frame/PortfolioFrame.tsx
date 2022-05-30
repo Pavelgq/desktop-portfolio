@@ -32,6 +32,7 @@ export const PortfolioFrame = () => {
   const infoBar = useSelector(selectFolderInfoBar);
   const palletView = useSelector(selectFolderPalletView);
   const currentItemsScrollPosition = useSelector(selectFolderScrollPosition);
+  const currentSideBarScrollPosition = useSelector(selectSidebarScrollPosition);
   const [touchPosition, setTouchPosition] = useState(0);
 
   const dispatch = useDispatch();
@@ -92,18 +93,23 @@ export const PortfolioFrame = () => {
           />
         ))}
       </ScrollObserver>
-      <FolderSideBar
+      <ScrollObserver 
+        currentScroll={currentSideBarScrollPosition}
+        setCurrentScroll={setSidebarScrollPosition}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
-        className={cn({
+      >
+        <FolderSideBar
+          className={cn({
           [styles.sideBar]: !checkMobile(windowX),
           [styles.sideBarMobile]: checkMobile(windowX),
           [styles.show]: infoBar,
-        })}
-        data={portfolioData.find(
-          (item: PortfolioItemI) => item.id === currentId
-        )}
-      />
+      })}
+          data={portfolioData.find(
+            (item: PortfolioItemI) => item.id === currentId
+          )}
+          />
+      </ScrollObserver>
     </>
   );
 };
