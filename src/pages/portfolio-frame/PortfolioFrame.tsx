@@ -82,6 +82,7 @@ export const PortfolioFrame = () => {
         })}
         currentScroll={currentItemsScrollPosition}
         setCurrentScroll={setFolderScrollPosition}
+        onClick={() => handleSelect(0)}
       >
         {portfolioData.map((item, i) => (
           <PortfolioItemView
@@ -93,22 +94,25 @@ export const PortfolioFrame = () => {
           />
         ))}
       </ScrollObserver>
-      <ScrollObserver 
+      <ScrollObserver
         currentScroll={currentSideBarScrollPosition}
         setCurrentScroll={setSidebarScrollPosition}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
+        className={cn(styles.slideContainer, {
+          [styles.showContainer]: infoBar,
+        })}
       >
         <FolderSideBar
           className={cn({
-          [styles.sideBar]: !checkMobile(windowX),
-          [styles.sideBarMobile]: checkMobile(windowX),
-          [styles.show]: infoBar,
-      })}
+            [styles.sideBar]: !checkMobile(windowX),
+            [styles.sideBarMobile]: checkMobile(windowX),
+            [styles.show]: infoBar,
+          })}
           data={portfolioData.find(
             (item: PortfolioItemI) => item.id === currentId
           )}
-          />
+        />
       </ScrollObserver>
     </>
   );

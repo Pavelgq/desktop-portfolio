@@ -21,20 +21,51 @@
 .table.portfolioItem:nth-child(2n + 1) {
   background-color: var(--main-bg-color);
 }
-.sideBar {
+
+.slideContainer {
+  display: flex;
+  flex-direction: column;
   width: 50%;
+  overflow-y: auto;
+}
+
+.slideContainer > div {
+  flex: 1;
+}
+
+.sideBar {
   position: relative;
   display: none;
 }
 
 .sideBarMobile {
-  position: absolute;
+  display: flex;
   width: 100%;
-  transform: translateX(100%);
+      height: calc(100vh - 80px);
   transition: all 0.7s ease-in;
+  overflow: hidden;
 }
 
 .show {
   display: flex;
-  transform: translateX(0%);
+}
+
+@media screen and (max-width: 640px) {
+  .slideContainer {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: calc(100% - 80px);
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: all 0.7s ease-in;
+  }
+
+  .showContainer {
+    transform: translateX(0%);
+  }
+
 }

@@ -5,9 +5,12 @@
   background-color: var(--main-bg-color);
 }
 
+.fullScreen {
+
+}
+
 @media screen and (max-width: 640px) {
   .container {
-    position: absolute;
     border: none;
     width: 100%;
     height: calc(100% - 80px);
