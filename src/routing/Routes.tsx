@@ -8,7 +8,11 @@ import {
 } from "../layouts";
 import { BlankFrame } from "../pages/blank-frame/BlankFrame";
 import { PortfolioFrame } from "../pages/portfolio-frame/PortfolioFrame";
-import { ResumePreview, ResumeWrapper } from "../pages/resume/Resume";
+import {
+  ResumePreview,
+  ResumePrint,
+  ResumeWrapper,
+} from "../pages/resume/Resume";
 import { WelcomeFrame } from "../pages/welcome-frame/WelcomeFrame";
 import { CoursesFrame } from "../pages/courses-frame/CoursesFrame";
 import { CustomTerminal } from "../pages/custom-terminal/CustomTerminal";
@@ -31,7 +35,8 @@ export function RoutesList(): JSX.Element {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Route>
-      <Route path="/print" element={<ResumePreview />} />
+      <Route path="/resume" element={<ResumePreview />} />
+      <Route path="/print" element={<ResumePrint />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

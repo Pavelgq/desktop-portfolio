@@ -86,7 +86,12 @@ export const ResumeWrapper = () => {
   return (
     <section className={styles.content}>
       {!checkMobile(windowX) ? <PdfSideBar anchors={anchors} /> : <></>}
-      <ScrollObserver className={cn(styles.resume)} currentScroll={currentScroll} setCurrentScroll={setCurrentFrameScroll} trigger={anchors}>
+      <ScrollObserver
+        className={cn(styles.resume)}
+        currentScroll={currentScroll}
+        setCurrentScroll={setCurrentFrameScroll}
+        trigger={anchors}
+      >
         <Resume />
       </ScrollObserver>
       {/* <article
@@ -100,7 +105,7 @@ export const ResumeWrapper = () => {
   );
 };
 
-export const ResumePreview = () => {
+export const ResumePrint = () => {
   const dispatch = useDispatch();
   const navType = useNavigationType();
   const mainLoading = useSelector(selectMainLoading);
@@ -114,8 +119,30 @@ export const ResumePreview = () => {
     });
   }, []);
   useEffect(() => {
-    if (!mainLoading) window.print();
+    if (!mainLoading)
+      setTimeout(() => {
+        window.print();
+      }, 2000);
   }, [mainLoading]);
+  return (
+    <article className={styles.resumePreview}>
+      <Resume />
+    </article>
+  );
+};
+
+export const ResumePreview = () => {
+  const dispatch = useDispatch();
+  const navType = useNavigationType();
+  useEffect(() => {
+    document.fonts.ready.then(function () {
+      if (navType === "POP") {
+        const loader = document.querySelector(".screen-loader");
+        loader?.classList.add("hidden");
+        dispatch(loadingComplite());
+      }
+    });
+  }, []);
   return (
     <article className={styles.resumePreview}>
       <Resume />

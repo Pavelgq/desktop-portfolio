@@ -41,7 +41,7 @@
 .sideBarMobile {
   display: flex;
   width: 100%;
-      height: calc(100vh - 80px);
+  height: calc(100vh - 80px);
   transition: all 0.7s ease-in;
   overflow: hidden;
 }
