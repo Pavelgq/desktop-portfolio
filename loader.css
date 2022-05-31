@@ -1,3 +1,5 @@
+
+
 .screen-loader {
   position: absolute;
   display: flex;
@@ -6,6 +8,8 @@
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  top: 0;
+  left: 0;
   /* background-color: black; */
   background-color: gold;
   background: linear-gradient(45deg, #a1ffd3, #f9ffd1);
@@ -14,6 +18,7 @@
   opacity: 1;
 
   z-index: 10;
+  
 }
 
 .hidden {
@@ -47,8 +52,6 @@
 }
 
 .icon-loader {
-
-  
   animation: hammer 3.5s infinite linear;
 }
 

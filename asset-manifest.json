@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.29a3b8f6.css",
-    "main.js": "/static/js/main.dd0b8033.js",
+    "main.css": "/static/css/main.f89c9e16.css",
+    "main.js": "/static/js/main.726ba01c.js",
     "static/media/page-not-found.svg": "/static/media/page-not-found.2c298d57cd71172c6a3adb0020f1348b.svg",
     "static/media/death-star.svg": "/static/media/death-star.73a34cba9e232581b2589dbceee9b1a5.svg",
     "static/media/portfolio-default.png": "/static/media/portfolio-default.f87262afad187d1c552f.png",
@@ -27,11 +27,11 @@
     "static/media/close-panel.svg": "/static/media/close-panel.db577afa5d7d8825ee85538e345cf838.svg",
     "static/media/open-panel.svg": "/static/media/open-panel.b1284fac8b746e67dd4a5d42eccba986.svg",
     "static/media/content-line.svg": "/static/media/content-line.4dd1703205f3100d8972f90da647da5a.svg",
-    "main.29a3b8f6.css.map": "/static/css/main.29a3b8f6.css.map",
-    "main.dd0b8033.js.map": "/static/js/main.dd0b8033.js.map"
+    "main.f89c9e16.css.map": "/static/css/main.f89c9e16.css.map",
+    "main.726ba01c.js.map": "/static/js/main.726ba01c.js.map"
   },
   "entrypoints": [
-    "static/css/main.29a3b8f6.css",
-    "static/js/main.dd0b8033.js"
+    "static/css/main.f89c9e16.css",
+    "static/js/main.726ba01c.js"
   ]
 }
