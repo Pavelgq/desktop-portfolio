@@ -34,6 +34,7 @@ export const FolderLayout = () => {
     if (!windowX) {
       return
     }
+    
     checkMobile(windowX) && dispatch(setFolderInfoBarState(false));
   }, []);
 

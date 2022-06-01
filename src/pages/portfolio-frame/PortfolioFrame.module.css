@@ -23,14 +23,20 @@
 }
 
 .slideContainer {
-  display: flex;
+  display: none;
   flex-direction: column;
   width: 50%;
+  box-sizing: border-box;
+  overflow: hidden;
   overflow-y: auto;
 }
 
 .slideContainer > div {
   flex: 1;
+}
+.showContainer {
+  display: flex;
+  transform: translateX(0%);
 }
 
 .sideBar {
@@ -66,6 +72,7 @@
   }
 
   .showContainer {
+    display: flex;
     transform: translateX(0%);
   }
 }

@@ -63,7 +63,7 @@ export const FolderFilling = ({title, data, setId, currentId = 0}: FolderFilling
 
   const dispatch = useDispatch();
   useEffect(() => {
-    if (checkMobile(windowX)) {
+    if (windowX && checkMobile(windowX)) {
       dispatch(setFolderInfoBarState(false));
     }
     dispatch(setTargetWindowTitle(title));
