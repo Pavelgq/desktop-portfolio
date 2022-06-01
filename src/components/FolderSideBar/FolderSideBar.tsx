@@ -15,7 +15,7 @@ export function FolderSideBar({ data, className, children, ref, ...props }: Fold
     <div className={cn(className, styles.container, {
         [styles.fullScreen]: fullScreen,
       })} {...props}>
-      {data && <PortfolioItem item={data} key={data.id} />}
+      {data && <PortfolioItem currentId={data.id} item={data} key={data.id} />}
     </div>
   );
 }

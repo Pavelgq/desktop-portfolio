@@ -12,7 +12,7 @@ import { NavBarButton } from "../../components/NavBarButton/NavBarButton";
 import { FolderSideBar } from "../../components";
 import { checkMobile } from "../../utils/dom-utils";
 import {
-  selectFolderCurrentId,
+  selectFolderCurrentIds,
   selectFolderInfoBar,
   selectFolderPalletView,
   setFolderInfoBarState,

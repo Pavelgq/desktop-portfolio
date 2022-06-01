@@ -7,14 +7,13 @@ import {
   FolderLayout,
 } from "../layouts";
 import { BlankFrame } from "../pages/blank-frame/BlankFrame";
-import { PortfolioFrame } from "../pages/portfolio-frame/PortfolioFrame";
+import { LearningFrame, PortfolioFrame } from "../pages/portfolio-frame/PortfolioFrame";
 import {
   ResumePreview,
   ResumePrint,
   ResumeWrapper,
 } from "../pages/resume/Resume";
 import { WelcomeFrame } from "../pages/welcome-frame/WelcomeFrame";
-import { CoursesFrame } from "../pages/courses-frame/CoursesFrame";
 import { CustomTerminal } from "../pages/custom-terminal/CustomTerminal";
 
 export function RoutesList(): JSX.Element {
@@ -27,7 +26,7 @@ export function RoutesList(): JSX.Element {
           <Route path="terminal" element={<CustomTerminal />} />
           <Route path="folder" element={<FolderLayout />}>
             <Route path="portfolio" element={<PortfolioFrame />} />
-            <Route path="courses" element={<CoursesFrame />} />
+            <Route path="courses" element={<LearningFrame />} />
           </Route>
           <Route path="resume" element={<PDFLayout />}>
             <Route index element={<ResumeWrapper />} />

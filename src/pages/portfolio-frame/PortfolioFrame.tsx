@@ -1,3 +1,4 @@
+import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import cn from "classnames";
 import { MouseEvent, useEffect, useState, TouchEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,27 +9,52 @@ import {
   PortfolioItemView,
   ScrollObserver,
 } from "../../components";
-import { portfolioData } from "../../data/portfolio";
+import { coursesData, portfolioData } from "../../data/portfolio";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { PortfolioItemI } from "../../interfaces/portfolio";
 import {
-  selectFolderCurrentId,
+  selectFolderCurrentIds,
   selectFolderInfoBar,
   selectFolderPalletView,
   selectFolderScrollPosition,
   selectSidebarScrollPosition,
-  setFolderCuttentId,
+  setPortfolioCurrentId,
   setFolderInfoBarState,
   setFolderScrollPosition,
   setSidebarScrollPosition,
+  setCoursesCurrentId,
 } from "../../store/folderStore";
 import { setTargetWindowTitle } from "../../store/mainStore";
 import { checkMobile } from "../../utils/dom-utils";
 import styles from "./PortfolioFrame.module.css";
 
 export const PortfolioFrame = () => {
+  const currentId = useSelector(selectFolderCurrentIds).portfolio;
+  return (
+    <>
+      <FolderFilling title='Портфолио' data={portfolioData} setId={setPortfolioCurrentId} currentId={currentId} />
+    </>
+  )
+}
+
+export const LearningFrame = () => {
+  const currentId = useSelector(selectFolderCurrentIds).courses;
+  return (
+    <>
+      <FolderFilling title="Курсы" data={coursesData} setId={setCoursesCurrentId} currentId={currentId}  />
+    </>
+  )
+}
+
+export interface FolderFillingProps {
+  title: string;
+  data: PortfolioItemI[];
+  setId: ActionCreatorWithPayload<any, string>;
+  currentId?: number;
+};
+
+export const FolderFilling = ({title, data, setId, currentId = 0}: FolderFillingProps) => {
   const [windowX] = useWindowSize();
-  const currentId = useSelector(selectFolderCurrentId);
   const infoBar = useSelector(selectFolderInfoBar);
   const palletView = useSelector(selectFolderPalletView);
   const currentItemsScrollPosition = useSelector(selectFolderScrollPosition);
@@ -40,11 +66,12 @@ export const PortfolioFrame = () => {
     if (checkMobile(windowX)) {
       dispatch(setFolderInfoBarState(true));
     }
-    dispatch(setTargetWindowTitle("Портфолио"));
+    dispatch(setTargetWindowTitle(title));
+    
   }, []);
 
   const handleSelect = (id: number) => {
-    dispatch(setFolderCuttentId(id));
+    dispatch(setId(id));
     !infoBar && dispatch(setFolderInfoBarState(true));
   };
 
@@ -84,8 +111,9 @@ export const PortfolioFrame = () => {
         setCurrentScroll={setFolderScrollPosition}
         onClick={() => handleSelect(0)}
       >
-        {portfolioData.map((item, i) => (
+        {data.map((item, i) => (
           <PortfolioItemView
+            currentId={currentId}
             key={item.id}
             item={item}
             variant={palletView}
@@ -109,7 +137,7 @@ export const PortfolioFrame = () => {
             [styles.sideBarMobile]: checkMobile(windowX),
             [styles.show]: infoBar,
           })}
-          data={portfolioData.find(
+          data={data.find(
             (item: PortfolioItemI) => item.id === currentId
           )}
         />
