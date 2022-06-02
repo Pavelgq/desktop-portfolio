@@ -1,5 +1,6 @@
 {
   "name": "desktop-portfolio",
+  "type": "module",
   "version": "0.4.1",
   "homepage": "https://pavelgordeev.site/",
   "dependencies": {

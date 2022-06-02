@@ -1,3 +1,5 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: 
+Crawl-delay: 10
+Disallow: /cgi-bin/
+Sitemap: https://pavelgordeev.site/
