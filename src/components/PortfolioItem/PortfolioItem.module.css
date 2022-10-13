@@ -6,10 +6,10 @@
 }
 
 .previewImage {
-  max-width: 90%;
+  /* max-width: 90%;
   width: 200px;
-  height: 120px;
-  border: 2px solid var(--gray-light);
+  height: 120px;  
+  border: 2px solid var(--gray-light); */
   padding: 3px;
   margin: 0 auto;
   margin-bottom: 10px;

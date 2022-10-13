@@ -1,6 +1,6 @@
 import cn from "classnames";
 import React from "react";
-import { useState, useRef, useLayoutEffect, UIEvent, useEffect } from "react";
+import { useState, useRef, UIEvent, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { ScrollOpserverProps } from "./ScrollObserver.props";
 

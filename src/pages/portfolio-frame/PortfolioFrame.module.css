@@ -1,19 +1,20 @@
 .itemList {
   width: 100%;
   overflow-y: scroll;
-  padding-top: 15px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .tile {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 1rem;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-gap: 7px;
   grid-auto-rows: max-content;
+  grid-auto-columns: max-content;
+  justify-items: start;
+  box-sizing: border-box;
 }
-
-/* .portfolioItem {
-  width: 100px;
-} */
 
 .table.portfolioItem:nth-child(2n) {
   background-color: white;
@@ -25,16 +26,19 @@
 .slideContainer {
   display: flex;
   flex-direction: column;
-  width: 50%;
   overflow-y: auto;
 }
 
-.slideContainer > div {
-  flex: 1;
+.showContainer {
+  width: 400px; 
+  min-height: 100%;
+  border-left: 3px solid rgba(51, 51, 51, 0.9);
+  /* Todo: Меняя это значение сдвигаем блока (можно сделать интерактивным) */
 }
 
 .sideBar {
   position: relative;
+  height: auto;
   display: none;
 }
 

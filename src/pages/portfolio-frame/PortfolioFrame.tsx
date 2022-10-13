@@ -100,7 +100,7 @@ export const PortfolioFrame = () => {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         className={cn(styles.slideContainer, {
-          [styles.showContainer]: infoBar,
+          [styles.showContainer]: infoBar && currentId !== 0,
         })}
       >
         <FolderSideBar

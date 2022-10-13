@@ -7,6 +7,7 @@ import { MouseEvent } from "react";
 import { useDispatch } from "react-redux";
 import { setAlarmMessage } from "../../store/mainStore";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { ImgPreview } from "../ImgPreview/ImgPreview";
 
 export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
   const dispatch = useDispatch();
@@ -24,7 +25,9 @@ export const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
 
   return (
     <div className={styles.container}>
-      <ImgTag
+      <ImgPreview
+        width={240}
+        height={180}
         src={item.previewImage || defaultPreview}
         alt={item.name}
         className={styles.previewImage}

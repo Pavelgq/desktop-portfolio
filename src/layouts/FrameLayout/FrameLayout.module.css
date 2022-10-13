@@ -3,10 +3,10 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  width: 60vw;
+  width: var(--frame-width);
   /* margin-top: 100px; */
-  left: 20vw;
-  top: 10vh;
+  left: 10vw;
+  top: 5vh;
   z-index: 2;
 }
 
@@ -80,7 +80,7 @@
   border: 3px solid #333;
   border-top: 0;
   box-shadow: 10px 10px 0 #333;
-  height: 450px;
+  height: 70vh;
 
   user-select:text;
   overflow-y: auto;

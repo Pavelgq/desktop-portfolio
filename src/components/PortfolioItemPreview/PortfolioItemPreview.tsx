@@ -50,7 +50,7 @@ export const PortfolioItemView = ({
       <ImgTag
         className={styles.image}
         width={160}
-        height={100}
+        height={110}
         src={item.previewImage || defaultPreview}
         alt={item.name}
       />
