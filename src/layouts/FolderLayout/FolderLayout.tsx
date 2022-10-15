@@ -9,17 +9,13 @@ import { ReactComponent as CloseInfoIcon } from "../../assets/svg/icons/close-pa
 import { ReactComponent as ContentLineIcon } from "../../assets/svg/icons/content-line.svg";
 import { ReactComponent as ContentCardIcon } from "../../assets/svg/icons/content-cards.svg";
 import { NavBarButton } from "../../components/NavBarButton/NavBarButton";
-import { FolderSideBar } from "../../components";
 import { checkMobile } from "../../utils/dom-utils";
 import {
-  selectFolderCurrentId,
   selectFolderInfoBar,
   selectFolderPalletView,
   setFolderInfoBarState,
   setFolderPalletView,
 } from "../../store/folderStore";
-import { PortfolioItemI } from "../../interfaces/portfolio";
-import { portfolioData } from "../../data/portfolio";
 import { useEffect } from "react";
 
 export const FolderLayout = () => {
@@ -32,7 +28,7 @@ export const FolderLayout = () => {
 
   useEffect(() => {
     if (!windowX) {
-      return
+      return;
     }
     checkMobile(windowX) && dispatch(setFolderInfoBarState(false));
   }, []);

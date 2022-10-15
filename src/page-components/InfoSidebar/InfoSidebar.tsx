@@ -38,6 +38,12 @@ export const InfoSidebar = () => {
           path={"/frame/folder/courses"}
           Icon={FolderIcon}
         />
+        <MenuItem
+          className={styles.item}
+          title={"Сертификаты"}
+          path={"/frame/folder/certificates"}
+          Icon={FolderIcon}
+        />
       </ul>
     </nav>
   );
