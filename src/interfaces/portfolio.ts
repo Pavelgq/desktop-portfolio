@@ -15,6 +15,11 @@ export interface PortfolioOptionsI {
    value: string;
    link: boolean;
  };
+ task?: {
+  name: "Задачи",
+  value: string;
+   link: boolean;
+ }
 }
 
 
