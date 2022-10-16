@@ -1,8 +1,11 @@
 .container {
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  width: 340px;
   margin: 5px;
   padding: 5px;
+  
 }
 
 .previewImage {

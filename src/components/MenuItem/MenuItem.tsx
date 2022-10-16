@@ -21,7 +21,9 @@ export const MenuItem = ({
         }
         title={title}
       >
-        <Icon className={styles.icon} />
+        <div className={styles.icon}>
+          <Icon className={styles.iconSvg} />
+        </div>
         <span className={styles.title}>{truncate(11, title)}</span>
       </NavLink>
     </li>

@@ -1,19 +1,23 @@
 .itemList {
-  width: 100%;
+  max-width: 100%;
   overflow-y: scroll;
   padding: 10px;
   box-sizing: border-box;
 }
+.slideContainer {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
 
 .tile {
   display: grid;
-  width: 100%;
+
   grid-template-columns: repeat(auto-fill, 200px);
   grid-gap: 7px;
   grid-auto-rows: max-content;
   grid-auto-columns: max-content;
-  justify-items: start;
-  box-sizing: border-box;
+  justify-content: flex-start;
 }
 
 .table.portfolioItem:nth-child(2n) {
@@ -23,16 +27,12 @@
   background-color: var(--main-bg-color);
 }
 
-.slideContainer {
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-}
-
 .showContainer {
-  width: 400px; 
+  width: 350px; 
   min-height: 100%;
+  flex-grow: 1;
   border-left: 3px solid rgba(51, 51, 51, 0.9);
+  box-sizing: border-box;
   /* Todo: Меняя это значение сдвигаем блока (можно сделать интерактивным) */
 }
 
@@ -51,7 +51,7 @@
 }
 
 .show {
-  display: flex;
+  display: block;
 }
 
 @media screen and (max-width: 640px) {

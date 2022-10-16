@@ -1,9 +1,6 @@
 import cn from "classnames";
 import { useSelector } from "react-redux";
-import {
-  selectFolderCurrentId,
-  selectFolderInfoBar,
-} from "../../store/folderStore";
+import { selectFolderCurrentId } from "../../store/folderStore";
 import { selectFullScreen } from "../../store/mainStore";
 import { PortfolioItem } from "../PortfolioItem/PortfolioItem";
 import styles from "./FolderSideBar.module.css";
@@ -17,12 +14,9 @@ export function FolderSideBar({
   ...props
 }: FolderSideBarProps): JSX.Element {
   const fullScreen = useSelector(selectFullScreen);
-  const isOpen = useSelector(selectFolderCurrentId);
-
   return (
     <div
       className={cn(className, {
-        [styles.container]: isOpen !== 0,
         [styles.fullScreen]: fullScreen,
       })}
       {...props}

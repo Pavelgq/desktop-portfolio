@@ -25,7 +25,7 @@
 .itemTable {
   flex-direction: row;
   flex-wrap: nowrap;
-  width: 100%;
+  width: 50vw;
   margin-left: 10px;
 }
 
@@ -42,9 +42,8 @@
 .image {
   /* width: 150px;
   height: 150px; */
-     border: 2px solid var(--gray-light);
-     padding: 5px;
- 
+  border: 2px solid var(--gray-light);
+  padding: 5px;
 }
 
 .itemTable .image {
