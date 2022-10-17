@@ -35,14 +35,14 @@ export const FolderContent = ({ title, data }: FolderContentProps) => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (checkMobile(windowX)) {
-      dispatch(setFolderInfoBarState(true));
+      // dispatch(setFolderInfoBarState(true));
     }
     dispatch(setTargetWindowTitle(title));
   }, []);
 
   const handleSelect = (id: number) => {
     dispatch(setFolderCuttentId(id));
-    !infoBar && dispatch(setFolderInfoBarState(true));
+    !infoBar && id !== 0 && dispatch(setFolderInfoBarState(true));
   };
 
   const close = () => {

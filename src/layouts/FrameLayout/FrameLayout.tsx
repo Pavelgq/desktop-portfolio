@@ -11,6 +11,7 @@ import {
 } from "../../store/mainStore";
 import { ReactComponent as CloseIcon } from "../../assets/svg/icons/close.svg";
 import { ReactComponent as FullIcon } from "../../assets/svg/icons/fullScreen.svg";
+import { ReactComponent as MainIcon } from "../../assets/svg/icons/icons8-main.svg";
 import { HTag } from "../../components";
 import {
   CustomDragLayer,
@@ -91,6 +92,13 @@ export const FrameLayout = () => {
           e.stopPropagation();
         }}
       >
+        <button
+          className={cn(styles.button, styles.onMainButton)}
+          onClick={handleClose}
+          aria-label="Кнопка перехода к главному экрану"
+        >
+          <MainIcon />
+        </button>
         <Outlet />
       </section>
     );

@@ -19,7 +19,7 @@
 
 .active {
   color: var(--text-color-light);
-   background-color: var(--select-item);
+  background-color: var(--select-item);
 }
 
 .itemTable {
@@ -64,4 +64,13 @@
   word-break: break-all;
   text-overflow: ellipsis;
   
+}
+
+@media screen and (max-width: 640px) {
+  .itemContainer {
+    min-height: auto;
+  }
+  .itemTable {
+    width: 90vw;
+  }
 }
