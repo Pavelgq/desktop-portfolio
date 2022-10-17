@@ -3,7 +3,7 @@ import { PortfolioItemI } from "../interfaces/portfolio";
 export const certificatesData: PortfolioItemI[] = [
   {
     id: 1,
-    name: "Школа разработки интерфейсов Яндекс",
+    name: "Школа разработки интерфейсов Яндекс ",
     startDate: '11 июля 2022',
     finishDate: '27 сентября 2022',
     options: {
@@ -15,7 +15,8 @@ export const certificatesData: PortfolioItemI[] = [
     },
     previewImage: "/img/certificates/yandex-shri-2022.jpg",
     description:
-      "Школа разработки интерфейсов Яндекс",
+      `Школа включает два этапа: обучение и работа над проектами. На первом этапе необходимо слушать лекции и делать задания в достаточно интенсивном режиме. 
+      Во втором этапе необходимо собрать команду разработки, организовать работу и за 3 недели реализовать проект MVP.`,
     instruments: ["scss", "ES6+", "typescript", "react", "nodejs", "CI/CD", "jest", "RTL", "selenium"],
   },
   {
@@ -37,7 +38,7 @@ export const certificatesData: PortfolioItemI[] = [
     },
     previewImage: "/img/certificates/yandex-cup-2020.jpg",
     description:
-      "Школа разработки интерфейсов Яндекс",
+      "Состоит из трех этапов: тренировочный, квалификация и финал. Требуется решить, как можно больше заданий за отведенное время",
     instruments: ["ES5+"],
   }
 ]
