@@ -7,6 +7,7 @@ import { ReactComponent as GithubIcon } from "../../assets/svg/icons/icons8-plas
 import { ReactComponent as TwitterIcon } from "../../assets/svg/icons/icons8-plasticine-Twitter.svg";
 import { ReactComponent as EmailIcon } from "../../assets/svg/icons/icons8-plasticine-Mail.svg";
 
+import { ReactComponent as SettingIcon } from "../../assets/svg/icons/icons8-plasticine-Settings.svg";
 import { ReactComponent as DownloadIcon } from "../../assets/svg/icons/icons8-plasticine-Downloads.svg";
 
 import { ReactComponent as TrashIcon } from "../../assets/svg/icons/icons8-plasticine-Trash Can.svg";
@@ -73,7 +74,6 @@ export const Footer = () => {
 
   useEffect(() => {
     const width = document?.querySelector(".footerItem");
-    console.log('footer effect', width, width?.getBoundingClientRect().width )
     setDefultWidth(width?.getBoundingClientRect().width || 0);
   }, []);
 
@@ -114,6 +114,13 @@ export const Footer = () => {
         </ul>
         {!checkMobile(windowX) && (
           <ul className={styles.otherList}>
+            <FooterItem
+              className="footerItem"
+              title={"Настройки"}
+              path={"/frame/not-found"}
+              isOuterLink={false}
+              Icon={SettingIcon}
+            />
             <FooterItem
               className="footerItem"
               title={"Загрузки"}
