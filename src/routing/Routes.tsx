@@ -7,14 +7,16 @@ import {
   FolderLayout,
 } from "../layouts";
 import { BlankFrame } from "../pages/blank-frame/BlankFrame";
-import { PortfolioFrame } from "../pages/portfolio-frame/PortfolioFrame";
+import {
+  LearningFrame,
+  PortfolioFrame,
+} from "../pages/portfolio-frame/PortfolioFrame";
 import {
   ResumePreview,
   ResumePrint,
   ResumeWrapper,
 } from "../pages/resume/Resume";
 import { WelcomeFrame } from "../pages/welcome-frame/WelcomeFrame";
-import { CoursesFrame } from "../pages/courses-frame/CoursesFrame";
 import { CustomTerminal } from "../pages/custom-terminal/CustomTerminal";
 import { CertificatesFrame } from "../pages/certificates-frame/CertificatesFrame";
 import { GameFrame } from "../pages/game-frame/GameFrame";

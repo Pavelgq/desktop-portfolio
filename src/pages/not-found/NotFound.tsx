@@ -9,6 +9,8 @@ export const NotFound = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setTargetWindowTitle("Error: Page not found"));
+    const loader = document.querySelector(".screen-loader");
+    loader?.classList.add("hidden");
   }, []);
   return (
     <div className={styles.wrapper}>
@@ -16,3 +18,7 @@ export const NotFound = () => {
     </div>
   );
 };
+function loadingComplite(): any {
+  throw new Error("Function not implemented.");
+}
+

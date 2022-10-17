@@ -11,6 +11,7 @@ import { ReactComponent as ContentCardIcon } from "../../assets/svg/icons/conten
 import { NavBarButton } from "../../components/NavBarButton/NavBarButton";
 import { checkMobile } from "../../utils/dom-utils";
 import {
+  selectFolderCurrentIds,
   selectFolderInfoBar,
   selectFolderPalletView,
   setFolderInfoBarState,
@@ -30,6 +31,7 @@ export const FolderLayout = () => {
     if (!windowX) {
       return;
     }
+
     checkMobile(windowX) && dispatch(setFolderInfoBarState(false));
   }, []);
 

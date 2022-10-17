@@ -20,7 +20,7 @@ export function FolderSideBar({
       })}
       {...props}
     >
-      {data && <PortfolioItem item={data} key={data.id} />}
+      {data && <PortfolioItem currentId={data.id} item={data} key={data.id} />}
     </div>
   );
 }

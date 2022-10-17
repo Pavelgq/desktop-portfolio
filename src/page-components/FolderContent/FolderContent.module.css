@@ -35,6 +35,10 @@
   box-sizing: border-box;
   /* Todo: Меняя это значение сдвигаем блока (можно сделать интерактивным) */
 }
+.showContainer {
+  display: flex;
+  transform: translateX(0%);
+}
 
 .sideBar {
   position: relative;
@@ -49,6 +53,7 @@
   height: calc(100vh - 80px);
   transition: all 0.7s ease-in;
   overflow: hidden;
+  overflow-y: auto;
 }
 
 .show {
@@ -64,7 +69,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    min-height: calc(100% - 80px);
+    height: calc(100% - 80px);
     overflow-y: auto;
     transform: translateX(100%);
     transition: all 0.7s ease-in;
@@ -72,7 +77,7 @@
   }
 
   .showContainer {
+    display: flex;
     transform: translateX(0%);
   }
-
 }
