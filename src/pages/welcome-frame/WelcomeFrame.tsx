@@ -1,7 +1,9 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigationType, useOutletContext } from "react-router-dom";
-import { setTargetWindowTitle } from "../../store/mainStore";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectLocaleWelcome,
+  setTargetWindowTitle,
+} from "../../store/mainStore";
 import styles from "./WelcomeFrame.module.css";
 
 import coding from "../../assets/img/coding.png";
@@ -11,6 +13,7 @@ import { HTag, ImgTag } from "../../components";
 
 export const WelcomeFrame = () => {
   const dispatch = useDispatch();
+  const locale = useSelector(selectLocaleWelcome);
   useEffect(() => {
     dispatch(setTargetWindowTitle("README"));
   }, []);
@@ -31,10 +34,16 @@ export const WelcomeFrame = () => {
         src={codingTable}
         alt="Cooding"
       />
-      <HTag tag="h3">Приветствую! Меня зовут Павел.</HTag>
+      <HTag tag="h3">{locale.welcome.hello}</HTag>
       <p className={styles.subtitle}>
-        Я <b>фронтенд разработчик</b> из Санкт-Петербурга. <br />
-        Этот сайт создан для того, чтобы расказать обо мне подробее.
+        {locale.shortAbout[0]}
+        <b> {locale.welcome.shortAbout[1]}</b>
+        {locale.welcome.shortAbout[2]}
+        <br />
+        {locale.welcome.shortAbout[3]} <br />
+      </p>
+      <p>
+        <i>{locale.welcome.instructions}</i>
       </p>
     </div>
   );
