@@ -5,7 +5,6 @@ import styles from "./PortfolioItemPreview.module.css";
 import cn from "classnames";
 import { MouseEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectFolderCurrentIds } from "../../store/folderStore";
 import { truncate } from "../../utils/view-utils";
 import { setAlarmMessage } from "../../store/mainStore";
 

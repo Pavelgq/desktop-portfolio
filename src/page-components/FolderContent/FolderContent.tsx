@@ -8,12 +8,13 @@ import {
 } from "../../components";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import {
-  selectFolderCurrentId,
+  FolderVariantI,
+  selectFolderCurrentIds,
   selectFolderInfoBar,
   selectFolderPalletView,
   selectFolderScrollPosition,
   selectSidebarScrollPosition,
-  setFolderCuttentId,
+  setCurrentId,
   setFolderInfoBarState,
   setFolderScrollPosition,
   setSidebarScrollPosition,
@@ -22,10 +23,15 @@ import { setTargetWindowTitle } from "../../store/mainStore";
 import { checkMobile } from "../../utils/dom-utils";
 import { FolderContentProps } from "./FolderContent.props";
 import styles from "./FolderContent.module.css";
+import { useLocation } from "react-router-dom";
 
-export const FolderContent = ({ title, data }: FolderContentProps) => {
+export const FolderContent = ({
+  title,
+  data,
+  currentId,
+}: FolderContentProps) => {
+  const location = useLocation();
   const [windowX] = useWindowSize();
-  const currentId = useSelector(selectFolderCurrentId);
   const infoBar = useSelector(selectFolderInfoBar);
   const palletView = useSelector(selectFolderPalletView);
   const currentItemsScrollPosition = useSelector(selectFolderScrollPosition);
@@ -41,7 +47,16 @@ export const FolderContent = ({ title, data }: FolderContentProps) => {
   }, []);
 
   const handleSelect = (id: number) => {
-    dispatch(setFolderCuttentId(id));
+    //Проверяем путь и выставляем именно тот id
+    const items = location.pathname.split("/");
+    console.log(items[items.length - 1]);
+
+    dispatch(
+      setCurrentId({
+        item: items[items.length - 1] as keyof FolderVariantI,
+        id,
+      })
+    );
     !infoBar && id !== 0 && dispatch(setFolderInfoBarState(true));
   };
 
@@ -84,6 +99,7 @@ export const FolderContent = ({ title, data }: FolderContentProps) => {
         {data.map((item, i) => (
           <PortfolioItemView
             key={item.id}
+            currentId={currentId}
             item={item}
             variant={palletView}
             className={styles.portfolioItem}

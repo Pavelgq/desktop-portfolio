@@ -7,10 +7,7 @@ import {
   FolderLayout,
 } from "../layouts";
 import { BlankFrame } from "../pages/blank-frame/BlankFrame";
-import {
-  LearningFrame,
-  PortfolioFrame,
-} from "../pages/portfolio-frame/PortfolioFrame";
+import { PortfolioFrame } from "../pages/portfolio-frame/PortfolioFrame";
 import {
   ResumePreview,
   ResumePrint,
@@ -20,6 +17,7 @@ import { WelcomeFrame } from "../pages/welcome-frame/WelcomeFrame";
 import { CustomTerminal } from "../pages/custom-terminal/CustomTerminal";
 import { CertificatesFrame } from "../pages/certificates-frame/CertificatesFrame";
 import { GameFrame } from "../pages/game-frame/GameFrame";
+import { CoursesFrame } from "../pages/courses-frame/CoursesFrame";
 
 export function RoutesList(): JSX.Element {
   return (

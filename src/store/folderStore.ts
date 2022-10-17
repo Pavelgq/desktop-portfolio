@@ -3,13 +3,15 @@ import { PalletViewI } from "../interfaces/common";
 import { RootState } from "./store";
 
 
+export interface FolderVariantI {
+    portfolio: number;
+    courses: number;
+    certificates: number;
+  };
 export interface FolderStoreInterface {
   folderPalletView: PalletViewI;
   folderInfoBarState: boolean;
-  folderCurrentIds: {
-    portfolio: number;
-    courses: number;
-  };
+  folderCurrentIds: FolderVariantI;
   folderScrollPosition: number;
   sidebarScrollPosition: number;
 }
@@ -19,7 +21,8 @@ const initialState: FolderStoreInterface = {
   folderInfoBarState: false,
   folderCurrentIds: {
     portfolio: 0,
-    courses: 0
+    courses: 0,
+    certificates: 0,
   },
   folderScrollPosition: 0,
   sidebarScrollPosition: 0,
@@ -37,6 +40,25 @@ export const folderSlice = createSlice({
     setFolderInfoBarState(state, action) {
       state.folderInfoBarState= action.payload
     },
+    setCurrentId(state, action: {payload: {
+      item: keyof FolderVariantI,
+      id: number
+    }}) {
+      switch (action.payload.item) {
+        case 'portfolio':
+          state.folderCurrentIds.portfolio = action.payload.id
+          break;
+        case 'courses':
+          state.folderCurrentIds.courses = action.payload.id
+          break;
+        case 'certificates':
+          state.folderCurrentIds.certificates = action.payload.id
+          break;
+        default:
+          break;
+      }
+      
+    },
     setPortfolioCurrentId(state, action) {
       state.folderCurrentIds.portfolio = action.payload;
     },
@@ -52,7 +74,7 @@ export const folderSlice = createSlice({
   }
 });
 
-export const {setFolderPalletView, setFolderInfoBarState, setPortfolioCurrentId, setCoursesCurrentId, setFolderScrollPosition, setSidebarScrollPosition} = folderSlice.actions;
+export const {setFolderPalletView, setFolderInfoBarState, setPortfolioCurrentId, setCoursesCurrentId, setFolderScrollPosition, setSidebarScrollPosition, setCurrentId} = folderSlice.actions;
 
 export default folderSlice.reducer;
 
