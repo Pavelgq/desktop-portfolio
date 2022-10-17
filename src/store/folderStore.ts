@@ -13,7 +13,7 @@ export interface FolderStoreInterface {
 
 const initialState: FolderStoreInterface = {
   folderPalletView: 'Tile',
-  folderInfoBarState: true,
+  folderInfoBarState: false,
   folderCurrentId: 0,
   folderScrollPosition: 0,
   sidebarScrollPosition: 0,
