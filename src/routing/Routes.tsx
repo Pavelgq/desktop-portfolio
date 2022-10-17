@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { NotFound } from "../pages/not-found/NotFound";
 import {
   FrameLayout,
@@ -16,6 +16,8 @@ import {
 import { WelcomeFrame } from "../pages/welcome-frame/WelcomeFrame";
 import { CoursesFrame } from "../pages/courses-frame/CoursesFrame";
 import { CustomTerminal } from "../pages/custom-terminal/CustomTerminal";
+import { CertificatesFrame } from "../pages/certificates-frame/CertificatesFrame";
+import { GameFrame } from "../pages/game-frame/GameFrame";
 
 export function RoutesList(): JSX.Element {
   return (
@@ -24,10 +26,12 @@ export function RoutesList(): JSX.Element {
         <Route index element={<BlankFrame />}></Route>
         <Route path="frame" element={<FrameLayout />}>
           <Route path="readme" element={<WelcomeFrame />} />
+          <Route path="game" element={<GameFrame />} />
           <Route path="terminal" element={<CustomTerminal />} />
           <Route path="folder" element={<FolderLayout />}>
             <Route path="portfolio" element={<PortfolioFrame />} />
             <Route path="courses" element={<CoursesFrame />} />
+            <Route path="certificates" element={<CertificatesFrame />} />
           </Route>
           <Route path="resume" element={<PDFLayout />}>
             <Route index element={<ResumeWrapper />} />
