@@ -5,8 +5,6 @@ import {
   setTargetWindowTitle,
 } from "../../store/mainStore";
 import styles from "./WelcomeFrame.module.css";
-
-import coding from "../../assets/img/coding.png";
 import codingLamp from "../../assets/img/coding-lamp.png";
 import codingTable from "../../assets/img/coding-table.png";
 import { HTag, ImgTag } from "../../components";
@@ -34,16 +32,16 @@ export const WelcomeFrame = () => {
         src={codingTable}
         alt="Cooding"
       />
-      <HTag tag="h3">{locale.welcome.hello}</HTag>
+      <HTag tag="h3">{locale.hello}</HTag>
       <p className={styles.subtitle}>
         {locale.shortAbout[0]}
-        <b> {locale.welcome.shortAbout[1]}</b>
-        {locale.welcome.shortAbout[2]}
+        <b> {locale.shortAbout[1]}</b>
+        {locale.shortAbout[2]}
         <br />
-        {locale.welcome.shortAbout[3]} <br />
+        {locale.shortAbout[3]} <br />
       </p>
       <p>
-        <i>{locale.welcome.instructions}</i>
+        <i>{locale.instructions}</i>
       </p>
     </div>
   );

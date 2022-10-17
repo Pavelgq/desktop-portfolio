@@ -24,10 +24,8 @@ export const ResumeWrapper = () => {
   const [windowX] = useWindowSize();
   const [anchors, setAnchors] = useState<PdfSideBarAnchor[]>();
   const dispatch = useDispatch();
-  const [scroll, setScroll] = useState<number | undefined>(0);
   const currentScroll = useSelector(selectFrameScroll);
   const locale = useSelector(selectLocaleResume);
-  const scrolledElement = useRef<HTMLElement>(null);
 
   useEffect(() => {
     // if (location.pathname.split("/").length <= 1) {

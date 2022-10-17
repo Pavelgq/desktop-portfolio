@@ -1,23 +1,22 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Footer, FunSidebar, InfoSidebar } from "../../page-components";
 import styles from "./DesktopLayout.module.css";
 import update from "immutability-helper";
 import { useDrop, XYCoord } from "react-dnd";
-import { useState, useCallback, TouchEvent, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { ItemTypes } from "../../interfaces/common";
 import { useDispatch, useSelector } from "react-redux";
 import {
   loadingComplite,
   resetAlarmMessage,
   selectAlarmMessage,
-  selectFullScreen,
   selectMainLoading,
 } from "../../store/mainStore";
 import { SlideConstruct } from "../../components/SlideConstruct/SlideConstruct";
-import { animated, useSpringRef, useTransition } from "@react-spring/web";
 import { vh } from "../../hooks/useWindowSize";
 import { Modal } from "../../components";
 import cn from "classnames";
+import { Header } from "../../page-components/Header/Header";
 
 export interface DragItem {
   type: string;
@@ -30,7 +29,6 @@ export const DesktopLayout = () => {
   const dispatch = useDispatch();
 
   const mainLoading = useSelector(selectMainLoading);
-  const fullScreen = useSelector(selectFullScreen);
   const alarmMessage = useSelector(selectAlarmMessage);
   const [draggableItem, setDraggableItem] = useState<{
     top: number;
@@ -83,6 +81,7 @@ export const DesktopLayout = () => {
         height: `${vh * 100}px`,
       }}
     >
+      <Header />
       <div className={styles.innerContainer}>
         <SlideConstruct>
           <InfoSidebar />

@@ -44,6 +44,7 @@
 
 .sideBarMobile {
   display: flex;
+  justify-content: center;
   width: 100%;
   height: calc(100vh - 80px);
   transition: all 0.7s ease-in;
@@ -51,7 +52,7 @@
 }
 
 .show {
-  display: block;
+  display: flex;
 }
 
 @media screen and (max-width: 640px) {
@@ -61,11 +62,13 @@
     left: 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     min-height: calc(100% - 80px);
     overflow-y: auto;
     transform: translateX(100%);
     transition: all 0.7s ease-in;
+    background-color: var(--main-bg-color);
   }
 
   .showContainer {

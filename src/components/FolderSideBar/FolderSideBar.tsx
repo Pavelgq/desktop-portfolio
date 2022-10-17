@@ -1,6 +1,5 @@
 import cn from "classnames";
 import { useSelector } from "react-redux";
-import { selectFolderCurrentId } from "../../store/folderStore";
 import { selectFullScreen } from "../../store/mainStore";
 import { PortfolioItem } from "../PortfolioItem/PortfolioItem";
 import styles from "./FolderSideBar.module.css";

@@ -3,7 +3,6 @@ import { SlideConstructProps } from "./SlideConstruct.props";
 
 import styles from "./SlideConstruct.module.css";
 import cn from "classnames";
-import { globalConfig } from "../../config";
 import { checkMobile } from "../../utils/dom-utils";
 import { useWindowSize } from "../../hooks/useWindowSize";
 
