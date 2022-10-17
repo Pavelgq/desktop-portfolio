@@ -81,7 +81,7 @@ export const DesktopLayout = () => {
         height: `${vh * 100}px`,
       }}
     >
-      <Header />
+      {/* <Header /> */}
       <div className={styles.innerContainer}>
         <SlideConstruct>
           <InfoSidebar />
