@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import cn from "classnames";
 
 import styles from "./FooterItem.module.css";
@@ -16,6 +16,7 @@ export const FooterItem = ({
   ...props
 }: FooterItemProps): JSX.Element => {
   const dispatch = useDispatch();
+  const navigator = useNavigate();
 
   const handleClick = (e: MouseEvent, link: string) => {
     e.preventDefault();
@@ -24,6 +25,11 @@ export const FooterItem = ({
     } else {
       dispatch(setAlarmMessage("inWork"));
     }
+  };
+
+  const handleOpenFrame = (e: MouseEvent, link: string) => {
+    e.preventDefault();
+    navigator(link);
   };
 
   return (
@@ -45,7 +51,7 @@ export const FooterItem = ({
         ) : (
           <button
             className={styles.link}
-            onClick={(e: MouseEvent) => handleClick(e, "")}
+            onClick={(e: MouseEvent) => handleOpenFrame(e, path)}
           >
             <Icon className={styles.icon} />
           </button>

@@ -117,7 +117,7 @@ export const Footer = () => {
             <FooterItem
               className="footerItem"
               title={"Настройки"}
-              path={"/frame/not-found"}
+              path={"/frame/settings"}
               isOuterLink={false}
               Icon={SettingIcon}
             />

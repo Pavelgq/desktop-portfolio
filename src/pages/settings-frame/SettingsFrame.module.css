@@ -1,0 +1,28 @@
+
+.container {
+  display: flex;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.group {
+  display:  flex;
+  flex-direction: column;
+}
+
+.options {
+  display: flex;
+  
+}
+.options > * {
+  margin-right: 5px;
+}
+
+.options > *:last-child {
+  margin-right: 0px;
+}

@@ -20,7 +20,7 @@ const initialState: MainStoreInterface = {
   alarmMessage: 'empty',
   showAlarm: false,
   mainLoaging: true,
-  locale: 'ru',
+  locale: localStorage.getItem('locale') as keyof localizationI || 'ru',
 }
 
 export const mainSlice = createSlice({
@@ -52,6 +52,7 @@ export const mainSlice = createSlice({
     },
     changeLocale(state, action) {
       state.locale = action.payload
+      localStorage.setItem('locale', action.payload)
     }
   }
 })
@@ -68,3 +69,4 @@ export const selectAlarmMessage = (state: RootState) => { return {...alarms[stat
 export const selectLocale = (state: RootState) => state.main.locale;
 export const selectLocaleWelcome = (state: RootState) => localization[state.main.locale].welcome;
 export const selectLocaleResume = (state: RootState) => localization[state.main.locale].resume;
+export const selectLocaleSetting = (state: RootState) => localization[state.main.locale].setting;

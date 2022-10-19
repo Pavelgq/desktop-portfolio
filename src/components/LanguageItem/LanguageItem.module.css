@@ -1,0 +1,42 @@
+
+.button {
+  border: none;
+  background-color: inherit;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #888;
+  transition: 200ms;
+}
+.button:hover {
+  border: 1px solid var(--secondary-color);
+}
+.button:hover > .icon {
+  filter: grayscale(0);
+}
+.button:active {
+  opacity: 0.8;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  filter: grayscale(1);
+  transition: 200ms;
+}
+
+.active {
+  border: 3px solid var(--secondary-color);
+}
+.active:hover {
+  border: 3px solid var(--secondary-color);
+}
+
+.active > .icon {
+  filter: grayscale(0);
+}

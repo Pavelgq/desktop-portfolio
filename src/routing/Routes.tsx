@@ -18,6 +18,7 @@ import { CustomTerminal } from "../pages/custom-terminal/CustomTerminal";
 import { CertificatesFrame } from "../pages/certificates-frame/CertificatesFrame";
 import { GameFrame } from "../pages/game-frame/GameFrame";
 import { CoursesFrame } from "../pages/courses-frame/CoursesFrame";
+import { SettingsFrame } from "../pages/settings-frame/SettingsFrame";
 
 export function RoutesList(): JSX.Element {
   return (
@@ -26,6 +27,7 @@ export function RoutesList(): JSX.Element {
         <Route index element={<BlankFrame />}></Route>
         <Route path="frame" element={<FrameLayout />}>
           <Route path="readme" element={<WelcomeFrame />} />
+          <Route path="settings" element={<SettingsFrame />} />
           <Route path="game" element={<GameFrame />} />
           <Route path="terminal" element={<CustomTerminal />} />
           <Route path="folder" element={<FolderLayout />}>

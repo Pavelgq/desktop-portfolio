@@ -21,6 +21,17 @@ export const localization: localizationI = {
         courses: 'Курсы',
         additionally: 'Дополнительно',
       }
+    },
+    setting: {
+      title: "Настройки",
+      language: {
+        title: 'Выберите язык',
+        items: ['русский', 'английский']
+      },
+      theme: {
+        title: 'Выберите тему',
+        items: ['светлая', 'темная']
+      }
     }
   },
   eng: {
@@ -39,6 +50,17 @@ export const localization: localizationI = {
         education: 'Education',
         courses: 'Courses',
         additionally: 'Other',
+      }
+    },
+    setting: {
+      title: "Settings",
+      language: {
+        title: 'Select language',
+        items: ['russian', 'english']
+      },
+      theme: {
+        title: 'Select theme',
+        items: ['light', 'dark']
       }
     }
   },
