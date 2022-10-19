@@ -29,7 +29,11 @@ export const FooterItem = ({
 
   const handleOpenFrame = (e: MouseEvent, link: string) => {
     e.preventDefault();
-    navigator(link);
+    if (link !== "/frame/not-found") {
+      navigator(link);
+    } else {
+      dispatch(setAlarmMessage("inWork"));
+    }
   };
 
   return (
