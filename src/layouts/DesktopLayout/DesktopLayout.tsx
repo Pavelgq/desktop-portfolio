@@ -42,7 +42,7 @@ export const DesktopLayout = () => {
       setTimeout(() => {
         loader?.classList.add("hidden");
         dispatch(loadingComplite());
-      }, 3000);
+      }, 1000);
     });
   }, []);
 
