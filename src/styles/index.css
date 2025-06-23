@@ -7,13 +7,11 @@ body {
   sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'PT Sans Narrow',
+  font-family: 'Play', 'PT Sans Narrow',
   sans-serif;
 
   box-sizing: border-box;
-  
 }
-
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
